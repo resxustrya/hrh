@@ -11,7 +11,26 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::match(array('GET','POST'),'/', 'AdminController@index');
+Route::get('logout', function(){
+	Auth::logout();
+	Session::flush();
+	return Redirect::to('/');
+});
+Route::get('home', function(){
+	return Redirect::to('index');
+});
+Route::get('logout', function(){
+	Auth::logout();
+	Session::flush();
+	return Redirect::to('/');
+});
+Route::get('index',array('before' => 'auth','uses' => 'AdminController@home'));
+
+Route::get('sample',function(){
+	return View::make('profile.sample');
+});
+
+Route::match(array('GET','POST'),'/register',function(){
+	return View::make('auth.register');
 });
