@@ -58,22 +58,33 @@
 <nav class="navbar navbar-default navbar-static-top">
     <div style="background-color:#2F4054;padding:10px;">
         <div class="col-md-4">
+            @if(Auth::check())
             <span style="color: #f0ad4e;font-size: 12pt"><b>Welcome,</b></span> <span class="title-desc" style="color: white;font-size: 12pt">Rusel T. Tayong</span>
+            @else
+            <span style="color: #f0ad4e;font-size: 12pt"><b>DOH7-IT</b></span>
+            @endif
         </div>
         <div class="col-md-4">
+            @if(Auth::check())
             <span class="title-info" style="color: #f0ad4e;font-size: 12pt"><b>Section:</b></span>
             <span class="title-desc" style="color: white;font-size: 12pt">ICTU</span>
+            @endif
         </div>
         <div class="col-md-4">
+            @if(Auth::check())
             <span class="title-info" style="color: #f0ad4e;font-size: 12pt"><b>Date:</b></span> <span class="title-desc" style="color: white;font-size: 12pt">{{ date('M d, Y') }}</span>
+            @endif
         </div>
         <div class="clearfix"></div>
     </div>
     <div style="padding:15px;">
         <div class="container">
-            <img src="{{ asset('public/img/banner.png') }}" class="img-responsive" />
+            <a href="{{ asset('/') }}">
+                <img src="{{ asset('public/img/banner.png') }}" class="img-responsive" />
+            </a>
         </div>
     </div>
+    @if(Auth::check())
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -283,7 +294,7 @@
 
                                     <li>
                                         <a href="#" class="clearfix">
-                                            <img src="assets/images/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+                                            <img src="{{ asset('public/assets_ace/images/avatars/avatar4.png') }}" class="msg-photo" alt="Bob's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Bob:</span>
@@ -346,30 +357,18 @@
             </div>
         </div>
     </div>
+    @endif
 </nav>
+<div class="container" style="padding: 20px;">
+    @yield('content')
+</div>
 
-@yield('content')
 <div class="footer">
-    <div class="footer-inner">
-        <div class="footer-content">
-            <span class="bigger-120">
-                <span class="blue bolder">Ace</span>
-                Application &copy; 2013-2014
-            </span>
-            &nbsp; &nbsp;
-            <span class="action-buttons">
-                <a href="#">
-                    <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                </a>
-
-                <a href="#">
-                    <i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
-                </a>
-
-                <a href="#">
-                    <i class="ace-icon fa fa-rss-square orange bigger-150"></i>
-                </a>
-            </span>
+    <div class="footer-inner" >
+        <div class="footer-content" style="background-color: #2F4054;color: white;padding: 10px;">
+            <div class="container">
+                <p>Copyright &copy; 2017 DOH-RO7 All rights reserved</p>
+            </div>
         </div>
     </div>
 </div>

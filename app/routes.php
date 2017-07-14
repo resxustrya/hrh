@@ -20,15 +20,10 @@ Route::get('logout', function(){
 Route::get('home', function(){
 	return Redirect::to('index');
 });
-Route::get('logout', function(){
-	Auth::logout();
-	Session::flush();
-	return Redirect::to('/');
-});
 Route::get('index',array('before' => 'auth','uses' => 'AdminController@home'));
 
-Route::get('sample',function(){
-	return View::make('profile.sample');
+Route::get('profile',function(){
+	return View::make('profile.profile');
 });
 
 Route::match(array('GET','POST'),'/register',function(){
