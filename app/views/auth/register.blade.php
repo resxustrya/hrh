@@ -1,5 +1,13 @@
 @extends('layouts.app')
 @section('content')
+<style>
+    th{
+        font-size: 7pt;
+    }
+    label{
+        font-size:9pt;
+    }
+</style>
 <div class="page-content">
     <div class="row">
         <div class="col-xs-12">
@@ -413,12 +421,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="phone">EMPLOYER/BUSINESS NAME:</label>
                                             <div class="col-xs-12 col-sm-9">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="ace-icon fa fa-phone"></i>
-                                                    </span>
-                                                    <input type="text" class="col-xs-12 col-sm-5" id="phone" name="phone" />
-                                                </div>
+                                                <input type="text" class="col-xs-12 col-sm-6" id="phone" name="phone" />
                                             </div>
                                         </div>
                                         <div class="space-2"></div>
@@ -426,20 +429,14 @@
                                         <div class="form-group">
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="phone">TELEPHONE NO:</label>
                                             <div class="col-xs-12 col-sm-9">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="ace-icon fa fa-phone"></i>
-                                                    </span>
-
-                                                    <input type="tel" class="col-xs-12 col-sm-5" id="phone" name="phone" />
-                                                </div>
+                                                <input type="tel" class="col-xs-12 col-sm-6" id="phone" name="phone" />
                                             </div>
                                         </div>
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group table-responsive">
-                                            <label class="control-label col-xs-12 col-sm-2 no-padding-right" for="phone"></label>
-                                            <div class="col-xs-12 col-sm-7">
+                                            <label class="control-label col-xs-12 col-sm-1 no-padding-right" for="phone"></label>
+                                            <div class="col-xs-12 col-sm-9">
                                                 <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
                                                     <thead>
                                                     <tr>
@@ -479,7 +476,7 @@
 
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="password" id="password" class="col-xs-12 col-sm-4" />
+                                                    <input type="text" name="password" id="password" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -490,7 +487,7 @@
 
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="password2" id="password2" class="col-xs-12 col-sm-4" />
+                                                    <input type="text" name="password2" id="password2" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -498,7 +495,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">NAME EXTENSTION(JR,,SR):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="name" name="name" class="col-xs-12 col-sm-5" />
+                                                    <input type="text" id="name" name="name" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -519,7 +516,7 @@
 
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="password" id="password" class="col-xs-12 col-sm-4" />
+                                                    <input type="text" name="password" id="password" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -530,7 +527,7 @@
 
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="password2" id="password2" class="col-xs-12 col-sm-4" />
+                                                    <input type="text" name="password2" id="password2" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -567,7 +564,7 @@
                                                             <input type="text" id="phone" name="phone" class="form-control" />
                                                         </td>
                                                         <td>
-                                                            <input type="date" id="phone" name="phone" class="form-control" />
+                                                            <input type="text" id="phone" name="phone" class="form-control" />
                                                         </td>
                                                         <td>
                                                             <input type="text" id="phone" name="phone" class="form-control" />
@@ -591,7 +588,7 @@
                                                             <input type="text" id="phone" name="phone" class="form-control" />
                                                         </td>
                                                         <td>
-                                                            <input type="date" id="phone" name="phone" class="form-control" />
+                                                            <input type="text" id="phone" name="phone" class="form-control" />
                                                         </td>
                                                         <td>
                                                             <input type="text" id="phone" name="phone" class="form-control" />
@@ -615,7 +612,7 @@
                                                             <input type="text" id="phone" name="phone" class="form-control" />
                                                         </td>
                                                         <td>
-                                                            <input type="date" id="phone" name="phone" class="form-control" />
+                                                            <input type="text" id="phone" name="phone" class="form-control" />
                                                         </td>
                                                         <td>
                                                             <input type="text" id="phone" name="phone" class="form-control" />
@@ -639,7 +636,7 @@
                                                             <input type="text" id="phone" name="phone" class="form-control" />
                                                         </td>
                                                         <td>
-                                                            <input type="date" id="phone" name="phone" class="form-control" />
+                                                            <input type="text" id="phone" name="phone" class="form-control" />
                                                         </td>
                                                         <td>
                                                             <input type="text" id="phone" name="phone" class="form-control" />
@@ -663,7 +660,7 @@
                                                             <input type="text" id="phone" name="phone" class="form-control" />
                                                         </td>
                                                         <td>
-                                                            <input type="date" id="phone" name="phone" class="form-control" />
+                                                            <input type="text" id="phone" name="phone" class="form-control" />
                                                         </td>
                                                         <td>
                                                             <input type="text" id="phone" name="phone" class="form-control" />
