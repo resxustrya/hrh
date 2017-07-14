@@ -197,7 +197,22 @@
 
                                         <div class="form-group">
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="url">8.TIN NO:</label>
+                                            <div class="col-xs-12 col-sm-9">
+                                                <div class="clearfix">
+                                                    <input type="url" id="url" name="url" class="col-xs-12 col-sm-6" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hr hr-dotted"></div>
 
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="url">10.NAME OF GSIS GROUP INSURANCE BENEFICIARIES:</label>
+                                            <div class="col-xs-12 col-sm-9">
+                                                <div class="clearfix">
+                                                    <input type="url" id="url" name="url" class="col-xs-12 col-sm-6" />
+                                                </div>
+                                            </div>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="url"></label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <input type="url" id="url" name="url" class="col-xs-12 col-sm-6" />
@@ -292,7 +307,7 @@
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="comment">10. RESIDENTIAL ADDRESS</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="comment">11. RESIDENTIAL ADDRESS</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <textarea class="col-xs-12 col-sm-6" name="comment" id="comment"></textarea>
@@ -330,7 +345,7 @@
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">11. TELEPHONE NO:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">12. TELEPHONE NO:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <input type="tel" id="name" name="name" class="col-xs-12 col-sm-6" />
@@ -349,15 +364,55 @@
                                         </div>
                                         <div class="hr hr-dotted"></div>
 
-
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">12. E-MAIL ADDRESS:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">13. E-MAIL ADDRESS:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <input type="email" id="name" name="name" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="space-2"></div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">AREA OF ASSIGNMENT:</label>
+                                            <div class="col-xs-12 col-sm-9">
+                                                <div class="clearfix">
+                                                    <input type="email" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="space-2"></div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">AREA OF ASSIGNMENT(Province):</label>
+                                            <div class="col-xs-12 col-sm-9">
+                                                <div class="clearfix">
+                                                    <input type="email" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="space-2"></div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">AREA OF ASSIGNMENT(Municipality):</label>
+                                            <div class="col-xs-12 col-sm-9">
+                                                <div class="clearfix">
+                                                    <input type="email" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="space-2"></div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">DATE OF ENTRANCE TO DUTY:</label>
+                                            <div class="col-xs-12 col-sm-9">
+                                                <div class="clearfix">
+                                                    <input type="email" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="space-2"></div>
                                     </form>
                                 </div>
 
@@ -365,7 +420,7 @@
                                     <h3 class="lighter block green">Enter the following information</h3>
                                     <form class="form-horizontal" id="validation-form">
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">13. SPOUSE'S SURNAME:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">14. SPOUSE'S SURNAME:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <input type="text" name="email" id="email" class="col-xs-12 col-sm-6" />
@@ -439,7 +494,7 @@
                                             <div class="col-xs-12 col-sm-9">
                                                 <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
                                                     <thead>
-                                                    <tr>
+                                                    <tr class="info">
                                                         <th>4. NAME of CHILDREN (Write full name and list all):</th>
                                                         <th>DATE OF BIRTH (mm/dd/yyyy)</th>
                                                     </tr>
@@ -462,7 +517,7 @@
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">14. FATHER'S SURNAME:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">15. FATHER'S SURNAME:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <input type="text" name="email" id="email" class="col-xs-12 col-sm-6" />
@@ -502,7 +557,7 @@
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">15. MOTHER'S SURNAME:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">16. MOTHER'S SURNAME:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <input type="text" name="email" id="email" class="col-xs-12 col-sm-6" />
@@ -541,10 +596,10 @@
                                         <div class="form-group table-responsive">
                                             <label class="col-xs-12 col-sm-2 no-padding-right" for="phone"></label>
                                             <div class="col-xs-12 col-sm-12">
-                                                <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
-                                                    <thead>
-                                                    <tr>
-                                                        <th class="center" rowspan="2">16. LEVEL</th>
+                                                <table class="table table-striped table-bordered table-hover">
+                                                    <thead class="thin-border-bottom">
+                                                    <tr class="info">
+                                                        <th class="center" rowspan="2">17. LEVEL</th>
                                                         <th class="center" rowspan="2">NAME OF SCHOOL (Write in full)</th>
                                                         <th class="center" rowspan="2">BASIC EDUCATION/DEGREE/COURSE (Write in full)</th>
                                                         <th class="center" colspan="2">PERION OF ATTENDANCE</th>
@@ -552,33 +607,33 @@
                                                         <th class="center" rowspan="2">YEAR GRADUATED</th>
                                                         <th class="center" rowspan="2">SCHOLARSHIP/ACADEMIC HONORS RECEIVE</th>
                                                     </tr>
-                                                    <tr>
+                                                    <tr class="info">
                                                         <th class="center">From</th>
                                                         <th class="center">To</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
                                                     <tr>
-                                                        <th class="center">ELEMENTARY</th>
-                                                        <td>
+                                                        <th class="center col-xs-1">ELEMENTARY</th>
+                                                        <td class="col-xs-2">
                                                             <input type="text" id="phone" name="phone" class="form-control" />
                                                         </td>
-                                                        <td>
+                                                        <td class="col-xs-2">
                                                             <input type="text" id="phone" name="phone" class="form-control" />
                                                         </td>
-                                                        <td>
+                                                        <td class="col-xs-1">
                                                             <input type="text" id="phone" name="phone" class="form-control" />
                                                         </td>
-                                                        <td>
+                                                        <td class="col-xs-1">
                                                             <input type="text" id="phone" name="phone" class="form-control" />
                                                         </td>
-                                                        <td>
+                                                        <td class="col-xs-2">
                                                             <input type="date" id="phone" name="phone" class="form-control" />
                                                         </td>
-                                                        <td>
+                                                        <td class="col-xs-1">
                                                             <input type="text" id="phone" name="phone" class="form-control" />
                                                         </td>
-                                                        <td>
+                                                        <td class="col-xs-2">
                                                             <input type="date" id="phone" name="phone" class="form-control" />
                                                         </td>
                                                     </tr>
@@ -693,14 +748,14 @@
                                             <div class="col-xs-12 col-sm-12">
                                                 <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
                                                     <thead>
-                                                    <tr>
-                                                        <th class="center" rowspan="2">17. CAREER SERVICE/RA 1080 (BOARD/BAR) UNDER SPECIAL LAWS/CES/CSEE BARANGAY ELIGIBILITY/DRIVER'S LICENCE</th>
+                                                    <tr class="info">
+                                                        <th class="center" rowspan="2">18. CAREER SERVICE/RA 1080 (BOARD/BAR) UNDER SPECIAL LAWS/CES/CSEE BARANGAY ELIGIBILITY/DRIVER'S LICENCE</th>
                                                         <th class="center" rowspan="2">RATING (if Applicable)</th>
                                                         <th class="center" rowspan="2">DATE OF EXAMINATION / CONFERMENT</th>
                                                         <th class="center" rowspan="2">PLACE OF EXAMINATION / CONFERMENT</th>
                                                         <th class="center" colspan="2">LICENSE (if applicable)</th>
                                                     </tr>
-                                                    <tr>
+                                                    <tr class="info">
                                                         <th class="center">NUMBER</th>
                                                         <th class="center">Date of Validity</th>
                                                     </tr>
@@ -731,8 +786,8 @@
                                             <div class="col-xs-12 col-sm-12">
                                                 <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
                                                     <thead>
-                                                    <tr>
-                                                        <th class="center" colspan="2">18. INCLUSIVE DATES (mm/dd/yyyy)</th>
+                                                    <tr class="info">
+                                                        <th class="center" colspan="2">19. INCLUSIVE DATES (mm/dd/yyyy)</th>
                                                         <th class="center" rowspan="2">POSITION TITLE (Write in full/Do not abbreviate)</th>
                                                         <th class="center" rowspan="2">DEPARTMENT / AGENCY / OFFICE / COMPANY (Write in full/Do not abrebiate)</th>
                                                         <th class="center" rowspan="2">MONTHLY SALARY</th>
@@ -740,7 +795,7 @@
                                                         <th class="center" rowspan="2">STATUS PF APPOINTMENT</th>
                                                         <th class="center" rowspan="2">GOV'T SERVICE(Y/N)</th>
                                                     </tr>
-                                                    <tr>
+                                                    <tr class="info">
                                                         <th class="center">From</th>
                                                         <th class="center">To</th>
                                                     </tr>
