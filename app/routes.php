@@ -29,3 +29,7 @@ Route::get('profile',function(){
 Route::match(array('GET','POST'),'/register',function(){
 	return View::make('auth.register');
 });
+
+Route::get('coordinator',function(){
+	return View::make('coordinator.coordinator_home');
+});

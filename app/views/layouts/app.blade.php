@@ -59,7 +59,7 @@
     <div style="background-color:#2F4054;padding:10px;">
         <div class="col-md-4">
             @if(Auth::check())
-            <span style="color: #f0ad4e;font-size: 12pt"><b>Welcome,</b></span> <span class="title-desc" style="color: white;font-size: 12pt">Rusel T. Tayong</span>
+            <span style="color: #f0ad4e;font-size: 12pt"><b>Welcome,</b></span> <span class="title-desc" style="color: white;font-size: 12pt">{{ Auth::user()->fname }} T. Tayong</span>
             @else
             <span style="color: #f0ad4e;font-size: 12pt"><b>DOH7-IT</b></span>
             @endif
@@ -96,7 +96,11 @@
             <a class="navbar-brand" href="#"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            @include('layouts.personal')
+            @if(Auth::user()->usertype)
+                @include('layouts.coordinator-menu')
+            @else
+                @include('layouts.personal')
+            @endif
             <div class="navbar-buttons navbar-header pull-right" role="navigation">
                 <ul class="nav ace-nav">
                     <li class="grey dropdown-modal">
