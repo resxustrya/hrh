@@ -56,7 +56,7 @@ class AdminController extends \BaseController {
 
 	public function home()
 	{
-		return View::make('profile.profile');
+		return View::make('coordinator.coordinator_home');
 	}
 
 }
