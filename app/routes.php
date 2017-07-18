@@ -26,6 +26,4 @@ Route::get('profile',function(){
 	return View::make('profile.profile');
 });
 
-Route::match(array('GET','POST'),'/register',function(){
-	return View::make('auth.register');
-});
+Route::match(array('GET','POST'),'register','hrhController@register');

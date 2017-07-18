@@ -66,14 +66,28 @@
 
                                     <form class="form-horizontal" id="validation-form">
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">2. SURNAME:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">2. Designation:</label>
+                                            <div class="col-xs-12 col-sm-9">
+                                                <div class="clearfix">
+                                                    <select name="" id="" class="col-xs-12 col-sm-6">
+                                                        <option value="">Select designation</option>
+                                                        @foreach($designation as $row)
+                                                            <option value="{{ $row['id'] }}">{{ $row['description'] }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="space-2"></div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">SURNAME:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <input type="text" name="email" id="email" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="space-2"></div>
 
                                         <div class="form-group">
@@ -250,6 +264,7 @@
                                                 </div>
                                                 <div>
                                                     <select id="state" name="state" class="col-xs-12 col-sm-6 select2" data-placeholder="Pls. indicate country:.">
+                                                        <option value=""></option>
                                                         <option value="AL">Alabama</option>
                                                         <option value="AK">Alaska</option>
                                                         <option value="AZ">Arizona</option>
@@ -388,7 +403,12 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">AREA OF ASSIGNMENT(Province):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="email" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                    <select id="province" onchange="add_data($(this))" name="province" class="col-xs-12 col-sm-6 select2" data-placeholder="Pls. indicate province:.">
+                                                        <option value=""></option>
+                                                        @foreach($province as $row)
+                                                            <option value="{{ $row['id'] }}">{{ $row['description'] }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -398,7 +418,9 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">AREA OF ASSIGNMENT(Municipality):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="email" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                    <select id="municipality" name="municipality" class="col-xs-12 col-sm-6 select2" data-placeholder="Pls. indicate municipality:.">
+
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -839,6 +861,7 @@
         </div><!-- /.col -->
     </div><!-- /.row -->
 </div><!-- PAGE CONTENT ENDS -->
+<input type="hidden" id="municipality_url" value="{{ asset('municipality') }}">
 @endsection
 @section('js')
 
@@ -858,6 +881,27 @@
     <script src="{{ asset('public/assets_ace/js/ace-elements.min.js') }}"></script>
     <script src="{{ asset('public/assets_ace/js/ace.min.js') }}"></script>
     <script type="text/javascript">
+
+        function add_data(data){
+            $('#municipality').val('').trigger('change');
+            $('#municipality option').remove();
+            $("#municipality").append(
+                    new Option("","", true, true)
+            ).trigger('change');
+            if(data.val() == 1)
+                var municipality = <?php echo $municipality; ?>['cebu'];
+            else if(data.val() == 2)
+                var municipality = <?php echo $municipality; ?>['bohol'];
+            else if(data.val() == 3)
+                var municipality = <?php echo $municipality; ?>['negros'];
+
+            for(var i = 0; i<municipality.length; i++){
+                $("#municipality").append(
+                        new Option(municipality[i]['description'], municipality[i]['id'], true, true)
+                ).trigger('change');
+            }
+        }
+
         jQuery(function($) {
             $( "#datepicker" ).datepicker({
                 showOtherMonths: true,
@@ -887,8 +931,10 @@
 
             $('[data-rel=tooltip]').tooltip();
 
-            $(".select2").select2();
-
+            $('.select2').css('class','col-xs-12 col-sm-6').select2({allowClear:true})
+            .on('change', function(){
+                $(this).closest('form').validate().element($(this));
+            });
 
             var $validation = false;
             $('#fuelux-wizard-container')
@@ -989,7 +1035,7 @@
                     comment: {
                         required: true
                     },
-                    state: {
+                    province: {
                         required: true
                     },
                     platform: {
@@ -1015,7 +1061,7 @@
                         required: "Please specify a password.",
                         minlength: "Please specify a secure password."
                     },
-                    state: "Please choose state",
+                    province: "Please choose province",
                     subscription: "Please choose at least one option",
                     gender: "Please choose gender",
                     agree: "Please accept our policy"
