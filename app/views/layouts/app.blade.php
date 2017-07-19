@@ -46,6 +46,16 @@
     <script src="{{ asset('public/assets_ace/js/html5shiv.min.js') }}"></script>
     <script src="{{ asset('public/assets_ace/js/respond.min.js') }}"></script>
     <![endif]-->
+    <script src="{{ asset('public/assets_ace/js/jquery-2.1.4.min.js') }}"></script>
+    <script src="{{ asset('public/assets_ace/js/raphael-min.js') }}"></script>
+    <!--[if IE]>
+    <script src="{{ asset('public/assets_ace/js/jquery-1.11.3.min.js') }}"></script>
+    <![endif]-->
+    <!--MORRIS -->
+    <link rel="stylesheet" href="{{ asset('public/plugin/morris/morris.css') }}">
+    <script src="{{ asset('public/plugin/morris/morris.min.js') }}"></script>
+    <!--DATE RANGE-->
+    <link href="{{ asset('public/plugin/daterangepicker/daterangepicker-bs3.css') }}" rel="stylesheet">
     <style>
         body {
             background: url('{{ asset('public/img/backdrop.png') }}'), -webkit-gradient(radial, center center, 0, center center, 460, from(#ccc), to(#ddd));
@@ -379,14 +389,6 @@
 
 <!-- basic scripts -->
 
-<!--[if !IE]> -->
-<script src="{{ asset('public/assets_ace/js/jquery-2.1.4.min.js') }}"></script>
-
-<!-- <![endif]-->
-
-<!--[if IE]>
-<script src="{{ asset('public/assets_ace/js/jquery-1.11.3.min.js') }}"></script>
-<![endif]-->
 <script type="text/javascript">
     if('ontouchstart' in document.documentElement) document.write("<script src='{{ asset('public/assets_ace/js/jquery.mobile.custom.min.js') }}'>"+"<"+"/script>");
 </script>
@@ -414,6 +416,9 @@
 <!-- ace scripts -->
 <script src="{{ asset('public/assets_ace/js/ace-elements.min.js') }}"></script>
 <script src="{{ asset('public/assets_ace/js/ace.min.js') }}"></script>
+<!-- DATE RANGE SELECT -->
+<script src="{{ asset('public/plugin/daterangepicker/moment.min.js') }}"></script>
+<script src="{{ asset('public/plugin/daterangepicker/daterangepicker.js') }}"></script>
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">

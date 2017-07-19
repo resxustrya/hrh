@@ -236,7 +236,17 @@
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right">9.CITIZENSHIP:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="url">11.PRC LICENSE NUMBER:</label>
+                                            <div class="col-xs-12 col-sm-9">
+                                                <div class="clearfix">
+                                                    <input type="url" id="url" name="url" class="col-xs-12 col-sm-6" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hr hr-dotted"></div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right">12.CITIZENSHIP:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div>
                                                     <label class="line-height-1 blue">
@@ -322,7 +332,7 @@
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="comment">11. RESIDENTIAL ADDRESS</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="comment">13. RESIDENTIAL ADDRESS</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <textarea class="col-xs-12 col-sm-6" name="comment" id="comment"></textarea>
@@ -341,7 +351,7 @@
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="comment">10. PERMANENT ADDRESS</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="comment">14. PERMANENT ADDRESS</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <textarea class="col-xs-12 col-sm-6" name="comment" id="comment"></textarea>
@@ -360,7 +370,7 @@
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">12. TELEPHONE NO:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">15. TELEPHONE NO:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <input type="tel" id="name" name="name" class="col-xs-12 col-sm-6" />
@@ -370,7 +380,7 @@
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">11. MOBILE NO:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">16. MOBILE NO:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <input type="tel" id="name" name="name" class="col-xs-12 col-sm-6" />
@@ -380,7 +390,7 @@
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">13. E-MAIL ADDRESS:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">17. E-MAIL ADDRESS:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <input type="email" id="name" name="name" class="col-xs-12 col-sm-6" />
@@ -442,7 +452,7 @@
                                     <h3 class="lighter block green">Enter the following information</h3>
                                     <form class="form-horizontal" id="validation-form">
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">14. SPOUSE'S SURNAME:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">18. SPOUSE'S SURNAME:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <input type="text" name="email" id="email" class="col-xs-12 col-sm-6" />
@@ -539,7 +549,7 @@
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">15. FATHER'S SURNAME:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">19. FATHER'S SURNAME:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <input type="text" name="email" id="email" class="col-xs-12 col-sm-6" />
@@ -621,7 +631,7 @@
                                                 <table class="table table-striped table-bordered table-hover">
                                                     <thead class="thin-border-bottom">
                                                     <tr class="info">
-                                                        <th class="center" rowspan="2">17. LEVEL</th>
+                                                        <th class="center" rowspan="2">20. LEVEL</th>
                                                         <th class="center" rowspan="2">NAME OF SCHOOL (Write in full)</th>
                                                         <th class="center" rowspan="2">BASIC EDUCATION/DEGREE/COURSE (Write in full)</th>
                                                         <th class="center" colspan="2">PERION OF ATTENDANCE</th>
@@ -771,7 +781,7 @@
                                                 <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
                                                     <thead>
                                                     <tr class="info">
-                                                        <th class="center" rowspan="2">18. CAREER SERVICE/RA 1080 (BOARD/BAR) UNDER SPECIAL LAWS/CES/CSEE BARANGAY ELIGIBILITY/DRIVER'S LICENCE</th>
+                                                        <th class="center" rowspan="2">21. CAREER SERVICE/RA 1080 (BOARD/BAR) UNDER SPECIAL LAWS/CES/CSEE BARANGAY ELIGIBILITY/DRIVER'S LICENCE</th>
                                                         <th class="center" rowspan="2">RATING (if Applicable)</th>
                                                         <th class="center" rowspan="2">DATE OF EXAMINATION / CONFERMENT</th>
                                                         <th class="center" rowspan="2">PLACE OF EXAMINATION / CONFERMENT</th>
@@ -809,12 +819,12 @@
                                                 <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
                                                     <thead>
                                                     <tr class="info">
-                                                        <th class="center" colspan="2">19. INCLUSIVE DATES (mm/dd/yyyy)</th>
+                                                        <th class="center" colspan="2">22. INCLUSIVE DATES (mm/dd/yyyy)</th>
                                                         <th class="center" rowspan="2">POSITION TITLE (Write in full/Do not abbreviate)</th>
                                                         <th class="center" rowspan="2">DEPARTMENT / AGENCY / OFFICE / COMPANY (Write in full/Do not abrebiate)</th>
                                                         <th class="center" rowspan="2">MONTHLY SALARY</th>
                                                         <th class="center" rowspan="2">SALARY/JOB/PAY GRADE(if applicable)(Format *00-0*)/INCREMENT</th>
-                                                        <th class="center" rowspan="2">STATUS PF APPOINTMENT</th>
+                                                        <th class="center" rowspan="2">STATUS OF APPOINTMENT</th>
                                                         <th class="center" rowspan="2">GOV'T SERVICE(Y/N)</th>
                                                     </tr>
                                                     <tr class="info">
@@ -823,16 +833,15 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    @for($i=0;$i<10;$i++)
+                                                    @for($i=1;$i<=10;$i++)
                                                         <tr>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
+                                                            <td class="col-xs-2" colspan="2"><input type="text" id="{{ 'inclusive_dates'.$i }}" class="form-control"></td>
+                                                            <td class="col-xs-2"><input type="text" class="form-control"></td>
+                                                            <td class="col-xs-2"><input type="text" class="form-control"></td>
+                                                            <td class="col-xs-2"><input type="text" class="form-control"></td>
+                                                            <td class="col-xs-2"><input type="text" class="form-control"></td>
+                                                            <td class="col-xs-1"><input type="text" class="form-control"></td>
+                                                            <td class="col-xs-1"><input type="text" class="form-control"></td>
                                                         </tr>
                                                     @endfor
                                                     </tbody>
@@ -903,6 +912,9 @@
         }
 
         jQuery(function($) {
+            for(var i=1; i<=10; i++){
+                $("#inclusive_dates"+i).daterangepicker();
+            }
             $( "#datepicker" ).datepicker({
                 showOtherMonths: true,
                 selectOtherMonths: false,

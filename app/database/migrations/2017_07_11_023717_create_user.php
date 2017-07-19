@@ -14,16 +14,15 @@ class CreateUser extends Migration {
 	{
 		Schema::create('users', function ($table) {
 			$table->increments('id');
-			$table->string('designation')->nullable();
+			$table->integer('designation')->nullable();
 			$table->string('lname')->nullable();
 			$table->string('fname')->nullable();
 			$table->string('mname')->nullable();
-			$table->string('n_extensions')->nullable();
-			$table->string('province')->nullable();
-			$table->string('municipality')->nullable();
+			$table->string('name_extensions')->nullable();
+			$table->integer('province')->nullable();
+			$table->integer('municipality')->nullable();
 			$table->string('date_of_birth')->nullable();
 			$table->string('place_of_birth')->nullable();
-			$table->integer('age')->nullable();
 			$table->string('gender')->nullable();
 			$table->string('civil_status')->nullable();
 			$table->string('residential_address')->nullable();
