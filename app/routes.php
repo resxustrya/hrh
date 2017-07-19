@@ -17,10 +17,10 @@ Route::get('logout', function(){
 	Session::flush();
 	return Redirect::to('/');
 });
-<<<<<<< HEAD
+
 
 Route::get('login', array('before' => 'old', 'uses' => 'LoginController@login'));
-=======
+
 Route::get('home', function(){
 	return Redirect::to('index');
 });
@@ -30,7 +30,4 @@ Route::get('profile',function(){
 	return View::make('profile.profile');
 });
 
-Route::match(array('GET','POST'),'/register',function(){
-	return View::make('auth.register');
-});
->>>>>>> a54fbb786bb170e98b761346487c960e058bee04
+Route::match(array('GET','POST'),'/register','AdminController@register');

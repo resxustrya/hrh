@@ -1,21 +1,13 @@
 <?php
 
-<<<<<<< HEAD
+
 /**
  * Created by PhpStorm.
  * User: Lourence
  * Date: 7/6/2017
  * Time: 4:01 PM
  */
-class AdminController extends BaseController
-{
-    public function __construct()
-    {
-        $this->beforeFilter('auth');
-        $this->beforeFilter('admin');
-    }
-}
-=======
+
 class AdminController extends \BaseController {
 
 	public function __construct()
@@ -72,8 +64,19 @@ class AdminController extends \BaseController {
 
 	public function home()
 	{
-		return View::make('profile.profile');
+		return View::make('coordinator.coordinator_home');
 	}
 
+
+	public function register()
+	{
+		if(Request::method() == 'GET') {
+			return View::make('auth.register');
+		}
+
+		if(Request::method() == 'POST') {
+
+		}
+	}
 }
->>>>>>> a54fbb786bb170e98b761346487c960e058bee04
+

@@ -69,7 +69,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">2. SURNAME:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="email" id="email" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" name="email" id="surname" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -80,7 +80,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="password">FIRSTNAME :</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="password" id="password" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" name="password" id="firstname" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -92,7 +92,7 @@
 
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="password2" id="password2" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" name="password2" id="mname" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -102,7 +102,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">NAME EXTENSTION(JR,,SR):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" id="name" name="ext_name" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -112,7 +112,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">3. DATE OF BIRTH(mm/dd/yyyy):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="datepicker" name="name" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" id="datepicker" name="bdate" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -122,7 +122,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="phone">4.PLACE OF BIRTH:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="datepicker" name="name" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" id="datepicker" name="place_birth" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -152,31 +152,31 @@
                                             <div class="col-xs-12 col-sm-9">
                                                 <div>
                                                     <label class="line-height-1 blue">
-                                                        <input name="sex" value="1" type="radio" class="ace" />
+                                                        <input name="civil_status" value="1" type="radio" class="ace" />
                                                         <span class="lbl"> Single</span>
                                                     </label>
                                                 </div>
                                                 <div>
                                                     <label class="line-height-1 blue">
-                                                        <input name="sex" value="2" type="radio" class="ace" />
+                                                        <input name="civil_status" value="2" type="radio" class="ace" />
                                                         <span class="lbl"> Widowed</span>
                                                     </label>
                                                 </div>
                                                 <div>
                                                     <label class="line-height-1 blue">
-                                                        <input name="sex" value="2" type="radio" class="ace" />
+                                                        <input name="civil_status" value="2" type="radio" class="ace" />
                                                         <span class="lbl"> Other/s</span>
                                                     </label>
                                                 </div>
                                                 <div>
                                                     <label class="line-height-1 blue">
-                                                        <input name="sex" value="2" type="radio" class="ace" />
+                                                        <input name="civil_status" value="2" type="radio" class="ace" />
                                                         <span class="lbl"> Married</span>
                                                     </label>
                                                 </div>
                                                 <div>
                                                     <label class="line-height-1 blue">
-                                                        <input name="sex" value="2" type="radio" class="ace" />
+                                                        <input name="civil_status" value="2" type="radio" class="ace" />
                                                         <span class="lbl"> Separated</span>
                                                     </label>
                                                 </div>
@@ -189,7 +189,7 @@
 
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="url" id="url" name="url" class="col-xs-12 col-sm-6" />
+                                                    <input type="url" id="url" name="philhealth" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -199,7 +199,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="url">8.TIN NO:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="url" id="url" name="url" class="col-xs-12 col-sm-6" />
+                                                    <input type="url" id="url" name="tin_no" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -209,13 +209,13 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="url">10.NAME OF GSIS GROUP INSURANCE BENEFICIARIES:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="url" id="url" name="url" class="col-xs-12 col-sm-6" />
+                                                    <input type="url" id="url" name="gsis_name1" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="url"></label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="url" id="url" name="url" class="col-xs-12 col-sm-6" />
+                                                    <input type="url" id="url" name="gsis_name2" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -226,30 +226,30 @@
                                             <div class="col-xs-12 col-sm-9">
                                                 <div>
                                                     <label class="line-height-1 blue">
-                                                        <input name="sex" value="1" type="radio" class="ace" />
+                                                        <input name="citizenship" value="1" type="radio" class="ace" />
                                                         <span class="lbl"> Filipino</span>
                                                     </label>
                                                 </div>
                                                 <div>
                                                     <label class="line-height-1 blue">
-                                                        <input name="sex" value="2" type="radio" class="ace" />
+                                                        <input name="citizenship" value="2" type="radio" class="ace" />
                                                         <span class="lbl"> Dual Citizenship</span>
                                                     </label>
                                                 </div>
                                                 <div>
                                                     <label class="line-height-1 blue">
-                                                        <input name="sex" value="2" type="radio" class="ace" />
+                                                        <input name="citizenship" value="2" type="radio" class="ace" />
                                                         <span class="lbl"> by birth</span>
                                                     </label>
                                                 </div>
                                                 <div>
                                                     <label class="line-height-1 blue">
-                                                        <input name="sex" value="2" type="radio" class="ace" />
+                                                        <input name="citizenship" value="2" type="radio" class="ace" />
                                                         <span class="lbl"> by naturalization</span>
                                                     </label>
                                                 </div>
                                                 <div>
-                                                    <select id="state" name="state" class="col-xs-12 col-sm-6 select2" data-placeholder="Pls. indicate country:.">
+                                                    <select id="state" name="citizen_state" class="col-xs-12 col-sm-6 select2" data-placeholder="Pls. indicate country:.">
                                                         <option value="AL">Alabama</option>
                                                         <option value="AK">Alaska</option>
                                                         <option value="AZ">Arizona</option>
@@ -310,7 +310,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="comment">11. RESIDENTIAL ADDRESS</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <textarea class="col-xs-12 col-sm-6" name="comment" id="comment"></textarea>
+                                                    <textarea class="col-xs-12 col-sm-6" name="resi_address" id="comment"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -319,7 +319,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">ZIP CODE:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" id="name" name="zip_code" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -329,7 +329,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="comment">10. PERMANENT ADDRESS</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <textarea class="col-xs-12 col-sm-6" name="comment" id="comment"></textarea>
+                                                    <textarea class="col-xs-12 col-sm-6" name="permanent_address" id="comment"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -338,7 +338,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">ZIP CODE:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" id="name" name="zip_code" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -348,7 +348,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">12. TELEPHONE NO:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="tel" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                    <input type="tel" id="name" name="tel_no" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -358,7 +358,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">11. MOBILE NO:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="tel" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                    <input type="tel" id="name" name="mobile_no" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -368,7 +368,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">13. E-MAIL ADDRESS:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="email" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                    <input type="email" id="name" name="email" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -378,7 +378,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">AREA OF ASSIGNMENT:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="email" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                    <input type="email" id="name" name="area_of_work" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -388,7 +388,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">AREA OF ASSIGNMENT(Province):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="email" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                    <input type="email" id="name" name="area_of_work_province" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -398,7 +398,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">AREA OF ASSIGNMENT(Municipality):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="email" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                    <input type="email" id="name" name="area_of_work_municipal" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -408,7 +408,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">DATE OF ENTRANCE TO DUTY:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="email" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                    <input type="email" id="name" name="date_entrance_duty" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -423,7 +423,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">14. SPOUSE'S SURNAME:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="email" id="email" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" name="spouse_surname" id="spouse_surname" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -435,7 +435,7 @@
 
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="password" id="password" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" name="spouse_firstname" id="spouse_firstname" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -447,7 +447,7 @@
 
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="password2" id="password2" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" name="spouse_mname" id="spouse_mname" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -457,7 +457,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">NAME EXTENSTION(JR,,SR):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" id="spouse_ext_name" name="spouse_ext_name" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -467,7 +467,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">OCCUPATION:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" id="spouse_occupation" name="spouse_occupation" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -476,7 +476,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="phone">EMPLOYER/BUSINESS NAME:</label>
                                             <div class="col-xs-12 col-sm-9">
-                                                <input type="text" class="col-xs-12 col-sm-6" id="phone" name="phone" />
+                                                <input type="text" class="col-xs-12 col-sm-6" id="employer_business_name" name="employer_business_name" />
                                             </div>
                                         </div>
                                         <div class="space-2"></div>
@@ -484,7 +484,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="phone">TELEPHONE NO:</label>
                                             <div class="col-xs-12 col-sm-9">
-                                                <input type="tel" class="col-xs-12 col-sm-6" id="phone" name="phone" />
+                                                <input type="tel" class="col-xs-12 col-sm-6" id="emp_telno" name="emp_telno" />
                                             </div>
                                         </div>
                                         <div class="hr hr-dotted"></div>
@@ -503,10 +503,10 @@
                                                     @for($i=0;$i<10;$i++)
                                                         <tr>
                                                             <td>
-                                                                <input type="text" id="phone" name="phone" class="form-control" />
+                                                                <input type="text" id="phone" name="children_name[]" class="form-control" />
                                                             </td>
                                                             <td>
-                                                                <input type="date" id="phone" name="phone" class="form-control" />
+                                                                <input type="date" id="phone" name="children_b_date[]" class="form-control" />
                                                             </td>
                                                         </tr>
                                                     @endfor
@@ -520,7 +520,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">15. FATHER'S SURNAME:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="email" id="email" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" name="father_surname" id="father_surname" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -531,7 +531,7 @@
 
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="password" id="password" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" name="father_firstname" id="father_firstname" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -542,7 +542,7 @@
 
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="password2" id="password2" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" name="father_mname" id="father_mname" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -550,7 +550,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">NAME EXTENSTION(JR,,SR):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="name" name="name" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" id="father_ext_name" name="father_ext_name" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -560,7 +560,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">16. MOTHER'S SURNAME:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="email" id="email" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" name="mother_surname" id="mother_surname" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -571,7 +571,7 @@
 
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="password" id="password" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" name="mother_firstname" id="mother_firstname" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -582,11 +582,10 @@
 
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="password2" id="password2" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" name="mother_mname" id="mother_mname" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
-
                                     </form>
                                 </div>
 
@@ -616,121 +615,121 @@
                                                     <tr>
                                                         <th class="center col-xs-1">ELEMENTARY</th>
                                                         <td class="col-xs-2">
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                            <input type="text" id="elementary_name" name="elementary_name" class="form-control" />
                                                         </td>
                                                         <td class="col-xs-2">
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                            <input type="text" id="elem_degree_course" name="elem_degree_course" class="form-control" />
                                                         </td>
                                                         <td class="col-xs-1">
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                            <input type="text" id="elem_attend_from" name="elem_attend_from" class="form-control" />
                                                         </td>
                                                         <td class="col-xs-1">
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                            <input type="text" id="elem_attend_to" name="elem_attend_to" class="form-control" />
                                                         </td>
                                                         <td class="col-xs-2">
-                                                            <input type="date" id="phone" name="phone" class="form-control" />
+                                                            <input type="date" id="elem_highest_elem" name="elem_highest_elem" class="form-control" />
                                                         </td>
                                                         <td class="col-xs-1">
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                            <input type="text" id="elem_year_graduated" name="elem_year_graduated" class="form-control" />
                                                         </td>
                                                         <td class="col-xs-2">
-                                                            <input type="date" id="phone" name="phone" class="form-control" />
+                                                            <input type="date" id="elem_scholarship" name="elem_scholarship" class="form-control" />
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <th class="center">SECONDARY</th>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-2">
+                                                            <input type="text" id="secondary_name" name="secondary_name" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-2">
+                                                            <input type="text" id="secondary_degree_course" name="secondary_degree_course" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-1">
+                                                            <input type="text" id="secondary_attend_from" name="secondary_attend_from" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-1">
+                                                            <input type="text" id="secondary_attend_to" name="secondary_attend_to" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="date" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-2">
+                                                            <input type="date" id="secondary_highest_elem" name="secondary_highest_elem" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-1">
+                                                            <input type="text" id="secondary_year_graduated" name="secondary_year_graduated" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="date" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-2">
+                                                            <input type="date" id="secondary_scholarship" name="secondary_scholarship" class="form-control" />
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <th class="center">VOCATIONAL/TRADE COURSE</th>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-2">
+                                                            <input type="text" id="vocational_name" name="vocational_name" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-2">
+                                                            <input type="text" id="vocational_degree_course" name="vocational_degree_course" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-1">
+                                                            <input type="text" id="vocational_attend_from" name="vocational_attend_from" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-1">
+                                                            <input type="text" id="vocational_attend_to" name="vocational_attend_to" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="date" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-2">
+                                                            <input type="date" id="vocational_highest_elem" name="vocational_highest_elem" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-1">
+                                                            <input type="text" id="vocational_year_graduated" name="vocational_year_graduated" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="date" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-2">
+                                                            <input type="date" id="vocational_scholarship" name="vocational_scholarship" class="form-control" />
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <th class="center">COLLEGE</th>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-2">
+                                                            <input type="text" id="college_name" name="secondary_name" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-2">
+                                                            <input type="text" id="college_degree_course" name="secondary_degree_course" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-1">
+                                                            <input type="text" id="college_attend_from" name="college_attend_from" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-1">
+                                                            <input type="text" id="college_attend_to" name="college_attend_to" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="date" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-2">
+                                                            <input type="date" id="college_highest_elem" name="college_highest_elem" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-1">
+                                                            <input type="text" id="college_year_graduated" name="college_year_graduated" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="date" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-2">
+                                                            <input type="date" id="college_scholarship" name="college_scholarship" class="form-control" />
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <th class="center">GRADUATE STUDIES</th>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-2">
+                                                            <input type="text" id="graduate_name" name="graduate_name" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-2">
+                                                            <input type="text" id="graduate_degree_course" name="graduate_degree_course" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-1">
+                                                            <input type="text" id="graduate_attend_from" name="graduate_attend_from" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-1">
+                                                            <input type="text" id="graduate_attend_to" name="graduate_attend_to" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="date" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-2">
+                                                            <input type="date" id="graduate_highest_elem" name="graduate_highest_elem" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="text" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-1">
+                                                            <input type="text" id="graduate_year_graduated" name="graduate_year_graduated" class="form-control" />
                                                         </td>
-                                                        <td>
-                                                            <input type="date" id="phone" name="phone" class="form-control" />
+                                                        <td class="col-xs-2">
+                                                            <input type="date" id="graduate_scholarship" name="graduate_scholarship" class="form-control" />
                                                         </td>
                                                     </tr>
                                                     </tbody>
@@ -763,12 +762,12 @@
                                                     <tbody>
                                                     @for($i=0;$i<10;$i++)
                                                         <tr>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
+                                                            <td><input type="text" class="form-control" id="{{ "career_service_name".$i }}" name="career_service_name[]"></td>
+                                                            <td><input type="text" class="form-control" id="{{ "rating".$i }}" name="rating[]"></td>
+                                                            <td><input type="text" class="form-control" id="{{ "date_of_examination".$i }}" name="date_of_examination[]"></td>
+                                                            <td><input type="text" class="form-control" id="{{ "place_of_examination".$i }}" name="place_of_examination[]"></td>
+                                                            <td><input type="text" class="form-control" id="{{ "license_number".$i }}" name="license_number[]"></td>
+                                                            <td><input type="text" class="form-control" id="{{ "license_date_validity".$i }}" name="license_date_validity[]"></td>
                                                         </tr>
                                                     @endfor
                                                     </tbody>

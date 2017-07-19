@@ -64,7 +64,7 @@
                         <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
                     </div><!-- /.col -->
                 </div>
-              <a href="{{ asset('register') }}">Register now</a>
+              <a class="btn btn-primary" href="{{ asset('register') }}">Register now</a>
             </div><!-- /.login-box-body -->
       </form>        
     </div><!-- /.login-box -->
