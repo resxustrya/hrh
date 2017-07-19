@@ -66,15 +66,14 @@
                                 <span class="profile-picture">
                                     <img id="avatar" class="editable img-responsive" alt="Alex's Avatar" src="{{ asset('public/assets_ace/images/avatars/profile-pic.jpg') }}" />
                                 </span>
-
+                                    <div class="rating inline"></div>
                                     <div class="space-4"></div>
-
                                     <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
                                         <div class="inline position-relative">
                                             <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
                                                 <i class="ace-icon fa fa-circle light-green"></i>
                                                 &nbsp;
-                                                <span class="white">Alex M. Doe</span>
+                                                <span class="white">{{ Auth::user()->fname.' '.Auth::user()->lname }}</span>
                                             </a>
 
                                             <ul class="align-left dropdown-menu dropdown-caret dropdown-lighter">
@@ -109,19 +108,16 @@
                                 </div>
 
                                 <div class="space-6"></div>
-
                                 <div class="profile-contact-info">
                                     <div class="profile-contact-links align-left">
                                         <a href="#" class="btn btn-link">
                                             <i class="ace-icon fa fa-plus-circle bigger-120 green"></i>
                                             Add as a friend
                                         </a>
-
                                         <a href="#" class="btn btn-link">
                                             <i class="ace-icon fa fa-envelope bigger-120 pink"></i>
                                             Send a message
                                         </a>
-
                                         <a href="#" class="btn btn-link">
                                             <i class="ace-icon fa fa-globe bigger-125 blue"></i>
                                             www.alexdoe.com
@@ -1976,6 +1972,13 @@
 @endsection
 @section('js')
 
+    <script>
+        $('.rating').raty({
+            'half': true,
+            'starType' : 'i'
+        });
+
+    </script>
 
 @endsection
 

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDesignation extends Migration {
+class CreateHrhType extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateDesignation extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create("designation",function($table){
+		Schema::create("hrh_type",function($table){
 			$table->increments('id');
 			$table->string('description')->nullable();
 			$table->rememberToken();
@@ -27,7 +27,7 @@ class CreateDesignation extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('designation');
+		Schema::drop('hrh_type');
 	}
 
 }

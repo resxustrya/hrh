@@ -1,6 +1,6 @@
 <?php
 
-class StatusSeeder extends Seeder
+class StatusTableSeeder extends Seeder
 {
     public function run(){
         $status = new Status();

@@ -56,6 +56,10 @@
     <script src="{{ asset('public/plugin/morris/morris.min.js') }}"></script>
     <!--DATE RANGE-->
     <link href="{{ asset('public/plugin/daterangepicker/daterangepicker-bs3.css') }}" rel="stylesheet">
+    <!-- RATING -->
+    <link rel="stylesheet" href="{{ asset('public/assets_ace/css/bootstrap-duallistbox.min.css') }}" />
+    <script src="{{ asset('public/assets_ace/js/jquery.bootstrap-duallistbox.min.js') }}"></script>
+    <script src="{{ asset('public/assets_ace/js/jquery.raty.min.js') }}"></script>
     <style>
         body {
             background: url('{{ asset('public/img/backdrop.png') }}'), -webkit-gradient(radial, center center, 0, center center, 460, from(#ccc), to(#ddd));
@@ -76,8 +80,8 @@
         </div>
         <div class="col-md-4">
             @if(Auth::check())
-            <span class="title-info" style="color: #f0ad4e;font-size: 12pt"><b>Section:</b></span>
-            <span class="title-desc" style="color: white;font-size: 12pt">ICTU</span>
+            <span class="title-info" style="color: #f0ad4e;font-size: 12pt"><b>HRH TYPE:</b></span>
+            <span class="title-desc" style="color: white;font-size: 12pt">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
             @endif
         </div>
         <div class="col-md-4">

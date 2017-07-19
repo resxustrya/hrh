@@ -71,7 +71,7 @@
                                                 <div class="clearfix">
                                                     <select name="" id="" class="col-xs-12 col-sm-6">
                                                         <option value="">Select designation</option>
-                                                        @foreach($designation as $row)
+                                                        @foreach($hrhType as $row)
                                                             <option value="{{ $row['id'] }}">{{ $row['description'] }}</option>
                                                         @endforeach
                                                     </select>

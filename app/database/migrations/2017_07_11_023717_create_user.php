@@ -14,7 +14,7 @@ class CreateUser extends Migration {
 	{
 		Schema::create('users', function ($table) {
 			$table->increments('id');
-			$table->integer('designation')->nullable();
+			$table->integer('hrh_type')->nullable();
 			$table->string('lname')->nullable();
 			$table->string('fname')->nullable();
 			$table->string('mname')->nullable();

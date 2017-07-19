@@ -6,7 +6,7 @@ class ChildrenTableSeeder extends seeder
         $children = new Children();
         $children->userid = 1;
         $children->name = "Rusel T. Tayong JR";
-        $children->date_of_birh = "10/10/2017";
+        $children->date_of_birth = "10/10/2017";
         $children->save();
 
         $children = new Children();
