@@ -28,4 +28,15 @@ class hrhController extends \BaseController {
         return HrhType::where('id',$hrhType)->first();
     }
 
+    public function profile(){
+        $hrhType = HrhType::all(['id','description']);
+        return View::make('profile.profile', [
+            "hrh_type" => $hrhType
+        ]);
+    }
+
+    public function ajax_test(){
+        return 'rusel tayong';
+    }
+
 }

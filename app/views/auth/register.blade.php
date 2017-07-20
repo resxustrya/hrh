@@ -66,11 +66,11 @@
 
                                     <form class="form-horizontal" id="validation-form">
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">2. Designation:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">2. HRH TYPE:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <select name="" id="" class="col-xs-12 col-sm-6">
-                                                        <option value="">Select designation</option>
+                                                        <option value=""></option>
                                                         @foreach($hrhType as $row)
                                                             <option value="{{ $row['id'] }}">{{ $row['description'] }}</option>
                                                         @endforeach
@@ -391,16 +391,6 @@
 
                                         <div class="form-group">
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">17. E-MAIL ADDRESS:</label>
-                                            <div class="col-xs-12 col-sm-9">
-                                                <div class="clearfix">
-                                                    <input type="email" id="name" name="name" class="col-xs-12 col-sm-6" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="space-2"></div>
-
-                                        <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">AREA OF ASSIGNMENT:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <input type="email" id="name" name="name" class="col-xs-12 col-sm-6" />

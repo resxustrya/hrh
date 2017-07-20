@@ -21,9 +21,7 @@ Route::get('home', function(){
 	return Redirect::to('index');
 });
 Route::get('index',array('before' => 'auth','uses' => 'AdminController@home'));
-
-Route::get('profile',function(){
-	return View::make('profile.profile');
-});
+Route::get('profile','hrhController@profile');
 
 Route::match(array('GET','POST'),'register','hrhController@register');
+Route::match(array('GET','POST'),'ajax_test','hrhController@ajax_test');
