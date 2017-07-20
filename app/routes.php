@@ -30,4 +30,5 @@ Route::get('profile',function(){
 	return View::make('profile.profile');
 });
 
-Route::match(array('GET','POST'),'/register','AdminController@register');
+Route::match(array('GET','POST'),'register','hrhController@register');
+

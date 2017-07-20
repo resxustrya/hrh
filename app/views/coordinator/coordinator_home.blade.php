@@ -2,10 +2,6 @@
 @section('content')
     <div class="main-content-inner">
         <div class="page-content">
-            <link rel="stylesheet" href="../../plugins/morris/morris.css">
-            <script src="{{ asset('public/assets_ace/js/jquery-2.1.4.min.js') }}"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-            <script src="../../plugins/morris/morris.min.js"></script>
             <div class="row">
                 <div style="padding: 20px">
                     <p>

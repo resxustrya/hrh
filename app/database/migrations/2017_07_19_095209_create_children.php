@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDesignation extends Migration {
+class CreateChildren extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,11 @@ class CreateDesignation extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create("designation",function($table){
+		Schema::create('children',function($table){
 			$table->increments('id');
-			$table->string('description')->nullable();
+			$table->integer('userid');
+			$table->string('name');
+			$table->string('date_of_birth');
 			$table->rememberToken();
 			$table->timestamps();
 		});
@@ -27,7 +29,7 @@ class CreateDesignation extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('designation');
+		Schema::drop('children');
 	}
 
 }

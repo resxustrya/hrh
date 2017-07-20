@@ -54,33 +54,44 @@
                                         <span class="title">Work Experience</span>
                                         </div>
                                     </li>
-
                                 </ul>
                             </div>
-
                             <hr />
-
                             <div class="step-content pos-rel">
                                 <div class="step-pane active" data-step="1">
                                     <h3 class="lighter block green">Enter the following information</h3>
 
                                     <form class="form-horizontal" id="validation-form">
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">2. SURNAME:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">2. Designation:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="email" id="surname" class="col-xs-12 col-sm-6" />
+                                                    <select name="designation" id="designation" class="col-xs-12 col-sm-6">
+                                                        <option value="">Select designation</option>
+                                                        @foreach($hrhType as $row)
+                                                            <option value="{{ $row['id'] }}">{{ $row['description'] }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="space-2"></div>
 
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">SURNAME:</label>
+                                            <div class="col-xs-12 col-sm-9">
+                                                <div class="clearfix">
+                                                    <input type="text" name="email" id="email" class="col-xs-12 col-sm-6" />
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="space-2"></div>
 
                                         <div class="form-group">
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="password">FIRSTNAME :</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="password" id="firstname" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" name="firstname" id="firstname" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -92,7 +103,7 @@
 
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="password2" id="mname" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" name="mname" id="mname" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -102,7 +113,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">NAME EXTENSTION(JR,,SR):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="name" name="ext_name" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" id="ext_name" name="ext_name" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -112,7 +123,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">3. DATE OF BIRTH(mm/dd/yyyy):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="datepicker" name="bdate" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" id="bdate" name="bdate" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -122,7 +133,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="phone">4.PLACE OF BIRTH:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="datepicker" name="place_birth" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" id="place_birth" name="place_birth" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -189,7 +200,7 @@
 
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="url" id="url" name="philhealth" class="col-xs-12 col-sm-6" />
+                                                    <input type="url" id="philhealth_no" name="philhealth_no" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -199,7 +210,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="url">8.TIN NO:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="url" id="url" name="tin_no" class="col-xs-12 col-sm-6" />
+                                                    <input type="url" id="tin_no" name="tin_no" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -209,20 +220,30 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="url">10.NAME OF GSIS GROUP INSURANCE BENEFICIARIES:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="url" id="url" name="gsis_name1" class="col-xs-12 col-sm-6" />
+                                                    <input type="url" id="gsis_name1" name="gsis_name1" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="url"></label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="url" id="url" name="gsis_name2" class="col-xs-12 col-sm-6" />
+                                                    <input type="url" id="gsis_name2" name="gsis_name2" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right">9.CITIZENSHIP:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="url">11.PRC LICENSE NUMBER:</label>
+                                            <div class="col-xs-12 col-sm-9">
+                                                <div class="clearfix">
+                                                    <input type="url" id="prc_license" name="prc_license" class="col-xs-12 col-sm-6" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hr hr-dotted"></div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right">12.CITIZENSHIP:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div>
                                                     <label class="line-height-1 blue">
@@ -249,7 +270,10 @@
                                                     </label>
                                                 </div>
                                                 <div>
-                                                    <select id="state" name="citizen_state" class="col-xs-12 col-sm-6 select2" data-placeholder="Pls. indicate country:.">
+
+                                                    <select id="state" name="state" class="col-xs-12 col-sm-6 select2" data-placeholder="Pls. indicate country:.">
+                                                        <option value=""></option>
+
                                                         <option value="AL">Alabama</option>
                                                         <option value="AK">Alaska</option>
                                                         <option value="AZ">Arizona</option>
@@ -307,10 +331,10 @@
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="comment">11. RESIDENTIAL ADDRESS</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="comment">13. RESIDENTIAL ADDRESS</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <textarea class="col-xs-12 col-sm-6" name="resi_address" id="comment"></textarea>
+                                                    <textarea class="col-xs-12 col-sm-6" name="resident_address" id="resident_address"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -319,17 +343,17 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">ZIP CODE:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="name" name="zip_code" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" id="resident_zip_code" name="resident_zip_code" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="comment">10. PERMANENT ADDRESS</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="comment">14. PERMANENT ADDRESS</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <textarea class="col-xs-12 col-sm-6" name="permanent_address" id="comment"></textarea>
+                                                    <textarea class="col-xs-12 col-sm-6" name="permanent_address" id="permanent_address"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -338,57 +362,52 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">ZIP CODE:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="name" name="zip_code" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" id="permanent_zip_code" name="permanent_zip_code" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">12. TELEPHONE NO:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">15. TELEPHONE NO:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="tel" id="name" name="tel_no" class="col-xs-12 col-sm-6" />
+                                                    <input type="tel" id="tel_no" name="tel_no" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">11. MOBILE NO:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">16. MOBILE NO:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="tel" id="name" name="mobile_no" class="col-xs-12 col-sm-6" />
+                                                    <input type="tel" id="mobile_no" name="mobile_no" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">13. E-MAIL ADDRESS:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">17. E-MAIL ADDRESS:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="email" id="name" name="email" class="col-xs-12 col-sm-6" />
+                                                    <input type="email" id="email" name="email" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="space-2"></div>
-
-                                        <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">AREA OF ASSIGNMENT:</label>
-                                            <div class="col-xs-12 col-sm-9">
-                                                <div class="clearfix">
-                                                    <input type="email" id="name" name="area_of_work" class="col-xs-12 col-sm-6" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="space-2"></div>
-
                                         <div class="form-group">
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">AREA OF ASSIGNMENT(Province):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="email" id="name" name="area_of_work_province" class="col-xs-12 col-sm-6" />
+
+                                                    <select id="area_of_work_province" onchange="add_data($(this))" name="area_of_work_province" class="col-xs-12 col-sm-6 select2" data-placeholder="Pls. indicate province:.">
+                                                        <option value=""></option>
+                                                        @foreach($province as $row)
+                                                            <option value="{{ $row['id'] }}">{{ $row['description'] }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -398,7 +417,9 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">AREA OF ASSIGNMENT(Municipality):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="email" id="name" name="area_of_work_municipal" class="col-xs-12 col-sm-6" />
+
+                                                    <select id="area_of_work_municipal" name="area_of_work_municipal" class="col-xs-12 col-sm-6 select2" data-placeholder="Pls. indicate municipality:.">
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -420,7 +441,7 @@
                                     <h3 class="lighter block green">Enter the following information</h3>
                                     <form class="form-horizontal" id="validation-form">
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">14. SPOUSE'S SURNAME:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">18. SPOUSE'S SURNAME:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <input type="text" name="spouse_surname" id="spouse_surname" class="col-xs-12 col-sm-6" />
@@ -517,7 +538,7 @@
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">15. FATHER'S SURNAME:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">19. FATHER'S SURNAME:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <input type="text" name="father_surname" id="father_surname" class="col-xs-12 col-sm-6" />
@@ -598,10 +619,10 @@
                                                 <table class="table table-striped table-bordered table-hover">
                                                     <thead class="thin-border-bottom">
                                                     <tr class="info">
-                                                        <th class="center" rowspan="2">17. LEVEL</th>
+                                                        <th class="center" rowspan="2">20. LEVEL</th>
                                                         <th class="center" rowspan="2">NAME OF SCHOOL (Write in full)</th>
                                                         <th class="center" rowspan="2">BASIC EDUCATION/DEGREE/COURSE (Write in full)</th>
-                                                        <th class="center" colspan="2">PERION OF ATTENDANCE</th>
+                                                        <th class="center" colspan="2">PERIOD OF ATTENDANCE</th>
                                                         <th class="center" rowspan="2">HIGHEST LEVEL/UNITS EARNED (if not graduated)</th>
                                                         <th class="center" rowspan="2">YEAR GRADUATED</th>
                                                         <th class="center" rowspan="2">SCHOLARSHIP/ACADEMIC HONORS RECEIVE</th>
@@ -748,7 +769,7 @@
                                                 <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
                                                     <thead>
                                                     <tr class="info">
-                                                        <th class="center" rowspan="2">18. CAREER SERVICE/RA 1080 (BOARD/BAR) UNDER SPECIAL LAWS/CES/CSEE BARANGAY ELIGIBILITY/DRIVER'S LICENCE</th>
+                                                        <th class="center" rowspan="2">21. CAREER SERVICE/RA 1080 (BOARD/BAR) UNDER SPECIAL LAWS/CES/CSEE BARANGAY ELIGIBILITY/DRIVER'S LICENCE</th>
                                                         <th class="center" rowspan="2">RATING (if Applicable)</th>
                                                         <th class="center" rowspan="2">DATE OF EXAMINATION / CONFERMENT</th>
                                                         <th class="center" rowspan="2">PLACE OF EXAMINATION / CONFERMENT</th>
@@ -786,12 +807,12 @@
                                                 <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
                                                     <thead>
                                                     <tr class="info">
-                                                        <th class="center" colspan="2">19. INCLUSIVE DATES (mm/dd/yyyy)</th>
+                                                        <th class="center" colspan="2">22. INCLUSIVE DATES (mm/dd/yyyy)</th>
                                                         <th class="center" rowspan="2">POSITION TITLE (Write in full/Do not abbreviate)</th>
                                                         <th class="center" rowspan="2">DEPARTMENT / AGENCY / OFFICE / COMPANY (Write in full/Do not abrebiate)</th>
                                                         <th class="center" rowspan="2">MONTHLY SALARY</th>
                                                         <th class="center" rowspan="2">SALARY/JOB/PAY GRADE(if applicable)(Format *00-0*)/INCREMENT</th>
-                                                        <th class="center" rowspan="2">STATUS PF APPOINTMENT</th>
+                                                        <th class="center" rowspan="2">STATUS OF APPOINTMENT</th>
                                                         <th class="center" rowspan="2">GOV'T SERVICE(Y/N)</th>
                                                     </tr>
                                                     <tr class="info">
@@ -800,16 +821,15 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    @for($i=0;$i<10;$i++)
+                                                    @for($i=1;$i<=10;$i++)
                                                         <tr>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
-                                                            <td><input type="text" class="form-control"></td>
+                                                            <td class="col-xs-2" colspan="2"><input type="text" id="{{ 'inclusive_dates'.$i }}" class="form-control"></td>
+                                                            <td class="col-xs-2"><input type="text" class="form-control"></td>
+                                                            <td class="col-xs-2"><input type="text" class="form-control"></td>
+                                                            <td class="col-xs-2"><input type="text" class="form-control"></td>
+                                                            <td class="col-xs-2"><input type="text" class="form-control"></td>
+                                                            <td class="col-xs-1"><input type="text" class="form-control"></td>
+                                                            <td class="col-xs-1"><input type="text" class="form-control"></td>
                                                         </tr>
                                                     @endfor
                                                     </tbody>
@@ -838,6 +858,7 @@
         </div><!-- /.col -->
     </div><!-- /.row -->
 </div><!-- PAGE CONTENT ENDS -->
+<input type="hidden" id="municipality_url" value="{{ asset('municipality') }}">
 @endsection
 @section('js')
 
@@ -857,7 +878,31 @@
     <script src="{{ asset('public/assets_ace/js/ace-elements.min.js') }}"></script>
     <script src="{{ asset('public/assets_ace/js/ace.min.js') }}"></script>
     <script type="text/javascript">
+
+        function add_data(data){
+            $('#municipality').val('').trigger('change');
+            $('#municipality option').remove();
+            $("#municipality").append(
+                    new Option("","", true, true)
+            ).trigger('change');
+            if(data.val() == 1)
+                var municipality = <?php echo $municipality; ?>['cebu'];
+            else if(data.val() == 2)
+                var municipality = <?php echo $municipality; ?>['bohol'];
+            else if(data.val() == 3)
+                var municipality = <?php echo $municipality; ?>['negros'];
+
+            for(var i = 0; i<municipality.length; i++){
+                $("#municipality").append(
+                        new Option(municipality[i]['description'], municipality[i]['id'], true, true)
+                ).trigger('change');
+            }
+        }
+
         jQuery(function($) {
+            for(var i=1; i<=10; i++){
+                $("#inclusive_dates"+i).daterangepicker();
+            }
             $( "#datepicker" ).datepicker({
                 showOtherMonths: true,
                 selectOtherMonths: false,
@@ -886,8 +931,10 @@
 
             $('[data-rel=tooltip]').tooltip();
 
-            $(".select2").select2();
-
+            $('.select2').css('class','col-xs-12 col-sm-6').select2({allowClear:true})
+            .on('change', function(){
+                $(this).closest('form').validate().element($(this));
+            });
 
             var $validation = false;
             $('#fuelux-wizard-container')
@@ -988,7 +1035,7 @@
                     comment: {
                         required: true
                     },
-                    state: {
+                    province: {
                         required: true
                     },
                     platform: {
@@ -1014,7 +1061,7 @@
                         required: "Please specify a password.",
                         minlength: "Please specify a secure password."
                     },
-                    state: "Please choose state",
+                    province: "Please choose province",
                     subscription: "Please choose at least one option",
                     gender: "Please choose gender",
                     agree: "Please accept our policy"
