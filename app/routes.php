@@ -17,6 +17,10 @@ Route::get('logout', function(){
 	Session::flush();
 	return Redirect::to('/');
 });
+
+
+Route::get('login', array('before' => 'old', 'uses' => 'LoginController@login'));
+
 Route::get('home', function(){
 	return Redirect::to('index');
 });

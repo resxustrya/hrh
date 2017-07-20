@@ -31,7 +31,7 @@
       <div class="login-logo">
         <img src="{{ asset('public/img/logo.png') }}" />
         <br />
-        <a href="#"><b>DOHROH7</b>DTR</a>
+        <a href="#">DOHROH7 <strong>HRH</strong></a>
       </div><!-- /.login-logo -->
         
       <form role="form" method="POST" action="{{ asset('/') }}">
@@ -63,10 +63,9 @@
                     <div class="col-xs-4">
                         <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
                     </div><!-- /.col -->
-                </div>
-              <a class="btn btn-primary" href="{{ asset('register') }}">Register now</a>
+                </div> 
             </div><!-- /.login-box-body -->
-      </form>        
+      </form>
     </div><!-- /.login-box -->
 
     <!-- jQuery 2.1.4 -->

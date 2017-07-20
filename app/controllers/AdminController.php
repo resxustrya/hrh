@@ -59,4 +59,16 @@ class AdminController extends \BaseController {
 		return View::make('coordinator.coordinator_home');
 	}
 
+
+	public function register()
+	{
+		if(Request::method() == 'GET') {
+			return View::make('auth.register');
+		}
+
+		if(Request::method() == 'POST') {
+
+		}
+	}
 }
+
