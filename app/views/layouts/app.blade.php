@@ -71,23 +71,66 @@
 <body class="no-skin">
 <nav class="navbar navbar-default navbar-static-top">
     <div style="background-color:#2F4054;padding:10px;">
-        <div class="col-md-4">
+        <div class="col-md-3">
             @if(Auth::check())
             <span style="color: #f0ad4e;font-size: 12pt"><b>Welcome,</b></span> <span class="title-desc" style="color: white;font-size: 12pt">{{ Auth::user()->fname }} T. Tayong</span>
             @else
             <span style="color: #f0ad4e;font-size: 12pt"><b>DOH7-IT</b></span>
             @endif
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             @if(Auth::check())
             <span class="title-info" style="color: #f0ad4e;font-size: 12pt"><b>HRH TYPE:</b></span>
             <span class="title-desc" style="color: white;font-size: 12pt">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
             @endif
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             @if(Auth::check())
-            <span class="title-info" style="color: #f0ad4e;font-size: 12pt"><b>Date:</b></span> <span class="title-desc" style="color: white;font-size: 12pt">{{ date('M d, Y') }}</span>
+                <span class="title-info" style="color: #f0ad4e;font-size: 12pt"><b>Date:</b></span> <span class="title-desc" style="color: white;font-size: 12pt">{{ date('M d, Y') }}</span>
+            <!--
+            <div class="navbar-buttons navbar-header pull-right" role="navigation">
+                <ul class="nav ace-nav">
+                    <li class="light-blue dropdown-modal">
+                        <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                            <img class="nav-user-photo" src="{{ asset('public/assets_ace/images/avatars/profile-pic.jpg') }}" alt="Jason's Photo" />
+                            <span class="user-info">
+                                <small>Welcome,</small>
+                                Jason
+                            </span>
+
+                            <i class="ace-icon fa fa-caret-down"></i>
+                        </a>
+                        <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                            <li>
+                                <a href="#">
+                                    <i class="ace-icon fa fa-cog"></i>
+                                    Settings
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="profile.html">
+                                    <i class="ace-icon fa fa-user"></i>
+                                    Profile
+                                </a>
+                            </li>
+
+                            <li class="divider"></li>
+
+                            <li>
+                                <a href="#">
+                                    <i class="ace-icon fa fa-power-off"></i>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div> -->
             @endif
+        </div>
+        <div class="col-md-3">
+
         </div>
         <div class="clearfix"></div>
     </div>
@@ -117,18 +160,17 @@
             @endif
             <div class="navbar-buttons navbar-header pull-right" role="navigation">
                 <ul class="nav ace-nav">
+
                     <li class="grey dropdown-modal">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="ace-icon fa fa-tasks"></i>
                             <span class="badge badge-grey">4</span>
                         </a>
-
                         <ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
                             <li class="dropdown-header">
                                 <i class="ace-icon fa fa-check"></i>
                                 4 Tasks to complete
                             </li>
-
                             <li class="dropdown-content">
                                 <ul class="dropdown-menu dropdown-navbar">
                                     <li>
@@ -423,6 +465,15 @@
 <!-- DATE RANGE SELECT -->
 <script src="{{ asset('public/plugin/daterangepicker/moment.min.js') }}"></script>
 <script src="{{ asset('public/plugin/daterangepicker/daterangepicker.js') }}"></script>
+
+<script type="text/javascript">
+    if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+</script>
+
+<!-- page specific plugin scripts -->
+<script src="{{ asset('public/assets_ace/js/wizard.min.js') }}"></script>
+<script src="{{ asset('public/assets_ace/js/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('public/assets_ace/js/jquery-additional-methods.min.js') }}"></script>
 
 
 @section('js')

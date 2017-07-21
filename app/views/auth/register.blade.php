@@ -7,6 +7,9 @@
     label{
         font-size:9pt;
     }
+    input[type="text"] {
+        font-size:11px;
+    }
 </style>
 <div class="page-content">
     <div class="row">
@@ -859,27 +862,9 @@
         </div><!-- /.col -->
     </div><!-- /.row -->
 </div><!-- PAGE CONTENT ENDS -->
-<input type="hidden" id="municipality_url" value="{{ asset('municipality') }}">
 @endsection
 @section('js')
-
     <script type="text/javascript">
-        if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-    </script>
-
-    <!-- page specific plugin scripts -->
-    <script src="{{ asset('public/assets_ace/js/wizard.min.js') }}"></script>
-    <script src="{{ asset('public/assets_ace/js/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('public/assets_ace/js/jquery-additional-methods.min.js') }}"></script>
-    <script src="{{ asset('public/assets_ace/js/bootbox.js') }}"></script>
-    <script src="{{ asset('public/assets_ace/js/jquery.maskedinput.min.js') }}"></script>
-    <script src="{{ asset('public/assets_ace/js/select2.min.js') }}"></script>
-
-    <!-- ace scripts -->
-    <script src="{{ asset('public/assets_ace/js/ace-elements.min.js') }}"></script>
-    <script src="{{ asset('public/assets_ace/js/ace.min.js') }}"></script>
-    <script type="text/javascript">
-
         function add_data(data){
             $('#municipality').val('').trigger('change');
             $('#municipality option').remove();
@@ -937,7 +922,7 @@
                 $(this).closest('form').validate().element($(this));
             });
 
-            var $validation = false;
+            var $validation = true;
             $('#fuelux-wizard-container')
                     .ace_wizard({
                         //step: 2 //optional argument. wizard will jump to step "2" at first

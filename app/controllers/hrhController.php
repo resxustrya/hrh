@@ -28,6 +28,14 @@ class hrhController extends \BaseController {
         return HrhType::where('id',$hrhType)->first();
     }
 
+    public static function hrh_province($hrhProvince){
+        return Province::where('id',$hrhProvince)->first();
+    }
+
+    public static function hrh_municipality($hrhMunicipality){
+        return Municipality::where('id',$hrhMunicipality)->first();
+    }
+
     public function profile(){
         $hrhType = HrhType::all(['id','description']);
         return View::make('profile.profile', [

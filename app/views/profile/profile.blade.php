@@ -1,5 +1,16 @@
 @extends('layouts.app')
 @section('content')
+<style>
+    .profile-info-name{
+        font-size: 8pt;
+    }
+    th,input{
+        font-size: 7pt;
+    }
+    input[type="text"] {
+        font-size:11px;
+    }
+</style>
 <script type="text/javascript">
     try{ace.settings.loadState('main-container')}catch(e){}
 </script>
@@ -10,50 +21,47 @@
             <div class="page-header">
                 <h1>
                     User Profile Page
-                    <small>
-                        <i class="ace-icon fa fa-angle-double-right"></i>
-                        3 styles with inline editable feature
-                    </small>
                 </h1>
             </div><!-- /.page-header -->
 
             <div class="row">
                 <div class="col-xs-12">
                     <!-- PAGE CONTENT BEGINS -->
-
+                    <!--
                     <ul class="nav nav-tabs padding-18">
                         <li class="active">
-                            <a data-toggle="tab" href="#home">
+                            <a data-toggle="tab" href="#personal_information">
                                 <i class="green ace-icon fa fa-user bigger-120"></i>
                                 Personal Information
                             </a>
                         </li>
                         <li>
-                            <a data-toggle="tab" href="#feed">
+                            <a data-toggle="tab" href="#family_background">
                                 <i class="orange ace-icon fa fa-rss bigger-120"></i>
                                 Family Background
                             </a>
                         </li>
                         <li>
-                            <a data-toggle="tab" href="#friends">
+                            <a data-toggle="tab" href="#educational_background">
                                 <i class="blue ace-icon fa fa-users bigger-120"></i>
                                 Educational Background
                             </a>
                         </li>
                         <li>
-                            <a data-toggle="tab" href="#pictures">
+                            <a data-toggle="tab" href="#service_eligibility">
                                 <i class="pink ace-icon fa fa-picture-o bigger-120"></i>
                                 Civil Service Eligibility
                             </a>
                         </li>
                         <li>
-                            <a data-toggle="tab" href="#pictures">
+                            <a data-toggle="tab" href="#work_experience">
                                 <i class="red ace-icon fa fa-trash bigger-120"></i>
                                 Work Experience
                             </a>
                         </li>
                     </ul>
                     <div class="hr dotted"></div>
+                    -->
                     <div>
                         <div id="user-profile-1" class="user-profile row">
                             <div class="col-xs-12 col-sm-3 center">
@@ -78,7 +86,7 @@
                                                     <a href="#">
                                                         <i class="ace-icon fa fa-circle green"></i>
                                                         &nbsp;
-                                                        <span class="green">Available</span>
+                                                        <span class="green">HIRED</span>
                                                     </a>
                                                 </li>
 
@@ -86,7 +94,7 @@
                                                     <a href="#">
                                                         <i class="ace-icon fa fa-circle red"></i>
                                                         &nbsp;
-                                                        <span class="red">Busy</span>
+                                                        <span class="red">REHIRED</span>
                                                     </a>
                                                 </li>
 
@@ -94,7 +102,7 @@
                                                     <a href="#">
                                                         <i class="ace-icon fa fa-circle grey"></i>
                                                         &nbsp;
-                                                        <span class="grey">Invisible</span>
+                                                        <span class="grey">NEW</span>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -107,7 +115,7 @@
                                     <div class="profile-contact-links align-left">
                                         <a href="#" class="btn btn-link">
                                             <i class="ace-icon fa fa-plus-circle bigger-120 green"></i>
-                                            Add as a friend
+                                            HIRED
                                         </a>
                                         <a href="#" class="btn btn-link">
                                             <i class="ace-icon fa fa-envelope bigger-120 pink"></i>
@@ -115,12 +123,10 @@
                                         </a>
                                         <a href="#" class="btn btn-link">
                                             <i class="ace-icon fa fa-globe bigger-125 blue"></i>
-                                            www.alexdoe.com
+                                            www.ro7.doh.gov.ph
                                         </a>
                                     </div>
-
                                     <div class="space-6"></div>
-
                                     <div class="profile-social-links align-center">
                                         <a href="#" class="tooltip-info" title="" data-original-title="Visit my Facebook">
                                             <i class="middle ace-icon fa fa-facebook-square fa-2x blue"></i>
@@ -136,24 +142,63 @@
                                     </div>
                                 </div>
 
-                                <div class="hr hr12 dotted"></div>
+                                <div class="space-4"></div>
 
                                 <div class="clearfix">
-                                    <div class="grid2">
-                                        <span class="bigger-175 blue">25</span>
+                                    <div class="widget-box transparent">
+                                        <div class="widget-header widget-header-small header-color-blue2">
+                                            <h4 class="widget-title smaller">
+                                                <i class="ace-icon fa fa-lightbulb-o bigger-120"></i>
+                                                My Skills
+                                            </h4>
+                                        </div>
 
-                                        <br />
-                                        Followers
-                                    </div>
+                                        <div class="widget-body">
+                                            <div class="widget-main padding-16">
+                                                <div class="profile-skills">
+                                                    <div class="progress">
+                                                        <div class="progress-bar" style="width:90%">
+                                                            <span class="pull-left">Plastic Surgery</span>
+                                                            <span class="pull-right">90%</span>
+                                                        </div>
+                                                    </div>
 
-                                    <div class="grid2">
-                                        <span class="bigger-175 blue">12</span>
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-success" style="width:72%">
+                                                            <span class="pull-left">Triaging Patients</span>
 
-                                        <br />
-                                        Following
+                                                            <span class="pull-right">72%</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-purple" style="width:70%">
+                                                            <span class="pull-left">Performing CPR</span>
+
+                                                            <span class="pull-right">70%</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-warning" style="width:60%">
+                                                            <span class="pull-left">EKGs</span>
+
+                                                            <span class="pull-right">60%</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-danger" style="width:50%">
+                                                            <span class="pull-left">Blood</span>
+
+                                                            <span class="pull-right">50%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
                                 <div class="hr hr16 dotted"></div>
                             </div>
 
@@ -161,7 +206,7 @@
                                 <div id="user-profile-2" class="user-profile">
                                     <div class="tabbable">
                                         <div class="tab-content no-border padding-5">
-                                            <div id="home" class="tab-pane in active">
+                                            <div id="personal_information" class="tab-pane in active">
                                                 <div class="row">
                                                     <div class="col-xs-12">
                                                         <h3 class="lighter block green">Personal Information</h3>
@@ -176,28 +221,142 @@
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name"> Location </div>
-
+                                                                    <div class="profile-info-name"> SURNAME </div>
                                                                     <div class="profile-info-value">
-                                                                        <i class="fa fa-map-marker light-orange bigger-110"></i>
-                                                                        <span class="editable" id="country">Netherlands</span>
-                                                                        <span class="editable" id="city">Amsterdam</span>
+                                                                        <span class="editable" id="surname">{{ Auth::user()->lname }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name"> Age </div>
-
+                                                                    <div class="profile-info-name"> FIRSTNAME </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="age">38</span>
+                                                                        <span class="editable" id="fname">{{ Auth::user()->fname }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name"> Joined </div>
-
+                                                                    <div class="profile-info-name"> MIDDLE NAME </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="signup">2010/06/20</span>
+                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> MIDDLE NAME </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> DATE OF BIRTH </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="date_of_birth">{{ Auth::user()->date_of_birth }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> PLACE OF BIRTH </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="place_of_birth">{{ Auth::user()->place_of_birth }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> SEX </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="sex">{{ Auth::user()->sex }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> CIVIL STATUS </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="civil_status">{{ Auth::user()->civil_status }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> SEX </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="sex">{{ Auth::user()->sex }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> PHILHEALTH NO: </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="philhealth">{{ Auth::user()->philhealth }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> TIN NO: </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="philhealth">{{ Auth::user()->tin }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> PRC LICENSE: </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="prc_license">{{ Auth::user()->prc_license }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> CITIZENSHIP: </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="citizenship">{{ Auth::user()->citizenship }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> RESIDENTIAL ADDRESS: </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="citizenship">{{ Auth::user()->residential_address }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> ZIP CODE: </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="zip_code1">{{ Auth::user()->zip_code }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> PERMANENT ADDRESS: </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="permanent_address">{{ Auth::user()->permanent_address }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> ZIP_COE: </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="zip_code2">{{ Auth::user()->zip_code }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> AREA OF ASSIGNMENT(Province): </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="province">{{ hrhController::hrh_province(Auth::user()->province)->description }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> AREA OF ASSIGNMENT(Municipality): </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="municipality">{{ hrhController::hrh_municipality(Auth::user()->municipality)->description }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> DATE OF ENTRANCE TO DUTY: </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="date_of_entrance_to_duty">{{ Auth::user()->date_of_entrance_to_dutyy }}</span>
                                                                     </div>
                                                                 </div>
 
@@ -226,7 +385,7 @@
                                                                 <div class="profile-info-name"> Website </div>
 
                                                                 <div class="profile-info-value">
-                                                                    <a href="#" target="_blank">www.alexdoe.com</a>
+                                                                    <a href="#" target="_blank">www.ro7.doh.gov.ph</a>
                                                                 </div>
                                                             </div>
 
@@ -268,16 +427,7 @@
                                                             <div class="widget-body">
                                                                 <div class="widget-main">
                                                                     <p>
-                                                                        My job is mostly lorem ipsuming and dolor sit ameting as long as consectetur adipiscing elit.
-                                                                    </p>
-                                                                    <p>
-                                                                        Sometimes quisque commodo massa gets in the way and sed ipsum porttitor facilisis.
-                                                                    </p>
-                                                                    <p>
-                                                                        The best thing about my job is that vestibulum id ligula porta felis euismod and nullam quis risus eget urna mollis ornare.
-                                                                    </p>
-                                                                    <p>
-                                                                        Thanks for visiting my profile.
+                                                                        Our friendly and approachable tutors are leaders in the fields of plastic surgery, orthopaedic surgery, dermatology, physiotherapy and general practice. We pride ourselves on our fun and engaging teaching style and our trainers are always happy to offer their expert post course support
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -302,7 +452,7 @@
                                                                             </div>
 
                                                                             <div class="space-2"></div>
-                                                                            Graphic Design
+                                                                            Administering Injections
                                                                         </div>
 
                                                                         <div class="grid3 center">
@@ -311,59 +461,16 @@
                                                                             </div>
 
                                                                             <div class="space-2"></div>
-                                                                            HTML5 & CSS3
+                                                                            Arranging Prescription Refills
                                                                         </div>
 
                                                                         <div class="grid3 center">
                                                                             <div class="center easy-pie-chart percentage" data-percent="80" data-color="#9585BF">
                                                                                 <span class="percent">80</span>%
                                                                             </div>
-
+                                                                            Remaining Calm with Distressed Patients
                                                                             <div class="space-2"></div>
-                                                                            Javascript/jQuery
-                                                                        </div>
-                                                                    </div>
 
-                                                                    <div class="hr hr-16"></div>
-
-                                                                    <div class="profile-skills">
-                                                                        <div class="progress">
-                                                                            <div class="progress-bar" style="width:80%">
-                                                                                <span class="pull-left">HTML5 & CSS3</span>
-                                                                                <span class="pull-right">80%</span>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="progress">
-                                                                            <div class="progress-bar progress-bar-success" style="width:72%">
-                                                                                <span class="pull-left">Javascript & jQuery</span>
-
-                                                                                <span class="pull-right">72%</span>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="progress">
-                                                                            <div class="progress-bar progress-bar-purple" style="width:70%">
-                                                                                <span class="pull-left">PHP & MySQL</span>
-
-                                                                                <span class="pull-right">70%</span>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="progress">
-                                                                            <div class="progress-bar progress-bar-warning" style="width:50%">
-                                                                                <span class="pull-left">Wordpress</span>
-
-                                                                                <span class="pull-right">50%</span>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="progress">
-                                                                            <div class="progress-bar progress-bar-danger" style="width:38%">
-                                                                                <span class="pull-left">Photoshop</span>
-
-                                                                                <span class="pull-right">38%</span>
-                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -371,888 +478,803 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div><!-- /#home -->
+                                            </div><!-- /#personal information -->
 
-                                            <div id="feed" class="tab-pane">
-                                                <div class="profile-feed row">
-                                                    <div class="col-sm-6">
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <img class="pull-left" alt="Alex Doe's avatar" src="{{ asset('public/assets_ace/images/avatars/avatar5.png') }}" />
-                                                                <a class="user" href="#"> Alex Doe </a>
-                                                                changed his profile photo.
-                                                                <a href="#">Take a look</a>
-
-                                                                <div class="time">
-                                                                    <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                                                    an hour ago
+                                            <div id="family_background" class="tab-pane">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <h3 class="lighter block green">Family Background</h3>
+                                                        <div class="profile-user-info">
+                                                            <div class="profile-user-info profile-user-info-striped">
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">SPOUSE'S SURNAME:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="hrh_type">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
 
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                                                </a>
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">FIRSTNAME:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="surname">{{ Auth::user()->lname }}</span>
+                                                                    </div>
+                                                                </div>
 
-                                                                <a href="#" class="red">
-                                                                    <i class="ace-icon fa fa-times bigger-125"></i>
-                                                                </a>
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">MIDDLE NAME:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="fname">{{ Auth::user()->fname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">NAME EXTENSTION(JR,,SR):</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">OCCUPATION:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">EMPLOYER/BUSINESS NAME:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="date_of_birth">{{ Auth::user()->date_of_birth }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">TELEPHONE NO:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="place_of_birth">{{ Auth::user()->place_of_birth }}</span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                        <h5 class="lighter block blue">Name of children</h5>
+                                                        <div class="profile-users clearfix">
+                                                            <div class="itemdiv memberdiv">
+                                                                <div class="inline pos-rel">
+                                                                    <div class="user">
+                                                                        <a href="#">
+                                                                            <img src="{{ asset('public/assets_ace/images/avatars/avatar4.png') }}" alt="Bob Doe's avatar" />
+                                                                        </a>
+                                                                    </div>
 
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <img class="pull-left" alt="Susan Smith's avatar" src="{{ asset('public/assets_ace/images/avatars/avatar1.png') }}" />
-                                                                <a class="user" href="#"> Susan Smith </a>
+                                                                    <div class="body">
+                                                                        <div class="name">
+                                                                            <a href="#">
+                                                                                <span class="user-status status-online"></span>
+                                                                                Bob Doe
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
 
-                                                                is now friends with Alex Doe.
-                                                                <div class="time">
-                                                                    <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                                                    2 hours ago
+                                                                    <div class="popover">
+                                                                        <div class="arrow"></div>
+                                                                        <div class="popover-content">
+                                                                            <div class="bolder">Content Editor</div>
+
+                                                                            <div class="time">
+                                                                                <i class="ace-icon fa fa-clock-o middle bigger-120 orange"></i>
+                                                                                <span class="green"> 20 mins ago </span>
+                                                                            </div>
+
+                                                                            <div class="hr dotted hr-8"></div>
+
+                                                                            <div class="tools action-buttons">
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
+                                                                                </a>
+
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+                                                                                </a>
+
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                                                </a>
+                                                            <div class="itemdiv memberdiv">
+                                                                <div class="inline pos-rel">
+                                                                    <div class="user">
+                                                                        <a href="#">
+                                                                            <img src="{{ asset('public/assets_ace/images/avatars/avatar1.png') }}" alt="Rose Doe's avatar" />
+                                                                        </a>
+                                                                    </div>
 
-                                                                <a href="#" class="red">
-                                                                    <i class="ace-icon fa fa-times bigger-125"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
+                                                                    <div class="body">
+                                                                        <div class="name">
+                                                                            <a href="#">
+                                                                                <span class="user-status status-offline"></span>
+                                                                                Rose Doe
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
 
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <i class="pull-left thumbicon fa fa-check btn-success no-hover"></i>
-                                                                <a class="user" href="#"> Alex Doe </a>
-                                                                joined
-                                                                <a href="#">Country Music</a>
+                                                                    <div class="popover">
+                                                                        <div class="arrow"></div>
 
-                                                                group.
-                                                                <div class="time">
-                                                                    <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                                                    5 hours ago
+                                                                        <div class="popover-content">
+                                                                            <div class="bolder">Graphic Designer</div>
+
+                                                                            <div class="time">
+                                                                                <i class="ace-icon fa fa-clock-o middle bigger-120 grey"></i>
+                                                                                <span class="grey"> 30 min ago </span>
+                                                                            </div>
+
+                                                                            <div class="hr dotted hr-8"></div>
+
+                                                                            <div class="tools action-buttons">
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
+                                                                                </a>
+
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+                                                                                </a>
+
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                                                </a>
+                                                            <div class="itemdiv memberdiv">
+                                                                <div class="inline pos-rel">
+                                                                    <div class="user">
+                                                                        <a href="#">
+                                                                            <img src="{{ asset('public/assets_ace/images/avatars/avatar.png') }}" alt="Jim Doe's avatar" />
+                                                                        </a>
+                                                                    </div>
 
-                                                                <a href="#" class="red">
-                                                                    <i class="ace-icon fa fa-times bigger-125"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
+                                                                    <div class="body">
+                                                                        <div class="name">
+                                                                            <a href="#">
+                                                                                <span class="user-status status-busy"></span>
+                                                                                Jim Doe
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
 
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <i class="pull-left thumbicon fa fa-picture-o btn-info no-hover"></i>
-                                                                <a class="user" href="#"> Alex Doe </a>
-                                                                uploaded a new photo.
-                                                                <a href="#">Take a look</a>
+                                                                    <div class="popover">
+                                                                        <div class="arrow"></div>
 
-                                                                <div class="time">
-                                                                    <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                                                    5 hours ago
+                                                                        <div class="popover-content">
+                                                                            <div class="bolder">SEO &amp; Advertising</div>
+
+                                                                            <div class="time">
+                                                                                <i class="ace-icon fa fa-clock-o middle bigger-120 red"></i>
+                                                                                <span class="grey"> 1 hour ago </span>
+                                                                            </div>
+
+                                                                            <div class="hr dotted hr-8"></div>
+
+                                                                            <div class="tools action-buttons">
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
+                                                                                </a>
+
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+                                                                                </a>
+
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                                                </a>
+                                                            <div class="itemdiv memberdiv">
+                                                                <div class="inline pos-rel">
+                                                                    <div class="user">
+                                                                        <a href="#">
+                                                                            <img src="{{ asset('public/assets_ace/images/avatars/avatar5.png') }}" alt="Alex Doe's avatar" />
+                                                                        </a>
+                                                                    </div>
 
-                                                                <a href="#" class="red">
-                                                                    <i class="ace-icon fa fa-times bigger-125"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
+                                                                    <div class="body">
+                                                                        <div class="name">
+                                                                            <a href="#">
+                                                                                <span class="user-status status-idle"></span>
+                                                                                Alex Doe
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
 
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <img class="pull-left" alt="David Palms's avatar" src="{{ asset('public/assets_ace/images/avatars/avatar4.png') }}" />
-                                                                <a class="user" href="#"> David Palms </a>
+                                                                    <div class="popover">
+                                                                        <div class="arrow"></div>
 
-                                                                left a comment on Alex's wall.
-                                                                <div class="time">
-                                                                    <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                                                    8 hours ago
+                                                                        <div class="popover-content">
+                                                                            <div class="bolder">Marketing</div>
+
+                                                                            <div class="time">
+                                                                                <i class="ace-icon fa fa-clock-o middle bigger-120 orange"></i>
+                                                                                <span class=""> 40 minutes idle </span>
+                                                                            </div>
+
+                                                                            <div class="hr dotted hr-8"></div>
+
+                                                                            <div class="tools action-buttons">
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
+                                                                                </a>
+
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+                                                                                </a>
+
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                                                </a>
+                                                            <div class="itemdiv memberdiv">
+                                                                <div class="inline pos-rel">
+                                                                    <div class="user">
+                                                                        <a href="#">
+                                                                            <img src="{{ asset('public/assets_ace/images/avatars/avatar2.png') }}" alt="Phil Doe's avatar" />
+                                                                        </a>
+                                                                    </div>
 
-                                                                <a href="#" class="red">
-                                                                    <i class="ace-icon fa fa-times bigger-125"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div><!-- /.col -->
+                                                                    <div class="body">
+                                                                        <div class="name">
+                                                                            <a href="#">
+                                                                                <span class="user-status status-online"></span>
+                                                                                Phil Doe
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
 
-                                                    <div class="col-sm-6">
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <i class="pull-left thumbicon fa fa-pencil-square-o btn-pink no-hover"></i>
-                                                                <a class="user" href="#"> Alex Doe </a>
-                                                                published a new blog post.
-                                                                <a href="#">Read now</a>
+                                                                    <div class="popover">
+                                                                        <div class="arrow"></div>
 
-                                                                <div class="time">
-                                                                    <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                                                    11 hours ago
+                                                                        <div class="popover-content">
+                                                                            <div class="bolder">Public Relations</div>
+
+                                                                            <div class="time">
+                                                                                <i class="ace-icon fa fa-clock-o middle bigger-120 orange"></i>
+                                                                                <span class="green"> 2 hours ago </span>
+                                                                            </div>
+
+                                                                            <div class="hr dotted hr-8"></div>
+
+                                                                            <div class="tools action-buttons">
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
+                                                                                </a>
+
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+                                                                                </a>
+
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                                                </a>
+                                                            <div class="itemdiv memberdiv">
+                                                                <div class="inline pos-rel">
+                                                                    <div class="user">
+                                                                        <a href="#">
+                                                                            <img src="{{ asset('public/assets_ace/images/avatars/avatar3.png') }}" alt="Susan Doe's avatar" />
+                                                                        </a>
+                                                                    </div>
 
-                                                                <a href="#" class="red">
-                                                                    <i class="ace-icon fa fa-times bigger-125"></i>
-                                                                </a>
+                                                                    <div class="body">
+                                                                        <div class="name">
+                                                                            <a href="#">
+                                                                                <span class="user-status status-online"></span>
+                                                                                Susan Doe
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="popover">
+                                                                        <div class="arrow"></div>
+
+                                                                        <div class="popover-content">
+                                                                            <div class="bolder">HR Management</div>
+
+                                                                            <div class="time">
+                                                                                <i class="ace-icon fa fa-clock-o middle bigger-120 orange"></i>
+                                                                                <span class="green"> 20 mins ago </span>
+                                                                            </div>
+
+                                                                            <div class="hr dotted hr-8"></div>
+
+                                                                            <div class="tools action-buttons">
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
+                                                                                </a>
+
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+                                                                                </a>
+
+                                                                                <a href="#">
+                                                                                    <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                        </div>
+                                                        </div><!-- CHILDREN -->
 
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <img class="pull-left" alt="Alex Doe's avatar" src="{{ asset('public/assets_ace/images/avatars/avatar5.png') }}" />
-                                                                <a class="user" href="#"> Alex Doe </a>
+                                                        <h5 class="lighter block blue">Name of parent</h5>
+                                                        <div class="profile-user-info">
+                                                            <div class="profile-user-info profile-user-info-striped">
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">FATHER'S SURNAME:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="hrh_type">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
+                                                                    </div>
+                                                                </div>
 
-                                                                upgraded his skills.
-                                                                <div class="time">
-                                                                    <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                                                    12 hours ago
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">FIRSTNAME:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="surname">{{ Auth::user()->lname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">MIDDLE NAME:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="fname">{{ Auth::user()->fname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">NAME EXTENSTION(JR,,SR):</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">MOTHER'S SURNAME:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">FIRST NAME :</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="date_of_birth">{{ Auth::user()->date_of_birth }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">MIDDLE NAME:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="place_of_birth">{{ Auth::user()->place_of_birth }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div> <!-- PARENT -->
+
+                                                        <div class="hr hr-8 dotted"></div>
+
+                                                        <div class="profile-user-info">
+                                                            <div class="profile-info-row">
+                                                                <div class="profile-info-name"> Website </div>
+
+                                                                <div class="profile-info-value">
+                                                                    <a href="#" target="_blank">www.ro7.doh.gov.ph</a>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                                                </a>
+                                                            <div class="profile-info-row">
+                                                                <div class="profile-info-name">
+                                                                    <i class="middle ace-icon fa fa-facebook-square bigger-150 blue"></i>
+                                                                </div>
 
-                                                                <a href="#" class="red">
-                                                                    <i class="ace-icon fa fa-times bigger-125"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <i class="pull-left thumbicon fa fa-key btn-info no-hover"></i>
-                                                                <a class="user" href="#"> Alex Doe </a>
-
-                                                                logged in.
-                                                                <div class="time">
-                                                                    <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                                                    12 hours ago
+                                                                <div class="profile-info-value">
+                                                                    <a href="#">Find me on Facebook</a>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                                                </a>
-
-                                                                <a href="#" class="red">
-                                                                    <i class="ace-icon fa fa-times bigger-125"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <i class="pull-left thumbicon fa fa-power-off btn-inverse no-hover"></i>
-                                                                <a class="user" href="#"> Alex Doe </a>
-
-                                                                logged out.
-                                                                <div class="time">
-                                                                    <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                                                    16 hours ago
+                                                            <div class="profile-info-row">
+                                                                <div class="profile-info-name">
+                                                                    <i class="middle ace-icon fa fa-twitter-square bigger-150 light-blue"></i>
                                                                 </div>
-                                                            </div>
 
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                                                </a>
-
-                                                                <a href="#" class="red">
-                                                                    <i class="ace-icon fa fa-times bigger-125"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="profile-activity clearfix">
-                                                            <div>
-                                                                <i class="pull-left thumbicon fa fa-key btn-info no-hover"></i>
-                                                                <a class="user" href="#"> Alex Doe </a>
-
-                                                                logged in.
-                                                                <div class="time">
-                                                                    <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                                                    16 hours ago
+                                                                <div class="profile-info-value">
+                                                                    <a href="#">Follow me on Twitter</a>
                                                                 </div>
-                                                            </div>
-
-                                                            <div class="tools action-buttons">
-                                                                <a href="#" class="blue">
-                                                                    <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                                                </a>
-
-                                                                <a href="#" class="red">
-                                                                    <i class="ace-icon fa fa-times bigger-125"></i>
-                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div><!-- /.col -->
                                                 </div><!-- /.row -->
+                                            </div><!-- /#family background -->
 
-                                                <div class="space-12"></div>
+                                            <div id="educational_background" class="tab-pane">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <h3 class="lighter block green">Educational Background</h3>
+                                                        <div class="hr dotted hr-8"></div>
+                                                        <h5 class="lighter block blue">Elementary</h5>
+                                                        <div class="profile-user-info">
+                                                            <div class="profile-user-info profile-user-info-striped">
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Name of School(Write in full)</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="hrh_type">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
+                                                                    </div>
+                                                                </div>
 
-                                                <div class="center">
-                                                    <button type="button" class="btn btn-sm btn-primary btn-white btn-round">
-                                                        <i class="ace-icon fa fa-rss bigger-150 middle orange2"></i>
-                                                        <span class="bigger-110">View more activities</span>
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Education/degree/course(Write in full):</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="surname">{{ Auth::user()->lname }}</span>
+                                                                    </div>
+                                                                </div>
 
-                                                        <i class="icon-on-right ace-icon fa fa-arrow-right"></i>
-                                                    </button>
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Period of attendance from:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="fname">{{ Auth::user()->fname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Period of attendance to::</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Highest level/units earned(if not graduated):</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Year Graduated:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="date_of_birth">{{ Auth::user()->date_of_birth }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Scholarship/academic honors receive:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="place_of_birth">{{ Auth::user()->place_of_birth }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div> <!-- ELEMENTARY -->
+                                                        <h5 class="lighter block blue">Secondary</h5>
+                                                        <div class="profile-user-info">
+                                                            <div class="profile-user-info profile-user-info-striped">
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Name of School(Write in full)</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="hrh_type">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Education/degree/course(Write in full):</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="surname">{{ Auth::user()->lname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Period of attendance from:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="fname">{{ Auth::user()->fname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Period of attendance to::</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Highest level/units earned(if not graduated):</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Year Graduated:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="date_of_birth">{{ Auth::user()->date_of_birth }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Scholarship/academic honors receive:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="place_of_birth">{{ Auth::user()->place_of_birth }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div> <!-- SECONDARY -->
+                                                        <h5 class="lighter block blue">VOCATIONAL/TRADE COURSE</h5>
+                                                        <div class="profile-user-info">
+                                                            <div class="profile-user-info profile-user-info-striped">
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Name of School(Write in full)</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="hrh_type">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Education/degree/course(Write in full):</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="surname">{{ Auth::user()->lname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Period of attendance from:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="fname">{{ Auth::user()->fname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Period of attendance to::</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Highest level/units earned(if not graduated):</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Year Graduated:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="date_of_birth">{{ Auth::user()->date_of_birth }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Scholarship/academic honors receive:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="place_of_birth">{{ Auth::user()->place_of_birth }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div> <!-- VOCATIONAL -->
+
+                                                        <h5 class="lighter block blue">COLLEGE</h5>
+                                                        <div class="profile-user-info">
+                                                            <div class="profile-user-info profile-user-info-striped">
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Name of School(Write in full)</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="hrh_type">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Education/degree/course(Write in full):</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="surname">{{ Auth::user()->lname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Period of attendance from:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="fname">{{ Auth::user()->fname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Period of attendance to::</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Highest level/units earned(if not graduated):</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Year Graduated:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="date_of_birth">{{ Auth::user()->date_of_birth }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Scholarship/academic honors receive:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="place_of_birth">{{ Auth::user()->place_of_birth }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div> <!-- COLLEGE -->
+
+                                                        <h5 class="lighter block blue">GRADUATE STUDIES</h5>
+                                                        <div class="profile-user-info">
+                                                            <div class="profile-user-info profile-user-info-striped">
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Name of School(Write in full)</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="hrh_type">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Education/degree/course(Write in full):</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="surname">{{ Auth::user()->lname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Period of attendance from:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="fname">{{ Auth::user()->fname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Period of attendance to::</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Highest level/units earned(if not graduated):</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Year Graduated:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="date_of_birth">{{ Auth::user()->date_of_birth }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name">Scholarship/academic honors receive:</div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="place_of_birth">{{ Auth::user()->place_of_birth }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div> <!-- GRADUATE STUDIES -->
+
+                                                    </div>
                                                 </div>
-                                            </div><!-- /#feed -->
-
-                                            <div id="friends" class="tab-pane">
-                                                <div class="profile-users clearfix">
-                                                    <div class="itemdiv memberdiv">
-                                                        <div class="inline pos-rel">
-                                                            <div class="user">
-                                                                <a href="#">
-                                                                    <img src="{{ asset('public/assets_ace/images/avatars/avatar4.png') }}" alt="Bob Doe's avatar" />
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="body">
-                                                                <div class="name">
-                                                                    <a href="#">
-                                                                        <span class="user-status status-online"></span>
-                                                                        Bob Doe
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="popover">
-                                                                <div class="arrow"></div>
-
-                                                                <div class="popover-content">
-                                                                    <div class="bolder">Content Editor</div>
-
-                                                                    <div class="time">
-                                                                        <i class="ace-icon fa fa-clock-o middle bigger-120 orange"></i>
-                                                                        <span class="green"> 20 mins ago </span>
-                                                                    </div>
-
-                                                                    <div class="hr dotted hr-8"></div>
-
-                                                                    <div class="tools action-buttons">
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="itemdiv memberdiv">
-                                                        <div class="inline pos-rel">
-                                                            <div class="user">
-                                                                <a href="#">
-                                                                    <img src="{{ asset('public/assets_ace/images/avatars/avatar1.png') }}" alt="Rose Doe's avatar" />
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="body">
-                                                                <div class="name">
-                                                                    <a href="#">
-                                                                        <span class="user-status status-offline"></span>
-                                                                        Rose Doe
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="popover">
-                                                                <div class="arrow"></div>
-
-                                                                <div class="popover-content">
-                                                                    <div class="bolder">Graphic Designer</div>
-
-                                                                    <div class="time">
-                                                                        <i class="ace-icon fa fa-clock-o middle bigger-120 grey"></i>
-                                                                        <span class="grey"> 30 min ago </span>
-                                                                    </div>
-
-                                                                    <div class="hr dotted hr-8"></div>
-
-                                                                    <div class="tools action-buttons">
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="itemdiv memberdiv">
-                                                        <div class="inline pos-rel">
-                                                            <div class="user">
-                                                                <a href="#">
-                                                                    <img src="{{ asset('public/assets_ace/images/avatars/avatar.png') }}" alt="Jim Doe's avatar" />
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="body">
-                                                                <div class="name">
-                                                                    <a href="#">
-                                                                        <span class="user-status status-busy"></span>
-                                                                        Jim Doe
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="popover">
-                                                                <div class="arrow"></div>
-
-                                                                <div class="popover-content">
-                                                                    <div class="bolder">SEO &amp; Advertising</div>
-
-                                                                    <div class="time">
-                                                                        <i class="ace-icon fa fa-clock-o middle bigger-120 red"></i>
-                                                                        <span class="grey"> 1 hour ago </span>
-                                                                    </div>
-
-                                                                    <div class="hr dotted hr-8"></div>
-
-                                                                    <div class="tools action-buttons">
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="itemdiv memberdiv">
-                                                        <div class="inline pos-rel">
-                                                            <div class="user">
-                                                                <a href="#">
-                                                                    <img src="{{ asset('public/assets_ace/images/avatars/avatar5.png') }}" alt="Alex Doe's avatar" />
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="body">
-                                                                <div class="name">
-                                                                    <a href="#">
-                                                                        <span class="user-status status-idle"></span>
-                                                                        Alex Doe
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="popover">
-                                                                <div class="arrow"></div>
-
-                                                                <div class="popover-content">
-                                                                    <div class="bolder">Marketing</div>
-
-                                                                    <div class="time">
-                                                                        <i class="ace-icon fa fa-clock-o middle bigger-120 orange"></i>
-                                                                        <span class=""> 40 minutes idle </span>
-                                                                    </div>
-
-                                                                    <div class="hr dotted hr-8"></div>
-
-                                                                    <div class="tools action-buttons">
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="itemdiv memberdiv">
-                                                        <div class="inline pos-rel">
-                                                            <div class="user">
-                                                                <a href="#">
-                                                                    <img src="{{ asset('public/assets_ace/images/avatars/avatar2.png') }}" alt="Phil Doe's avatar" />
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="body">
-                                                                <div class="name">
-                                                                    <a href="#">
-                                                                        <span class="user-status status-online"></span>
-                                                                        Phil Doe
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="popover">
-                                                                <div class="arrow"></div>
-
-                                                                <div class="popover-content">
-                                                                    <div class="bolder">Public Relations</div>
-
-                                                                    <div class="time">
-                                                                        <i class="ace-icon fa fa-clock-o middle bigger-120 orange"></i>
-                                                                        <span class="green"> 2 hours ago </span>
-                                                                    </div>
-
-                                                                    <div class="hr dotted hr-8"></div>
-
-                                                                    <div class="tools action-buttons">
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="itemdiv memberdiv">
-                                                        <div class="inline pos-rel">
-                                                            <div class="user">
-                                                                <a href="#">
-                                                                    <img src="{{ asset('public/assets_ace/images/avatars/avatar3.png') }}" alt="Susan Doe's avatar" />
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="body">
-                                                                <div class="name">
-                                                                    <a href="#">
-                                                                        <span class="user-status status-online"></span>
-                                                                        Susan Doe
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="popover">
-                                                                <div class="arrow"></div>
-
-                                                                <div class="popover-content">
-                                                                    <div class="bolder">HR Management</div>
-
-                                                                    <div class="time">
-                                                                        <i class="ace-icon fa fa-clock-o middle bigger-120 orange"></i>
-                                                                        <span class="green"> 20 mins ago </span>
-                                                                    </div>
-
-                                                                    <div class="hr dotted hr-8"></div>
-
-                                                                    <div class="tools action-buttons">
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="itemdiv memberdiv">
-                                                        <div class="inline pos-rel">
-                                                            <div class="user">
-                                                                <a href="#">
-                                                                    <img src="{{ asset('public/assets_ace/images/avatars/avatar1.png') }}" alt="Jennifer Doe's avatar" />
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="body">
-                                                                <div class="name">
-                                                                    <a href="#">
-                                                                        <span class="user-status status-offline"></span>
-                                                                        Jennifer Doe
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="popover">
-                                                                <div class="arrow"></div>
-
-                                                                <div class="popover-content">
-                                                                    <div class="bolder">Graphic Designer</div>
-
-                                                                    <div class="time">
-                                                                        <i class="ace-icon fa fa-clock-o middle bigger-120 grey"></i>
-                                                                        <span class="grey"> 2 hours ago </span>
-                                                                    </div>
-
-                                                                    <div class="hr dotted hr-8"></div>
-
-                                                                    <div class="tools action-buttons">
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="itemdiv memberdiv">
-                                                        <div class="inline pos-rel">
-                                                            <div class="user">
-                                                                <a href="#">
-                                                                    <img src="{{ asset('public/assets_ace/images/avatars/avatar3.png') }}" alt="Alexa Doe's avatar" />
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="body">
-                                                                <div class="name">
-                                                                    <a href="#">
-                                                                        <span class="user-status status-offline"></span>
-                                                                        Alexa Doe
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="popover">
-                                                                <div class="arrow"></div>
-
-                                                                <div class="popover-content">
-                                                                    <div class="bolder">Accounting</div>
-
-                                                                    <div class="time">
-                                                                        <i class="ace-icon fa fa-clock-o middle bigger-120 grey"></i>
-                                                                        <span class="grey"> 4 hours ago </span>
-                                                                    </div>
-
-                                                                    <div class="hr dotted hr-8"></div>
-
-                                                                    <div class="tools action-buttons">
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                                                                        </a>
-
-                                                                        <a href="#">
-                                                                            <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                            </div><!-- /#education background -->
+
+                                            <div id="service_eligibility" class="tab-pane">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <h3 class="lighter block green">Educational Background</h3>
+                                                        <div class="form-group table-responsive">
+                                                            <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
+                                                                <thead>
+                                                                <tr class="info">
+                                                                    <th class="center" rowspan="2">21. CAREER SERVICE/RA 1080 (BOARD/BAR) UNDER SPECIAL LAWS/CES/CSEE BARANGAY ELIGIBILITY/DRIVER'S LICENCE</th>
+                                                                    <th class="center" rowspan="2">RATING (if Applicable)</th>
+                                                                    <th class="center" rowspan="2">DATE OF EXAMINATION / CONFERMENT</th>
+                                                                    <th class="center" rowspan="2">PLACE OF EXAMINATION / CONFERMENT</th>
+                                                                    <th class="center" colspan="2">LICENSE (if applicable)</th>
+                                                                </tr>
+                                                                <tr class="info">
+                                                                    <th class="center">NUMBER</th>
+                                                                    <th class="center">Date of Validity</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                @for($i=0;$i<10;$i++)
+                                                                    <tr>
+                                                                        <td><input type="text" class="form-control" id="{{ "career_service_name".$i }}" name="career_service_name[]"></td>
+                                                                        <td><input type="text" class="form-control" id="{{ "rating".$i }}" name="rating[]"></td>
+                                                                        <td><input type="text" class="form-control" id="{{ "date_of_examination".$i }}" name="date_of_examination[]"></td>
+                                                                        <td><input type="text" class="form-control" id="{{ "place_of_examination".$i }}" name="place_of_examination[]"></td>
+                                                                        <td><input type="text" class="form-control" id="{{ "license_number".$i }}" name="license_number[]"></td>
+                                                                        <td><input type="text" class="form-control" id="{{ "license_date_validity".$i }}" name="license_date_validity[]"></td>
+                                                                    </tr>
+                                                                @endfor
+                                                                </tbody>
+                                                            </table>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div><!-- /#Service Eligibility -->
 
-                                                <div class="hr hr10 hr-double"></div>
-
-                                                <ul class="pager pull-right">
-                                                    <li class="previous disabled">
-                                                        <a href="#">&larr; Prev</a>
-                                                    </li>
-
-                                                    <li class="next">
-                                                        <a href="#">Next &rarr;</a>
-                                                    </li>
-                                                </ul>
-                                            </div><!-- /#friends -->
-
-                                            <div id="pictures" class="tab-pane">
-                                                <ul class="ace-thumbnails">
-                                                    <li>
-                                                        <a href="#" data-rel="colorbox">
-                                                            <img alt="150x150" src="{{ asset('public/assets_ace/images/gallery/thumb-1.jpg') }}" />
-                                                            <div class="text">
-                                                                <div class="inner">Sample Caption on Hover</div>
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="tools tools-bottom">
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-link"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-paperclip"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-pencil"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-times red"></i>
-                                                            </a>
+                                            <div id="work_experience" class="tab-pane">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <h3 class="lighter block green">Educational Background</h3>
+                                                        <div class="form-group table-responsive">
+                                                            <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
+                                                                <thead>
+                                                                <tr class="info">
+                                                                    <th class="center" colspan="2">22. INCLUSIVE DATES (mm/dd/yyyy)</th>
+                                                                    <th class="center" rowspan="2">POSITION TITLE (Write in full/Do not abbreviate)</th>
+                                                                    <th class="center" rowspan="2">DEPARTMENT / AGENCY / OFFICE / COMPANY (Write in full/Do not abrebiate)</th>
+                                                                    <th class="center" rowspan="2">MONTHLY SALARY</th>
+                                                                    <th class="center" rowspan="2">SALARY/JOB/PAY GRADE(if applicable)(Format *00-0*)/INCREMENT</th>
+                                                                    <th class="center" rowspan="2">STATUS OF APPOINTMENT</th>
+                                                                    <th class="center" rowspan="2">GOV'T SERVICE(Y/N)</th>
+                                                                </tr>
+                                                                <tr class="info">
+                                                                    <th class="center">From</th>
+                                                                    <th class="center">To</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                @for($i=1;$i<=10;$i++)
+                                                                    <tr>
+                                                                        <td class="col-xs-2" colspan="2"><input type="text" id="{{ 'inclusive_dates'.$i }}" class="form-control"></td>
+                                                                        <td class="col-xs-2"><input type="text" class="form-control"></td>
+                                                                        <td class="col-xs-2"><input type="text" class="form-control"></td>
+                                                                        <td class="col-xs-2"><input type="text" class="form-control"></td>
+                                                                        <td class="col-xs-2"><input type="text" class="form-control"></td>
+                                                                        <td class="col-xs-1"><input type="text" class="form-control"></td>
+                                                                        <td class="col-xs-1"><input type="text" class="form-control"></td>
+                                                                    </tr>
+                                                                @endfor
+                                                                </tbody>
+                                                            </table>
                                                         </div>
-                                                    </li>
+                                                    </div>
+                                                </div>
+                                            </div><!-- /#Work Experience -->
 
-                                                    <li>
-                                                        <a href="#" data-rel="colorbox">
-                                                            <img alt="150x150" src="assets/images/gallery/thumb-2.jpg" />
-                                                            <div class="text">
-                                                                <div class="inner">Sample Caption on Hover</div>
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="tools tools-bottom">
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-link"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-paperclip"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-pencil"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-times red"></i>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" data-rel="colorbox">
-                                                            <img alt="150x150" src="assets/images/gallery/thumb-3.jpg" />
-                                                            <div class="text">
-                                                                <div class="inner">Sample Caption on Hover</div>
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="tools tools-bottom">
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-link"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-paperclip"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-pencil"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-times red"></i>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" data-rel="colorbox">
-                                                            <img alt="150x150" src="assets/images/gallery/thumb-4.jpg" />
-                                                            <div class="text">
-                                                                <div class="inner">Sample Caption on Hover</div>
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="tools tools-bottom">
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-link"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-paperclip"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-pencil"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-times red"></i>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" data-rel="colorbox">
-                                                            <img alt="150x150" src="assets/images/gallery/thumb-5.jpg" />
-                                                            <div class="text">
-                                                                <div class="inner">Sample Caption on Hover</div>
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="tools tools-bottom">
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-link"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-paperclip"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-pencil"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-times red"></i>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" data-rel="colorbox">
-                                                            <img alt="150x150" src="assets/images/gallery/thumb-6.jpg" />
-                                                            <div class="text">
-                                                                <div class="inner">Sample Caption on Hover</div>
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="tools tools-bottom">
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-link"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-paperclip"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-pencil"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-times red"></i>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" data-rel="colorbox">
-                                                            <img alt="150x150" src="assets/images/gallery/thumb-1.jpg" />
-                                                            <div class="text">
-                                                                <div class="inner">Sample Caption on Hover</div>
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="tools tools-bottom">
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-link"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-paperclip"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-pencil"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-times red"></i>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" data-rel="colorbox">
-                                                            <img alt="150x150" src="assets/images/gallery/thumb-2.jpg" />
-                                                            <div class="text">
-                                                                <div class="inner">Sample Caption on Hover</div>
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="tools tools-bottom">
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-link"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-paperclip"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-pencil"></i>
-                                                            </a>
-
-                                                            <a href="#">
-                                                                <i class="ace-icon fa fa-times red"></i>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div><!-- /#pictures -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                                        </div><!-- /tab-content -->
+                                    </div><!-- /tabbable -->
+                                </div><!-- /user-profile -->
+                            </div><!-- /COL-->
+                        </div><!-- /user-profile row-->
+                    </div><!-- /DIV -->
 
                     <!-- PAGE CONTENT ENDS -->
                 </div><!-- /.col -->
@@ -1267,6 +1289,7 @@
 @section('js')
 
     <script>
+
         $('.rating').raty({
             'half': true,
             'starType' : 'i',
@@ -1274,7 +1297,9 @@
         });
 
         jQuery(function($) {
-
+            for(var i=1; i<=10; i++){
+                $("#inclusive_dates"+i).daterangepicker();
+            }
             //editables on first profile page
             $.fn.editable.defaults.mode = 'popup';
             $.fn.editableform.loading = "<div class='editableform-loading'><i class='ace-icon fa fa-spinner fa-spin fa-2x light-blue'></i></div>";
@@ -1296,7 +1321,6 @@
             $.each(<?php echo $hrh_type; ?>, function(x, data) {
                 hrhType.push({id: data.id, text: data.description});
             });
-
             $('#hrh_type').editable({
                 name : 'hrh_type',
                 type: 'select2',
