@@ -215,14 +215,14 @@
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name">HRH_TYPE</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="hrh_type">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
+                                                                        <span class="editable_select" id="hrh_type">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name"> SURNAME </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="surname">{{ Auth::user()->lname }}</span>
+                                                                        <span class="editable" id="lname">{{ Auth::user()->lname }}</span>
                                                                     </div>
                                                                 </div>
 
@@ -236,14 +236,14 @@
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name"> MIDDLE NAME </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                        <span class="editable" id="mname">{{ Auth::user()->mname }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name"> MIDDLE NAME </div>
+                                                                    <div class="profile-info-name"> NAME EXTENSION(JR,,SR): </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                        <span class="editable_select" id="n_ext">{{ Auth::user()->name_extensions }}</span>
                                                                     </div>
                                                                 </div>
 
@@ -264,21 +264,14 @@
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name"> SEX </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="sex">{{ Auth::user()->sex }}</span>
+                                                                        <span class="editable_select" id="sex">{{ Auth::user()->gender }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name"> CIVIL STATUS </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="civil_status">{{ Auth::user()->civil_status }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name"> SEX </div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="sex">{{ Auth::user()->sex }}</span>
+                                                                        <span class="editable_select" id="civil_status">{{ Auth::user()->civil_status }}</span>
                                                                     </div>
                                                                 </div>
 
@@ -359,21 +352,6 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name"> Last Online </div>
-
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="login">3 hours ago</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name"> About Me </div>
-
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="about">Editable as WYSIWYG</span>
-                                                                    </div>
-                                                                </div>
                                                             </div>
                                                         </div>
 
@@ -495,14 +473,14 @@
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name">FIRSTNAME:</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="surname">{{ Auth::user()->lname }}</span>
+                                                                        <span class="editable" id="tayong">{{ Auth::user()->lname }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name">MIDDLE NAME:</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="fname">{{ Auth::user()->fname }}</span>
+                                                                        <span class="editable" id="mname1">{{ Auth::user()->fname }}</span>
                                                                     </div>
                                                                 </div>
 
@@ -1305,82 +1283,6 @@
             $.fn.editableform.buttons = '<button type="submit" class="btn btn-info editable-submit"><i class="ace-icon fa fa-check"></i></button>'+
                     '<button type="button" class="btn editable-cancel"><i class="ace-icon fa fa-times"></i></button>';
 
-            //editables
-            //text editable
-
-            var hrhType = [];
-            $.each(<?php echo $hrh_type; ?>, function(x, data) {
-                hrhType.push({id: data.id, text: data.description});
-            });
-            $('#hrh_type').editable({
-                name : 'hrh_type',
-                type: 'select2',
-                source: hrhType,
-                select2: {
-                    width: 200
-                },
-                success: function(data, config) {
-                    console.log(config)
-                },
-                error: function(errors) {
-                }
-            });
-
-            $('#surname')
-            .editable({
-                type: 'text',
-                name: 'surname',
-                success: function(data, config) {
-                    console.log(config)
-                },
-                error: function(errors) {
-                }
-            });
-
-            /*$('#hrh_type').editable({
-                type: 'select2',
-                url: '/ajax_test',
-                pk: 1,
-                onblur: 'submit',
-                emptytext: 'None',
-                select2: {
-                    placeholder: 'Select a Requester',
-                    allowClear: true,
-                    width: '230px',
-                    minimumInputLength: 3,
-                    id: function (e) {
-                        return e.EmployeeId;
-                    },
-                    ajax: {
-                        url: '/ajax_test',
-                        dataType: 'json',
-                        data: function (term, page) {
-                            return { query: term };
-                        },
-                        results: function (data, page) {
-                            return { results: data };
-                        }
-                    },
-                    formatResult: function (employee) {
-                        return employee.EmployeeName;
-                    },
-                    formatSelection: function (employee) {
-                        return employee.EmployeeName;
-                    },
-                    initSelection: function (element, callback) {
-                        return $.get('/EmployeeLookupById', { query: element.val() }, function (data) {
-                            callback(data);
-                        }, 'json'); //added dataType
-                    }
-                }
-                /!* suucess not needed
-                 ,
-                 success: function(response) {
-                 $('#RequestUser').text(response.newVal);
-                 }
-                 *!/
-            });*/
-
 
             //select2 editable
             var countries = [];
@@ -1475,7 +1377,7 @@
                     //,format: 'yyyy-mm-dd',
                     //viewformat: 'yyyy-mm-dd'
                 }
-            })
+            });
 
             $('#age').editable({
                 type: 'spinner',
@@ -1799,6 +1701,86 @@
                 } catch(e) {}
                 $('[class*=select2]').remove();
             });
+
+            ////
+            $('#date_of_birth').editable({
+                type: 'adate',
+                date: {
+                    //datepicker plugin options
+                    format: 'mm/dd/yyyy',
+                    viewformat: 'mm/dd/yyyy',
+                    weekStart: 1
+                },
+                success: function(data, config) {
+                    console.log(config)
+                },
+                error: function(errors) {
+                }
+            });
+
+
+            var hrhType = [];
+            $.each(<?php echo $hrh_type; ?>, function(x, data) {
+                hrhType.push({id: data.id, text: data.description});
+            });
+
+            var nameExtension = [];
+            $.each(<?php echo $name_extension;?>,function(x,data){
+                nameExtension.push({id: data.id, text: data.suffix});
+            });
+
+            var sourceArray = [
+                hrhType,
+                nameExtension,
+                [
+                    {value: 'Male', text: 'Male'},
+                    {value: 'Female', text: 'Female'}
+                ],
+                [
+                    {value: 'Single', text: 'Single'},
+                    {value: 'Widowed', text: 'Widowed'},
+                    {value: 'Other/s', text: 'Other/s'},
+                    {value: 'Married', text: 'Married'},
+                    {value: 'Separated', text: 'Separated'}
+                ],
+                [
+                    {value: 'Single', text: 'Single'},
+                    {value: 'Widowed', text: 'Widowed'},
+                    {value: 'Other/s', text: 'Other/s'},
+                    {value: 'Married', text: 'Married'},
+                    {value: 'Separated', text: 'Separated'}
+                ]
+            ];
+            $(".editable_select").each(function(index) {
+                //console.log(index);
+                $('#'+this.id).editable({
+                    name : this.id,
+                    type: 'select2',
+                    source: sourceArray[index],
+                    select2: {
+                        width: 200
+                    },
+                    success: function(data, config) {
+                        console.log(config)
+                    },
+                    error: function(errors) {
+                    }
+                });
+            });
+
+            $(".editable").each(function() {
+                //console.log(this.id);
+                $('#'+this.id).editable({
+                    type: 'text',
+                    name: this.id,
+                    success: function(data, config) {
+                        console.log(config)
+                    },
+                    error: function(errors) {
+                    }
+                });
+            });
+
         });
 
     </script>

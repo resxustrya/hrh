@@ -103,17 +103,16 @@
 
                                         <div class="form-group">
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="password2">MIDDLE NAME:</label>
-
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="mname" id="mname" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" name="mname1" id="mname1" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="space-2"></div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">NAME EXTENSTION(JR,,SR):</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">NAME EXTENSION(JR,,SR):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
                                                     <input type="text" id="ext_name" name="ext_name" class="col-xs-12 col-sm-6" />
@@ -126,7 +125,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">3. DATE OF BIRTH(mm/dd/yyyy):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="bdate" name="bdate" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" id="datepicker" name="bdate" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -273,7 +272,6 @@
                                                     </label>
                                                 </div>
                                                 <div>
-
                                                     <select id="state" name="state" class="col-xs-12 col-sm-6 select2" data-placeholder="Pls. indicate country:.">
                                                         <option value=""></option>
 
@@ -315,6 +313,7 @@
                                                         <option value="OK">Oklahoma</option>
                                                         <option value="OR">Oregon</option>
                                                         <option value="PA">Pennsylvania</option>
+
                                                         <option value="RI">Rhode Island</option>
                                                         <option value="SC">South Carolina</option>
                                                         <option value="SD">South Dakota</option>
@@ -421,7 +420,6 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">AREA OF ASSIGNMENT(Municipality):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-
                                                     <select id="area_of_work_municipal" name="area_of_work_municipal" class="col-xs-12 col-sm-6 select2" data-placeholder="Pls. indicate municipality:.">
                                                     </select>
                                                 </div>
@@ -866,9 +864,9 @@
 @section('js')
     <script type="text/javascript">
         function add_data(data){
-            $('#municipality').val('').trigger('change');
-            $('#municipality option').remove();
-            $("#municipality").append(
+            $('#area_of_work_municipal').val('').trigger('change');
+            $('#area_of_work_municipal').html('').select2({data: {id:null, text: null}});
+            $("#area_of_work_municipal").append(
                     new Option("","", true, true)
             ).trigger('change');
             if(data.val() == 1)
@@ -879,7 +877,7 @@
                 var municipality = <?php echo $municipality; ?>['negros'];
 
             for(var i = 0; i<municipality.length; i++){
-                $("#municipality").append(
+                $("#area_of_work_municipal").append(
                         new Option(municipality[i]['description'], municipality[i]['id'], true, true)
                 ).trigger('change');
             }
@@ -893,26 +891,7 @@
                 showOtherMonths: true,
                 selectOtherMonths: false,
                 autoclose:true
-                //isRTL:true,
 
-
-                /*
-                 changeMonth: true,
-                 changeYear: true,
-
-                 showButtonPanel: true,
-                 beforeShow: function() {
-                 //change button colors
-                 var datepicker = $(this).datepicker( "widget" );
-                 setTimeout(function(){
-                 var buttons = datepicker.find('.ui-datepicker-buttonpane')
-                 .find('button');
-                 buttons.eq(0).addClass('btn btn-xs');
-                 buttons.eq(1).addClass('btn btn-xs btn-success');
-                 buttons.wrapInner('<span class="bigger-110" />');
-                 }, 0);
-                 }
-                 */
             });
 
             $('[data-rel=tooltip]').tooltip();
@@ -922,7 +901,7 @@
                 $(this).closest('form').validate().element($(this));
             });
 
-            var $validation = true;
+            var $validation = false;
             $('#fuelux-wizard-container')
                     .ace_wizard({
                         //step: 2 //optional argument. wizard will jump to step "2" at first

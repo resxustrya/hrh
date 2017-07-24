@@ -38,8 +38,10 @@ class hrhController extends \BaseController {
 
     public function profile(){
         $hrhType = HrhType::all(['id','description']);
+        $nameExtension = NameExtension::all(['id','suffix','description']);
         return View::make('profile.profile', [
-            "hrh_type" => $hrhType
+            "hrh_type" => $hrhType,
+            "name_extension" => $nameExtension
         ]);
     }
 
