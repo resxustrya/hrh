@@ -27,7 +27,6 @@
             <div class="row">
                 <div class="col-xs-12">
                     <!-- PAGE CONTENT BEGINS -->
-                    <!--
                     <ul class="nav nav-tabs padding-18">
                         <li class="active">
                             <a data-toggle="tab" href="#personal_information">
@@ -61,7 +60,7 @@
                         </li>
                     </ul>
                     <div class="hr dotted"></div>
-                    -->
+
                     <div>
                         <div id="user-profile-1" class="user-profile row">
                             <div class="col-xs-12 col-sm-3 center">
@@ -1309,14 +1308,6 @@
             //editables
             //text editable
 
-
-            /*$('#hrh_type')
-                    .editable({
-                        type: 'text',
-                        name: 'hrh_type',
-                        'width': 1000
-                    });*/
-
             var hrhType = [];
             $.each(<?php echo $hrh_type; ?>, function(x, data) {
                 hrhType.push({id: data.id, text: data.description});
@@ -1328,6 +1319,17 @@
                 select2: {
                     width: 200
                 },
+                success: function(data, config) {
+                    console.log(config)
+                },
+                error: function(errors) {
+                }
+            });
+
+            $('#surname')
+            .editable({
+                type: 'text',
+                name: 'surname',
                 success: function(data, config) {
                     console.log(config)
                 },

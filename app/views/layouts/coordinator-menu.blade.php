@@ -1,4 +1,3 @@
-<!--
 <ul class="nav navbar-nav">
     <li><a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a></li>
     <li><a href="{{ url('/profile') }}"><i class="fa fa-home"></i> Profile</a></li>
@@ -11,7 +10,7 @@
         </ul>
     </li>
 </ul>
--->
+<!--
 <div class="navbar-buttons navbar-header" role="navigation">
     <ul class="nav navbar-nav">
         <li>
@@ -46,3 +45,4 @@
         </li>
     </ul>
 </div>
+-->
