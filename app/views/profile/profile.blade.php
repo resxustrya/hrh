@@ -264,14 +264,14 @@
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name"> SEX </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable_select" id="sex">{{ Auth::user()->gender }}</span>
+                                                                        <span class="editable_radio" id="sex">{{ Auth::user()->gender }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name"> CIVIL STATUS </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable_select" id="civil_status">{{ Auth::user()->civil_status }}</span>
+                                                                        <span class="editable_radio" id="civil_status">{{ Auth::user()->civil_status }}</span>
                                                                     </div>
                                                                 </div>
 
@@ -285,7 +285,15 @@
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name"> TIN NO: </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="philhealth">{{ Auth::user()->tin }}</span>
+                                                                        <span class="editable" id="tin_no">{{ Auth::user()->tin }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> NAME OF GSIS GROUP INSURANCE BENEFICIARIES: </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="gsis_beneficiaries1">{{ Auth::user()->gsis_beneficiaries1 }}</span>
+                                                                        <span class="editable" id="gsis_beneficiaries2">{{ Auth::user()->gsis_beneficiaries2 }}</span>
                                                                     </div>
                                                                 </div>
 
@@ -299,14 +307,14 @@
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name"> CITIZENSHIP: </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="citizenship">{{ Auth::user()->citizenship }}</span>
+                                                                        <span class="editable_radio" id="citizenship">{{ Auth::user()->citizenship }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name"> RESIDENTIAL ADDRESS: </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="citizenship">{{ Auth::user()->residential_address }}</span>
+                                                                        <span class="editable" id="residential_address">{{ Auth::user()->residential_address }}</span>
                                                                     </div>
                                                                 </div>
 
@@ -1283,146 +1291,6 @@
             $.fn.editableform.buttons = '<button type="submit" class="btn btn-info editable-submit"><i class="ace-icon fa fa-check"></i></button>'+
                     '<button type="button" class="btn editable-cancel"><i class="ace-icon fa fa-times"></i></button>';
 
-
-            //select2 editable
-            var countries = [];
-            $.each({ "CA": "Canada", "IN": "India", "NL": "Netherlands", "TR": "Turkey", "US": "United States"}, function(k, v) {
-                countries.push({id: k, text: v});
-            });
-
-            var cities = [];
-            cities["CA"] = [];
-            $.each(["Toronto", "Ottawa", "Calgary", "Vancouver"] , function(k, v){
-                cities["CA"].push({id: v, text: v});
-            });
-            cities["IN"] = [];
-            $.each(["Delhi", "Mumbai", "Bangalore"] , function(k, v){
-                cities["IN"].push({id: v, text: v});
-            });
-            cities["NL"] = [];
-            $.each(["Amsterdam", "Rotterdam", "The Hague"] , function(k, v){
-                cities["NL"].push({id: v, text: v});
-            });
-            cities["TR"] = [];
-            $.each(["Ankara", "Istanbul", "Izmir"] , function(k, v){
-                cities["TR"].push({id: v, text: v});
-            });
-            cities["US"] = [];
-            $.each(["New York", "Miami", "Los Angeles", "Chicago", "Wysconsin"] , function(k, v){
-                cities["US"].push({id: v, text: v});
-            });
-
-            var currentValue = "NL";
-            $('#country').editable({
-                type: 'select2',
-                value : 'NL',
-                //onblur:'ignore',
-                source: countries,
-                select2: {
-                    'width': 140
-                },
-                success: function(response, newValue) {
-                    if(currentValue == newValue) return;
-                    currentValue = newValue;
-
-                    var new_source = (!newValue || newValue == "") ? [] : cities[newValue];
-
-                    //the destroy method is causing errors in x-editable v1.4.6+
-                    //it worked fine in v1.4.5
-                    /**
-                     $('#city').editable('destroy').editable({
-							type: 'select2',
-							source: new_source
-						}).editable('setValue', null);
-                     */
-
-                    //so we remove it altogether and create a new element
-                    var city = $('#city').removeAttr('id').get(0);
-                    $(city).clone().attr('id', 'city').text('Select City').editable({
-                        type: 'select2',
-                        value : null,
-                        //onblur:'ignore',
-                        source: new_source,
-                        select2: {
-                            'width': 140
-                        }
-                    }).insertAfter(city);//insert it after previous instance
-                    $(city).remove();//remove previous instance
-
-                }
-            });
-
-            $('#city').editable({
-                type: 'select2',
-                value : 'Amsterdam',
-                //onblur:'ignore',
-                source: cities[currentValue],
-                select2: {
-                    'width': 140
-                }
-            });
-
-
-
-            //custom date editable
-            $('#signup').editable({
-                type: 'adate',
-                date: {
-                    //datepicker plugin options
-                    format: 'yyyy/mm/dd',
-                    viewformat: 'yyyy/mm/dd',
-                    weekStart: 1
-
-                    //,nativeUI: true//if true and browser support input[type=date], native browser control will be used
-                    //,format: 'yyyy-mm-dd',
-                    //viewformat: 'yyyy-mm-dd'
-                }
-            });
-
-            $('#age').editable({
-                type: 'spinner',
-                name : 'age',
-                spinner : {
-                    min : 16,
-                    max : 99,
-                    step: 1,
-                    on_sides: true
-                    //,nativeUI: true//if true and browser support input[type=number], native browser control will be used
-                }
-            });
-
-
-            $('#login').editable({
-                type: 'slider',
-                name : 'login',
-
-                slider : {
-                    min : 1,
-                    max: 50,
-                    width: 100
-                    //,nativeUI: true//if true and browser support input[type=range], native browser control will be used
-                },
-                success: function(response, newValue) {
-                    if(parseInt(newValue) == 1)
-                        $(this).html(newValue + " hour ago");
-                    else $(this).html(newValue + " hours ago");
-                }
-            });
-
-            $('#about').editable({
-                mode: 'inline',
-                type: 'wysiwyg',
-                name : 'about',
-
-                wysiwyg : {
-                    //css : {'max-width':'300px'}
-                },
-                success: function(response, newValue) {
-                }
-            });
-
-
-
             // *** editable avatar *** //
             try {//ie8 throws some harmless exceptions, so let's catch'em
 
@@ -1691,8 +1559,6 @@
                 $('#user-profile-'+which).parent().removeClass('hide');
             });
 
-
-
             /////////////////////////////////////
             $(document).one('ajaxloadstart.page', function(e) {
                 //in ajax mode, remove remaining elements before leaving page
@@ -1702,7 +1568,7 @@
                 $('[class*=select2]').remove();
             });
 
-            ////
+            //// AJAX
             $('#date_of_birth').editable({
                 type: 'adate',
                 date: {
@@ -1729,19 +1595,12 @@
                 nameExtension.push({id: data.id, text: data.suffix});
             });
 
-            var sourceArray = [
+            var source_select = [
                 hrhType,
                 nameExtension,
                 [
                     {value: 'Male', text: 'Male'},
                     {value: 'Female', text: 'Female'}
-                ],
-                [
-                    {value: 'Single', text: 'Single'},
-                    {value: 'Widowed', text: 'Widowed'},
-                    {value: 'Other/s', text: 'Other/s'},
-                    {value: 'Married', text: 'Married'},
-                    {value: 'Separated', text: 'Separated'}
                 ],
                 [
                     {value: 'Single', text: 'Single'},
@@ -1756,7 +1615,7 @@
                 $('#'+this.id).editable({
                     name : this.id,
                     type: 'select2',
-                    source: sourceArray[index],
+                    source: source_select[index],
                     select2: {
                         width: 200
                     },
@@ -1781,7 +1640,163 @@
                 });
             });
 
+            var source_radio = [
+                [
+                    {value: 'Male', text: 'Male'},
+                    {value: 'Female', text: 'Female'}
+                ],
+                [
+                    {value: 'Single', text: 'Single'},
+                    {value: 'Widowed', text: 'Widowed'},
+                    {value: 'Others', text: 'Others'},
+                    {value: 'Married', text: 'Married'},
+                    {value: 'Separated', text: 'Separated'}
+                ],
+                [
+                    {value: 'Filipino', text: 'Filipino'},
+                    {value: 'Dual Citizenship', text: 'Dual Citizenship'},
+                    {value: 'br birth', text: 'by birth'},
+                    {value: 'by naturalization', text: 'by naturalization'}
+                ]
+            ];
+
+            $(".editable_radio").each(function(index){
+                $('#'+this.id).editable({
+                    type: 'radiolist',
+                    name: this.id,
+                    source: source_radio[index],
+                    validate: function(value) {
+                        $("#sex").html(value);
+                        console.log(value);
+                    }
+                });
+            });
+
         });
+
+        (function($) {
+            var Radiolist = function (options) {
+                this.init('radiolist', options, Radiolist.defaults);
+            };
+            $.fn.editableutils.inherit(Radiolist, $.fn.editabletypes.list);
+
+            $.extend(Radiolist.prototype, {
+                renderList: function() {
+                    var $label;
+                    this.$tpl.empty();
+                    if(!$.isArray(this.sourceData)) {
+                        return;
+                    }
+                    for(var i=0; i<this.sourceData.length; i++) {
+                        // There should be a better way to get name. May need to be changed for other layouts
+                        //var name = this.$input.closest('.editable_radio').find("[data-type='radiolist']").attr('id'); way gamit undefined
+                        var name = this.options.scope.id;
+                        $label = $('<label class="radio-inline" style="padding-right:10px;padding-top:5px;">')
+                                .append($('<input>', {
+                                    type: 'radio',
+                                    name:  name,
+                                    value: this.sourceData[i].value
+                                }
+                                ));
+                        $label.append($('<span>').text(this.sourceData[i].text));
+                        // Add radio buttons to template
+                        this.$tpl.append($label);
+                    }
+                    if(name == 'citizenship'){
+                        this.$tpl.append("<br><br>" +
+                                "<select id='state' name='state' class='form-control'> "  +
+                                "<option value=''>Pls. indicate country.</option>" +
+                                "@foreach($country as $row)<option value='{{ $row->id }}'>{{ $row->description }}</option>@endforeach" +
+                                "</select>");
+                    }
+                    this.$input = this.$tpl.find('input[type="radio"]');
+                    this.setClass();
+                },
+
+                value2str: function(value) {
+                    return $.isArray(value) ? value.sort().join($.trim(this.options.separator)) : '';
+                },
+
+                //parse separated string
+                str2value: function(str) {
+                    var reg, value = null;
+                    if(typeof str === 'string' && str.length) {
+                        reg = new RegExp('\\s*'+$.trim(this.options.separator)+'\\s*');
+                        value = str.split(reg);
+                    } else if($.isArray(str)) {
+                        value = str;
+                    }
+                    return value;
+                },
+
+                //set checked on required radio buttons
+                //!!Could probably be cleaned up since this was for select multiple originally
+                value2input: function(value) {
+                    this.$input.prop('checked', false);
+
+                    if($.isArray(value) && value.length) {
+                        this.$input.each(function(i, el) {
+                            var $el = $(el);
+                            // cannot use $.inArray as it performs strict comparison
+                            $.each(value, function(j, val) {
+                                if($el.val() == val) {
+                                    $el.prop('checked', true);
+                                }
+                            });
+                        });
+                    }
+                },
+
+                input2value: function() {
+                    return this.$input.filter(':checked').val();
+                },
+
+                //collect text of checked boxes
+                value2htmlFinal: function(value, element) {
+                    checked = $.fn.editableutils.itemsByValue(value, this.sourceData);
+                    if(checked.length) {
+                        $(element).html($.fn.editableutils.escape(value));
+                    } else {
+                        $(element).empty();
+                    }
+                },
+
+                value2submit: function(value) {
+                    return value;
+                },
+
+                activate: function() {
+                    this.$input.first().focus();
+                }
+            });
+
+            Radiolist.defaults = $.extend({}, $.fn.editabletypes.list.defaults, {
+                /**
+                 @property tpl
+                 @default <div></div>
+                 **/
+                tpl:'<label class="editable-radiolist"></label>',
+
+                /**
+                 @property inputclass
+                 @type string
+                 @default null
+                 **/
+                inputclass: '',
+
+                /**
+                 Separator of values when reading from `data-value` attribute
+
+                 @property separator
+                 @type string
+                 @default ','
+                 **/
+                separator: ','
+            });
+
+            $.fn.editabletypes.radiolist = Radiolist;
+
+        }(window.jQuery));
 
     </script>
 

@@ -17,10 +17,12 @@ class hrhController extends \BaseController {
         $municipality['cebu'] = Municipality::where("province",1)->get(['id','description']);
         $municipality['bohol'] = Municipality::where("province",2)->get(['id','description']);
         $municipality['negros'] = Municipality::where("province",3)->get(['id','description']);
+        $country = Country::all();
         return View::make('auth.register',[
             "hrhType" => $hrhType,
             "province" => $province,
-            "municipality" => json_encode($municipality)
+            "municipality" => json_encode($municipality),
+            "country" => $country
         ]);
     }
 
@@ -39,9 +41,11 @@ class hrhController extends \BaseController {
     public function profile(){
         $hrhType = HrhType::all(['id','description']);
         $nameExtension = NameExtension::all(['id','suffix','description']);
+        $country = Country::all();
         return View::make('profile.profile', [
             "hrh_type" => $hrhType,
-            "name_extension" => $nameExtension
+            "name_extension" => $nameExtension,
+            "country" => $country
         ]);
     }
 

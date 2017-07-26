@@ -28,7 +28,8 @@ class UsersTableSeeder extends Seeder
         $user->citizenship = "Filipino";
         $user->philhealth = 'PHIL-121-2017';
         $user->tin = 'TIN-121-2017';
-        $user->gsis = 'GSIS-121-2017';
+        $user->gsis_beneficiaries1 = 'JOHN DOE';
+        $user->gsis_beneficiaries2 = 'JANE DOE';
         $user->prc_license = 'PRC-121-2017';
         $user->date_of_entrance_to_duty = '10/20/2017';
         $user->status_of_employment = 1;
