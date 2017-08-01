@@ -38,19 +38,64 @@ class hrhController extends \BaseController {
         return Municipality::where('id',$hrhMunicipality)->first();
     }
 
-    public function profile(){
-        $hrhType = HrhType::all(['id','description']);
-        $nameExtension = NameExtension::all(['id','suffix','description']);
-        $country = Country::all();
-        return View::make('profile.profile', [
-            "hrh_type" => $hrhType,
-            "name_extension" => $nameExtension,
-            "country" => $country
+    public static function hrh_status($hrhStatus){
+        return Status::where('id',$hrhStatus)->first();
+    }
+
+    public function hrhInfo($userid){
+        $user = Users::where('id',$userid)->first();
+        return View::make('hrh.hrhInfo',[
+            "user" => $user
         ]);
     }
 
-    public function ajax_test(){
-        return 'rusel tayong';
+    public function profile($userid = null){
+        $user = '';
+        if($userid){
+            $user = Users::where('id',$userid)->first();
+        }
+        $hrhType = HrhType::all(['id','description']);
+        $nameExtension = NameExtension::all(['id','suffix','description']);
+        $country = Country::all();
+        $educationalBackground = EducationalBackground::where("userid",$userid ? $userid : Auth::user()->id)->get();
+        $children = Children::where('userid',Auth::user()->id)->get();
+        $serviceEligibility = ServiceEligibility::where('userid',Auth::user()->id)->get();
+        $workExperience = WorkExperience::where('userid',Auth::user()->id)->get();
+
+        return View::make('profile.profile', [
+            "user" => $user,
+            "hrh_type" => $hrhType,
+            "name_extension" => $nameExtension,
+            "country" => $country,
+            "educationalBackground" => $educationalBackground,
+            "children" => $children,
+            "serviceEligibility" => $serviceEligibility,
+            "workExperience" => $workExperience
+        ]);
     }
+
+    public function hrhList(){
+        $keyword = Session::get('keyword');
+        $users = Users::where(function($q) use ($keyword){
+            $q->where('fname','like',"%$keyword%")
+                ->orWhere('mname','like',"%$keyword%")
+                ->orWhere('lname','like',"%$keyword%");
+        })
+            ->orderBy('id','desc')
+            ->paginate(10);
+
+        return View::make('hrh.hrhList',[
+            "users" => $users
+        ]);
+    }
+    public function ajax_test(){
+        $hrh_type = Input::get('hrh_type');
+        Users::where("id",Auth::user()->id)
+            ->update([
+                "hrh_type" => $hrh_type
+            ]);
+        return "success_ajax";
+    }
+
 
 }

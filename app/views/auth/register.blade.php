@@ -291,15 +291,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="space-2"></div>
-                                        <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">ZIP CODE:</label>
-                                            <div class="col-xs-12 col-sm-9">
-                                                <div class="clearfix">
-                                                    <input type="text" id="resident_zip_code" name="resident_zip_code" class="col-xs-12 col-sm-6" />
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="hr hr-dotted"></div>
 
                                         <div class="form-group">

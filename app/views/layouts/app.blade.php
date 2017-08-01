@@ -4,7 +4,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
     <title>HRH</title>
-
     <meta name="description" content="3 styles with inline editable feature" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
@@ -25,15 +24,8 @@
     <!-- ace styles -->
     <link rel="stylesheet" href="{{ asset('public/assets_ace/css/ace.min.css') }}" class="ace-main-stylesheet" id="main-ace-style" />
 
-    <!--[if lte IE 9]>
-    <link rel="stylesheet" href="{{ asset('public/assets_ace/css/ace-part2.min.css') }}" class="ace-main-stylesheet" />
-    <![endif]-->
     <link rel="stylesheet" href="{{ asset('public/assets_ace/css/ace-skins.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('public/assets_ace/css/ace-rtl.min.css') }}" />
-
-    <!--[if lte IE 9]>
-    <link rel="stylesheet" href="{{ asset('public/assets_ace/css/ace-ie.min.css') }}" />
-    <![endif]-->
 
     <!-- inline styles related to this page -->
 
@@ -42,15 +34,9 @@
 
     <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
-    <!--[if lte IE 8]>
-    <script src="{{ asset('public/assets_ace/js/html5shiv.min.js') }}"></script>
-    <script src="{{ asset('public/assets_ace/js/respond.min.js') }}"></script>
-    <![endif]-->
     <script src="{{ asset('public/assets_ace/js/jquery-2.1.4.min.js') }}"></script>
     <script src="{{ asset('public/assets_ace/js/raphael-min.js') }}"></script>
-    <!--[if IE]>
-    <script src="{{ asset('public/assets_ace/js/jquery-1.11.3.min.js') }}"></script>
-    <![endif]-->
+
     <!--MORRIS -->
     <link rel="stylesheet" href="{{ asset('public/plugin/morris/morris.css') }}">
     <script src="{{ asset('public/plugin/morris/morris.min.js') }}"></script>
@@ -73,7 +59,7 @@
     <div style="background-color:#2F4054;padding:10px;">
         <div class="col-md-4">
             @if(Auth::check())
-            <span style="color: #f0ad4e;font-size: 12pt"><b>Welcome,</b></span> <span class="title-desc" style="color: white;font-size: 12pt">{{ Auth::user()->fname }} T. Tayong</span>
+            <span style="color: #f0ad4e;font-size: 12pt"><b>Welcome,</b></span> <span class="title-desc" style="color: white;font-size: 12pt">{{ Auth::user()->fname }} T. {{ Auth::user()->lname }}</span>
             @else
             <span style="color: #f0ad4e;font-size: 12pt"><b>DOH7-IT</b></span>
             @endif
@@ -320,7 +306,7 @@
                                 <ul class="dropdown-menu dropdown-navbar">
                                     <li>
                                         <a href="#" class="clearfix">
-                                            <img src="assets/images/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+                                            <img src="" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Alex:</span>
@@ -337,7 +323,7 @@
 
                                     <li>
                                         <a href="#" class="clearfix">
-                                            <img src="assets/images/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+                                            <img src="" class="msg-photo" alt="Susan's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Susan:</span>
@@ -371,7 +357,7 @@
 
                                     <li>
                                         <a href="#" class="clearfix">
-                                            <img src="assets/images/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
+                                            <img src="" class="msg-photo" alt="Kate's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Kate:</span>
@@ -388,7 +374,7 @@
 
                                     <li>
                                         <a href="#" class="clearfix">
-                                            <img src="assets/images/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
+                                            <img src="" class="msg-photo" alt="Fred's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Fred:</span>
@@ -432,9 +418,13 @@
         </div>
     </div>
 </div>
+@include('modal')
 
 <!-- basic scripts -->
-
+<script>
+    var loadingState = '<h1 class="header smaller lighter grey center"> <i class="ace-icon fa fa-spinner fa-spin orange bigger-300"></i></h1>';
+    $(".pagination").addClass('pull-right');
+</script>
 <script type="text/javascript">
     if('ontouchstart' in document.documentElement) document.write("<script src='{{ asset('public/assets_ace/js/jquery.mobile.custom.min.js') }}'>"+"<"+"/script>");
 </script>
@@ -442,9 +432,6 @@
 
 <!-- page specific plugin scripts -->
 
-<!--[if lte IE 8]>
-<script src="{{ asset('public/assets_ace/js/excanvas.min.js') }}"></script>
-<![endif]-->
 <script src="{{ asset('public/assets_ace/js/jquery-ui.custom.min.js') }}"></script>
 <script src="{{ asset('public/assets_ace/js/jquery.ui.touch-punch.min.js') }}"></script>
 <script src="{{ asset('public/assets_ace/js/jquery.gritter.min.js') }}"></script>

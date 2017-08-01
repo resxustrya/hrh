@@ -10,10 +10,15 @@
     input[type="text"] {
         font-size:11px;
     }
+    .profile-info-name{
+        width: 30%;
+    }
 </style>
+<!--
 <script type="text/javascript">
     try{ace.settings.loadState('main-container')}catch(e){}
 </script>
+-->
 <div class="main-content">
     <div class="main-content-inner">
         <div class="page-content">
@@ -66,7 +71,7 @@
                             <div class="col-xs-12 col-sm-3 center">
                                 <div>
                                 <span class="profile-picture">
-                                    <img id="avatar" class="editable img-responsive" alt="Alex's Avatar" src="{{ asset('public/assets_ace/images/avatars/profile-pic.jpg') }}" />
+                                    <img id="avatar" class="editable img-responsive" alt="Alex's Avatar" src="{{ Auth::user()->photo }}" />
                                 </span>
                                     <div class="rating inline"></div>
                                     <div class="space-4"></div>
@@ -198,14 +203,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="hr hr16 dotted"></div>
                             </div>
 
                             <div class="col-xs-12 col-sm-9">
                                 <div id="user-profile-2" class="user-profile">
                                     <div class="tabbable">
                                         <div class="tab-content no-border padding-5">
-                                            <div id="personal_information" class="tab-pane in active">
+                                            <div id="personal_information" class="tab-pane fade in active">
                                                 <div class="row">
                                                     <div class="col-xs-12">
                                                         <h3 class="lighter block green">Personal Information</h3>
@@ -243,14 +247,14 @@
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name"> NAME EXTENSION(JR,,SR): </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable_select" id="n_ext">{{ Auth::user()->name_extensions }}</span>
+                                                                        <span class="editable_select" id="n_ext">{{ Auth::user()->name_extension }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name"> DATE OF BIRTH </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="date_of_birth">{{ Auth::user()->date_of_birth }}</span>
+                                                                        <span class="editable_picker" id="date_of_birth">{{ Auth::user()->date_of_birth }}</span>
                                                                     </div>
                                                                 </div>
 
@@ -264,7 +268,7 @@
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name"> SEX </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable_radio" id="sex">{{ Auth::user()->gender }}</span>
+                                                                        <span class="editable_radio" id="sex">{{ Auth::user()->sex }}</span>
                                                                     </div>
                                                                 </div>
 
@@ -278,14 +282,14 @@
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name"> PHILHEALTH NO: </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="philhealth">{{ Auth::user()->philhealth }}</span>
+                                                                        <span class="editable" id="philhealth_no">{{ Auth::user()->philhealth_no }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name"> TIN NO: </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="tin_no">{{ Auth::user()->tin }}</span>
+                                                                        <span class="editable" id="tin_no">{{ Auth::user()->tin_no }}</span>
                                                                     </div>
                                                                 </div>
 
@@ -319,13 +323,6 @@
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name"> ZIP CODE: </div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="zip_code1">{{ Auth::user()->zip_code }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
                                                                     <div class="profile-info-name"> PERMANENT ADDRESS: </div>
                                                                     <div class="profile-info-value">
                                                                         <span class="editable" id="permanent_address">{{ Auth::user()->permanent_address }}</span>
@@ -333,9 +330,30 @@
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name"> ZIP_COE: </div>
+                                                                    <div class="profile-info-name"> ZIP COE: </div>
                                                                     <div class="profile-info-value">
                                                                         <span class="editable" id="zip_code2">{{ Auth::user()->zip_code }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> TELEPHONE NO: </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="telephone_no">{{ Auth::user()->telephone_no }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> MOBILE NO: </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="mobile_no">{{ Auth::user()->mobile_no }}</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name"> EMAIL ADDRESS: </div>
+                                                                    <div class="profile-info-value">
+                                                                        <span class="editable" id="email_address">{{ Auth::user()->email_address}}</span>
                                                                     </div>
                                                                 </div>
 
@@ -356,44 +374,13 @@
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name"> DATE OF ENTRANCE TO DUTY: </div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="date_of_entrance_to_duty">{{ Auth::user()->date_of_entrance_to_dutyy }}</span>
+                                                                        <span class="editable_picker" id="date_of_entrance_to_duty">{{ Auth::user()->date_of_entrance_to_duty }}</span>
                                                                     </div>
                                                                 </div>
 
                                                             </div>
                                                         </div>
 
-                                                        <div class="hr hr-8 dotted"></div>
-
-                                                        <div class="profile-user-info">
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name"> Website </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <a href="#" target="_blank">www.ro7.doh.gov.ph</a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name">
-                                                                    <i class="middle ace-icon fa fa-facebook-square bigger-150 blue"></i>
-                                                                </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <a href="#">Find me on Facebook</a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name">
-                                                                    <i class="middle ace-icon fa fa-twitter-square bigger-150 light-blue"></i>
-                                                                </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <a href="#">Follow me on Twitter</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     </div><!-- /.col -->
                                                 </div><!-- /.row -->
 
@@ -465,722 +452,233 @@
                                                 </div>
                                             </div><!-- /#personal information -->
 
-                                            <div id="family_background" class="tab-pane">
+                                            <div id="family_background" class="tab-pane fade">
                                                 <div class="row">
                                                     <div class="col-xs-12">
                                                         <h3 class="lighter block green">Family Background</h3>
                                                         <div class="profile-user-info">
                                                             <div class="profile-user-info profile-user-info-striped">
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name">SPOUSE'S SURNAME:</div>
+                                                                    <div class="profile-info-name">Spouse Surname:</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="hrh_type">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
+                                                                        <span class="editable" id="spouse_lname">{{ Auth::user()->spouse_lname }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name">FIRSTNAME:</div>
+                                                                    <div class="profile-info-name">Spouse Firstname:</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="tayong">{{ Auth::user()->lname }}</span>
+                                                                        <span class="editable" id="spouse_fname">{{ Auth::user()->spouse_fname }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name">MIDDLE NAME:</div>
+                                                                    <div class="profile-info-name">Spouse Middlename:</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="mname1">{{ Auth::user()->fname }}</span>
+                                                                        <span class="editable" id="spouse_mname">{{ Auth::user()->spouse_lname }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name">NAME EXTENSTION(JR,,SR):</div>
+                                                                    <div class="profile-info-name">Spouse Name Extension(JR,,SR):</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                        <span class="editable" id="spouse_nextension">{{ Auth::user()->spouse_nextension }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name">OCCUPATION:</div>
+                                                                    <div class="profile-info-name">Occupation:</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                        <span class="editable" id="spouse_occupation">{{ Auth::user()->spouse_occupation }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name">EMPLOYER/BUSINESS NAME:</div>
+                                                                    <div class="profile-info-name">Employer/Business Name:</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="date_of_birth">{{ Auth::user()->date_of_birth }}</span>
+                                                                        <span class="editable" id="spouse_business_name">{{ Auth::user()->spouse_business_name }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name">TELEPHONE NO:</div>
+                                                                    <div class="profile-info-name">Telephone No:</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="place_of_birth">{{ Auth::user()->place_of_birth }}</span>
+                                                                        <span class="editable" id="spouse_telephone_no">{{ Auth::user()->spouse_telephone_no }}</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                         <h5 class="lighter block blue">Name of children</h5>
-                                                        <div class="profile-users clearfix">
-                                                            <div class="itemdiv memberdiv">
-                                                                <div class="inline pos-rel">
-                                                                    <div class="user">
-                                                                        <a href="#">
-                                                                            <img src="{{ asset('public/assets_ace/images/avatars/avatar4.png') }}" alt="Bob Doe's avatar" />
-                                                                        </a>
-                                                                    </div>
-
-                                                                    <div class="body">
-                                                                        <div class="name">
-                                                                            <a href="#">
-                                                                                <span class="user-status status-online"></span>
-                                                                                Bob Doe
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="popover">
-                                                                        <div class="arrow"></div>
-                                                                        <div class="popover-content">
-                                                                            <div class="bolder">Content Editor</div>
-
-                                                                            <div class="time">
-                                                                                <i class="ace-icon fa fa-clock-o middle bigger-120 orange"></i>
-                                                                                <span class="green"> 20 mins ago </span>
-                                                                            </div>
-
-                                                                            <div class="hr dotted hr-8"></div>
-
-                                                                            <div class="tools action-buttons">
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-                                                                                </a>
-
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                                                                                </a>
-
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
+                                                        <div class="profile-user-info">
+                                                            <div class="profile-user-info profile-user-info-striped">
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name warning"><b><i>NAME of CHILDREN (Write full name and list all):</i></b></div>
+                                                                    <div class="profile-info-value pull-left">
+                                                                        <span class="editable_picker"><b><i>DATE OF BIRTH (mm/dd/yyyy)</i></b></span>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-
-                                                            <div class="itemdiv memberdiv">
-                                                                <div class="inline pos-rel">
-                                                                    <div class="user">
-                                                                        <a href="#">
-                                                                            <img src="{{ asset('public/assets_ace/images/avatars/avatar1.png') }}" alt="Rose Doe's avatar" />
-                                                                        </a>
-                                                                    </div>
-
-                                                                    <div class="body">
-                                                                        <div class="name">
-                                                                            <a href="#">
-                                                                                <span class="user-status status-offline"></span>
-                                                                                Rose Doe
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="popover">
-                                                                        <div class="arrow"></div>
-
-                                                                        <div class="popover-content">
-                                                                            <div class="bolder">Graphic Designer</div>
-
-                                                                            <div class="time">
-                                                                                <i class="ace-icon fa fa-clock-o middle bigger-120 grey"></i>
-                                                                                <span class="grey"> 30 min ago </span>
-                                                                            </div>
-
-                                                                            <div class="hr dotted hr-8"></div>
-
-                                                                            <div class="tools action-buttons">
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-                                                                                </a>
-
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                                                                                </a>
-
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
+                                                                <?php $c_count = 0; ?>
+                                                                @foreach($children as $row)
+                                                                <?php $c_count++; ?>
+                                                                <div class="profile-info-row">
+                                                                    <div class="profile-info-name editable" id="{{ 'c_name'.$c_count }}">{{ $row->name }}</div>
+                                                                    <div class="profile-info-value pull-left">
+                                                                        <span class="editable_picker" id="{{ 'c_dob'.$c_count }}">{{ $row->date_of_birth }}</span>
                                                                     </div>
                                                                 </div>
+                                                                @endforeach
+                                                                @for($i=$c_count+1; $i<=10; $i++)
+                                                                    <div class="profile-info-row">
+                                                                        <div class="profile-info-name editable" id="{{ 'c_name'.$i }}">___</div>
+                                                                        <div class="profile-info-value pull-left">
+                                                                            <span class="editable_picker" id="{{ 'c_dob'.$i }}">___</span>
+                                                                        </div>
+                                                                    </div>
+                                                                @endfor
                                                             </div>
-
-                                                            <div class="itemdiv memberdiv">
-                                                                <div class="inline pos-rel">
-                                                                    <div class="user">
-                                                                        <a href="#">
-                                                                            <img src="{{ asset('public/assets_ace/images/avatars/avatar.png') }}" alt="Jim Doe's avatar" />
-                                                                        </a>
-                                                                    </div>
-
-                                                                    <div class="body">
-                                                                        <div class="name">
-                                                                            <a href="#">
-                                                                                <span class="user-status status-busy"></span>
-                                                                                Jim Doe
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="popover">
-                                                                        <div class="arrow"></div>
-
-                                                                        <div class="popover-content">
-                                                                            <div class="bolder">SEO &amp; Advertising</div>
-
-                                                                            <div class="time">
-                                                                                <i class="ace-icon fa fa-clock-o middle bigger-120 red"></i>
-                                                                                <span class="grey"> 1 hour ago </span>
-                                                                            </div>
-
-                                                                            <div class="hr dotted hr-8"></div>
-
-                                                                            <div class="tools action-buttons">
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-                                                                                </a>
-
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                                                                                </a>
-
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="itemdiv memberdiv">
-                                                                <div class="inline pos-rel">
-                                                                    <div class="user">
-                                                                        <a href="#">
-                                                                            <img src="{{ asset('public/assets_ace/images/avatars/avatar5.png') }}" alt="Alex Doe's avatar" />
-                                                                        </a>
-                                                                    </div>
-
-                                                                    <div class="body">
-                                                                        <div class="name">
-                                                                            <a href="#">
-                                                                                <span class="user-status status-idle"></span>
-                                                                                Alex Doe
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="popover">
-                                                                        <div class="arrow"></div>
-
-                                                                        <div class="popover-content">
-                                                                            <div class="bolder">Marketing</div>
-
-                                                                            <div class="time">
-                                                                                <i class="ace-icon fa fa-clock-o middle bigger-120 orange"></i>
-                                                                                <span class=""> 40 minutes idle </span>
-                                                                            </div>
-
-                                                                            <div class="hr dotted hr-8"></div>
-
-                                                                            <div class="tools action-buttons">
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-                                                                                </a>
-
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                                                                                </a>
-
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="itemdiv memberdiv">
-                                                                <div class="inline pos-rel">
-                                                                    <div class="user">
-                                                                        <a href="#">
-                                                                            <img src="{{ asset('public/assets_ace/images/avatars/avatar2.png') }}" alt="Phil Doe's avatar" />
-                                                                        </a>
-                                                                    </div>
-
-                                                                    <div class="body">
-                                                                        <div class="name">
-                                                                            <a href="#">
-                                                                                <span class="user-status status-online"></span>
-                                                                                Phil Doe
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="popover">
-                                                                        <div class="arrow"></div>
-
-                                                                        <div class="popover-content">
-                                                                            <div class="bolder">Public Relations</div>
-
-                                                                            <div class="time">
-                                                                                <i class="ace-icon fa fa-clock-o middle bigger-120 orange"></i>
-                                                                                <span class="green"> 2 hours ago </span>
-                                                                            </div>
-
-                                                                            <div class="hr dotted hr-8"></div>
-
-                                                                            <div class="tools action-buttons">
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-                                                                                </a>
-
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                                                                                </a>
-
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="itemdiv memberdiv">
-                                                                <div class="inline pos-rel">
-                                                                    <div class="user">
-                                                                        <a href="#">
-                                                                            <img src="{{ asset('public/assets_ace/images/avatars/avatar3.png') }}" alt="Susan Doe's avatar" />
-                                                                        </a>
-                                                                    </div>
-
-                                                                    <div class="body">
-                                                                        <div class="name">
-                                                                            <a href="#">
-                                                                                <span class="user-status status-online"></span>
-                                                                                Susan Doe
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="popover">
-                                                                        <div class="arrow"></div>
-
-                                                                        <div class="popover-content">
-                                                                            <div class="bolder">HR Management</div>
-
-                                                                            <div class="time">
-                                                                                <i class="ace-icon fa fa-clock-o middle bigger-120 orange"></i>
-                                                                                <span class="green"> 20 mins ago </span>
-                                                                            </div>
-
-                                                                            <div class="hr dotted hr-8"></div>
-
-                                                                            <div class="tools action-buttons">
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-                                                                                </a>
-
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                                                                                </a>
-
-                                                                                <a href="#">
-                                                                                    <i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- CHILDREN -->
+                                                        </div>
 
                                                         <h5 class="lighter block blue">Name of parent</h5>
                                                         <div class="profile-user-info">
                                                             <div class="profile-user-info profile-user-info-striped">
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name">FATHER'S SURNAME:</div>
+                                                                    <div class="profile-info-name">Father Lastname:</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="hrh_type">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
+                                                                        <span class="editable" id="father_lname">{{ Auth::user()->father_lname }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name">FIRSTNAME:</div>
+                                                                    <div class="profile-info-name">Father Firstname:</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="surname">{{ Auth::user()->lname }}</span>
+                                                                        <span class="editable" id="father_fname">{{ Auth::user()->father_fname }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name">MIDDLE NAME:</div>
+                                                                    <div class="profile-info-name">Father Middle Name:</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="fname">{{ Auth::user()->fname }}</span>
+                                                                        <span class="editable" id="father_mname">{{ Auth::user()->father_mname }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name">NAME EXTENSTION(JR,,SR):</div>
+                                                                    <div class="profile-info-name">Name Extension(JR,,SR):</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                        <span class="editable" id="father_nextension">{{ Auth::user()->father_nextension }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name">MOTHER'S SURNAME:</div>
+                                                                    <div class="profile-info-name">Mother Lastname:</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                        <span class="editable" id="mother_lname">{{ Auth::user()->mother_lname}}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name">FIRST NAME :</div>
+                                                                    <div class="profile-info-name">Mother Firstname:</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="date_of_birth">{{ Auth::user()->date_of_birth }}</span>
+                                                                        <span class="editable" id="mother_fname">{{ Auth::user()->mother_fname }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
-                                                                    <div class="profile-info-name">MIDDLE NAME:</div>
+                                                                    <div class="profile-info-name">Mother Middle Name:</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="place_of_birth">{{ Auth::user()->place_of_birth }}</span>
+                                                                        <span class="editable" id="mother_mname">{{ Auth::user()->mother_mname }}</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div> <!-- PARENT -->
-
                                                         <div class="hr hr-8 dotted"></div>
 
-                                                        <div class="profile-user-info">
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name"> Website </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <a href="#" target="_blank">www.ro7.doh.gov.ph</a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name">
-                                                                    <i class="middle ace-icon fa fa-facebook-square bigger-150 blue"></i>
-                                                                </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <a href="#">Find me on Facebook</a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name">
-                                                                    <i class="middle ace-icon fa fa-twitter-square bigger-150 light-blue"></i>
-                                                                </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <a href="#">Follow me on Twitter</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     </div><!-- /.col -->
                                                 </div><!-- /.row -->
                                             </div><!-- /#family background -->
 
-                                            <div id="educational_background" class="tab-pane">
+                                            <div id="educational_background" class="fade tab-pane">
                                                 <div class="row">
                                                     <div class="col-xs-12">
                                                         <h3 class="lighter block green">Educational Background</h3>
                                                         <div class="hr dotted hr-8"></div>
-                                                        <h5 class="lighter block blue">Elementary</h5>
+                                                        @foreach($educationalBackground as $row)
+                                                        <h5 class="lighter block blue">
+                                                            <?php
+                                                                if($row->education_type == 'elementary')
+                                                                    echo "ELEMENTARY";
+                                                                elseif($row->education_type == "secondary")
+                                                                    echo "SECONDARY";
+                                                                elseif($row->education_type == 'vocation')
+                                                                    echo "VOCATIONAL/TRADE COURSE";
+                                                                elseif($row->education_type == 'college')
+                                                                    echo 'COLLEGE';
+                                                                elseif($row->education_type == 'graduate')
+                                                                    echo 'GRADUATE STUDIES';
+                                                            ?>
+                                                        </h5>
                                                         <div class="profile-user-info">
                                                             <div class="profile-user-info profile-user-info-striped">
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name">Name of School(Write in full)</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="hrh_type">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
+                                                                        <span class="editable" id="{{ 'name_of_school'.$row->education_type }}">{{ $row->name_of_school }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name">Education/degree/course(Write in full):</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="surname">{{ Auth::user()->lname }}</span>
+                                                                        <span class="editable" id="{{ 'degree'.$row->education_type }}">{{ $row->degree }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name">Period of attendance from:</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="fname">{{ Auth::user()->fname }}</span>
+                                                                        <span class="editable_select" id="{{ 'period_from'.$row->education_type }}">{{ $row->period_from }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name">Period of attendance to::</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                        <span class="editable_select" id="{{ 'period_to'.$row->education_type }}">{{ $row->period_to }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name">Highest level/units earned(if not graduated):</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
+                                                                        <span class="editable" id="{{ 'units_earned'.$row->education_type }}">{{ $row->units_earned }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name">Year Graduated:</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="date_of_birth">{{ Auth::user()->date_of_birth }}</span>
+                                                                        <span class="editable_select" id="{{ 'year_graduated'.$row->education_type }}">{{ $row->year_graduated }}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="profile-info-row">
                                                                     <div class="profile-info-name">Scholarship/academic honors receive:</div>
                                                                     <div class="profile-info-value">
-                                                                        <span class="editable" id="place_of_birth">{{ Auth::user()->place_of_birth }}</span>
+                                                                        <span class="editable" id="{{ 'scholarship'.$row->education_type }}">{{ $row->scholarship }}</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div> <!-- ELEMENTARY -->
-                                                        <h5 class="lighter block blue">Secondary</h5>
-                                                        <div class="profile-user-info">
-                                                            <div class="profile-user-info profile-user-info-striped">
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Name of School(Write in full)</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="hrh_type">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Education/degree/course(Write in full):</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="surname">{{ Auth::user()->lname }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Period of attendance from:</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="fname">{{ Auth::user()->fname }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Period of attendance to::</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Highest level/units earned(if not graduated):</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Year Graduated:</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="date_of_birth">{{ Auth::user()->date_of_birth }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Scholarship/academic honors receive:</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="place_of_birth">{{ Auth::user()->place_of_birth }}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div> <!-- SECONDARY -->
-                                                        <h5 class="lighter block blue">VOCATIONAL/TRADE COURSE</h5>
-                                                        <div class="profile-user-info">
-                                                            <div class="profile-user-info profile-user-info-striped">
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Name of School(Write in full)</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="hrh_type">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Education/degree/course(Write in full):</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="surname">{{ Auth::user()->lname }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Period of attendance from:</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="fname">{{ Auth::user()->fname }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Period of attendance to::</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Highest level/units earned(if not graduated):</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Year Graduated:</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="date_of_birth">{{ Auth::user()->date_of_birth }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Scholarship/academic honors receive:</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="place_of_birth">{{ Auth::user()->place_of_birth }}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div> <!-- VOCATIONAL -->
-
-                                                        <h5 class="lighter block blue">COLLEGE</h5>
-                                                        <div class="profile-user-info">
-                                                            <div class="profile-user-info profile-user-info-striped">
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Name of School(Write in full)</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="hrh_type">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Education/degree/course(Write in full):</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="surname">{{ Auth::user()->lname }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Period of attendance from:</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="fname">{{ Auth::user()->fname }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Period of attendance to::</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Highest level/units earned(if not graduated):</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Year Graduated:</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="date_of_birth">{{ Auth::user()->date_of_birth }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Scholarship/academic honors receive:</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="place_of_birth">{{ Auth::user()->place_of_birth }}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div> <!-- COLLEGE -->
-
-                                                        <h5 class="lighter block blue">GRADUATE STUDIES</h5>
-                                                        <div class="profile-user-info">
-                                                            <div class="profile-user-info profile-user-info-striped">
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Name of School(Write in full)</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="hrh_type">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Education/degree/course(Write in full):</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="surname">{{ Auth::user()->lname }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Period of attendance from:</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="fname">{{ Auth::user()->fname }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Period of attendance to::</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Highest level/units earned(if not graduated):</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="lname">{{ Auth::user()->mname }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Year Graduated:</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="date_of_birth">{{ Auth::user()->date_of_birth }}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="profile-info-row">
-                                                                    <div class="profile-info-name">Scholarship/academic honors receive:</div>
-                                                                    <div class="profile-info-value">
-                                                                        <span class="editable" id="place_of_birth">{{ Auth::user()->place_of_birth }}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div> <!-- GRADUATE STUDIES -->
-
+                                                        </div>
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                             </div><!-- /#education background -->
 
-                                            <div id="service_eligibility" class="tab-pane">
+                                            <div id="service_eligibility" class="fade tab-pane">
                                                 <div class="row">
                                                     <div class="col-xs-12">
-                                                        <h3 class="lighter block green">Educational Background</h3>
+                                                        <h3 class="lighter block green">Civil Service Eligibility</h3>
                                                         <div class="form-group table-responsive">
                                                             <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
                                                                 <thead>
@@ -1197,14 +695,26 @@
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                @for($i=0;$i<10;$i++)
+                                                                <?php $serviceCount = 0; ?>
+                                                                @foreach($serviceEligibility as $row)
+                                                                <?php $serviceCount++; ?>
                                                                     <tr>
-                                                                        <td><input type="text" class="form-control" id="{{ "career_service_name".$i }}" name="career_service_name[]"></td>
-                                                                        <td><input type="text" class="form-control" id="{{ "rating".$i }}" name="rating[]"></td>
-                                                                        <td><input type="text" class="form-control" id="{{ "date_of_examination".$i }}" name="date_of_examination[]"></td>
-                                                                        <td><input type="text" class="form-control" id="{{ "place_of_examination".$i }}" name="place_of_examination[]"></td>
-                                                                        <td><input type="text" class="form-control" id="{{ "license_number".$i }}" name="license_number[]"></td>
-                                                                        <td><input type="text" class="form-control" id="{{ "license_date_validity".$i }}" name="license_date_validity[]"></td>
+                                                                        <td class="center"><span class="editable" id="{{ 'career_service'.$serviceCount }}">{{ $row->career_service }}</span></td>
+                                                                        <td class="center"><span class="editable" id="{{ 'rating'.$serviceCount }}">{{ $row->rating }}</span></td>
+                                                                        <td class="center"><span class="editable_picker" id="{{ 'date_of_examination'.$serviceCount }}">{{ $row->date_of_examination }}</span></td>
+                                                                        <td><span class="editable" id="{{ 'place_of_examination'.$serviceCount }}">{{ $row->place_of_examination }}</span></td>
+                                                                        <td class="center"><span class="editable" id="{{ 'license_number'.$serviceCount }}">{{ $row->license_number }}</span></td>
+                                                                        <td class="center"><span class="editable_picker" id="{{ 'date_of_validity'.$serviceCount }}">{{ $row->date_of_validity }}</span></td>
+                                                                    </tr>
+                                                                @endforeach
+                                                                @for($i = $serviceCount+1; $i <= 10; $i++)
+                                                                    <tr>
+                                                                        <td class="center"><span class="editable" id="{{ 'career_service'.$i }}">__</span></td>
+                                                                        <td class="center"><span class="editable" id="{{ 'rating'.$i }}">__</span></td>
+                                                                        <td class="center"><span class="editable_picker" id="{{ 'date_of_examination'.$i }}">__</span></td>
+                                                                        <td><span class="editable" id="{{ 'place_of_examination'.$i }}">__</span></td>
+                                                                        <td class="center"><span class="editable" id="{{ 'license_number'.$i }}">__</span></td>
+                                                                        <td class="center"><span class="editable_picker" id="{{ 'date_of_validity'.$i }}">__</span></td>
                                                                     </tr>
                                                                 @endfor
                                                                 </tbody>
@@ -1214,12 +724,12 @@
                                                 </div>
                                             </div><!-- /#Service Eligibility -->
 
-                                            <div id="work_experience" class="tab-pane">
+                                            <div id="work_experience" class="fade tab-pane">
                                                 <div class="row">
                                                     <div class="col-xs-12">
-                                                        <h3 class="lighter block green">Educational Background</h3>
+                                                        <h3 class="lighter block green">Work Experience</h3>
                                                         <div class="form-group table-responsive">
-                                                            <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
+                                                            <table class="table table-list table-hover table-striped">
                                                                 <thead>
                                                                 <tr class="info">
                                                                     <th class="center" colspan="2">22. INCLUSIVE DATES (mm/dd/yyyy)</th>
@@ -1236,15 +746,28 @@
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                @for($i=1;$i<=10;$i++)
+                                                                <?php $workCount = 0; ?>
+                                                                @foreach($workExperience as $row)
+                                                                <?php $workCount++; ?>
                                                                     <tr>
-                                                                        <td class="col-xs-2" colspan="2"><input type="text" id="{{ 'inclusive_dates'.$i }}" class="form-control"></td>
-                                                                        <td class="col-xs-2"><input type="text" class="form-control"></td>
-                                                                        <td class="col-xs-2"><input type="text" class="form-control"></td>
-                                                                        <td class="col-xs-2"><input type="text" class="form-control"></td>
-                                                                        <td class="col-xs-2"><input type="text" class="form-control"></td>
-                                                                        <td class="col-xs-1"><input type="text" class="form-control"></td>
-                                                                        <td class="col-xs-1"><input type="text" class="form-control"></td>
+                                                                        <td class="col-xs-2" colspan="2"><span class="editable_daterangepicker" id="{{ 'inclusive_dates'.$workCount }}">{{ $row->inclusive_dates }}</span></td>
+                                                                        <td class="col-xs-2"><span class="editable" id="{{ 'position'.$workCount }}">{{ $row->position }}</span></td>
+                                                                        <td class="col-xs-2"><span class="editable" id="{{ 'company'.$workCount }}">{{ $row->company }}</span></td>
+                                                                        <td class="col-xs-2"><span class="editable" id="{{ 'monthly_salary'.$workCount }}">{{ $row->monthly_salary }}</span></td>
+                                                                        <td class="col-xs-2"><span class="editable" id="{{ 'pay_grade'.$workCount }}">{{ $row->pay_grade }}</span></td>
+                                                                        <td class="col-xs-1"><span class="editable" id="{{ 'status_appointment'.$workCount }}">{{ $row->status_appointment }}</span></td>
+                                                                        <td class="col-xs-1"><span class="editable" id="{{ 'goc_service'.$workCount }}">{{ $row->gov_service }}</span></td>
+                                                                    </tr>
+                                                                @endforeach
+                                                                @for($i=$workCount+1; $i<=10; $i++)
+                                                                    <tr>
+                                                                        <td class="col-xs-2" colspan="2"><span class="editable_daterangepicker" id="{{ 'inclusive_dates'.$i }}"></span></td>
+                                                                        <td class="col-xs-2"><span class="editable" id="{{ 'position'.$i }}">___</span></td>
+                                                                        <td class="col-xs-2"><span class="editable" id="{{ 'company'.$i }}">___</span></td>
+                                                                        <td class="col-xs-2"><span class="editable" id="{{ 'monthly_salary'.$i }}">___</span></td>
+                                                                        <td class="col-xs-2"><span class="editable" id="{{ 'pay_grade'.$i }}">___</span></td>
+                                                                        <td class="col-xs-1"><span class="editable" id="{{ 'status_appointment'.$i }}">___</span></td>
+                                                                        <td class="col-xs-1"><span class="editable" id="{{ 'goc_service'.$i }}">___</span></td>
                                                                     </tr>
                                                                 @endfor
                                                                 </tbody>
@@ -1282,9 +805,6 @@
         });
 
         jQuery(function($) {
-            for(var i=1; i<=10; i++){
-                $("#inclusive_dates"+i).daterangepicker();
-            }
             //editables on first profile page
             $.fn.editable.defaults.mode = 'popup';
             $.fn.editableform.loading = "<div class='editableform-loading'><i class='ace-icon fa fa-spinner fa-spin fa-2x light-blue'></i></div>";
@@ -1478,7 +998,6 @@
             });
 
 
-
             //////////////////////////////
             $('#profile-feed-1').ace_scroll({
                 height: '250px',
@@ -1569,21 +1088,23 @@
             });
 
             //// AJAX
-            $('#date_of_birth').editable({
-                type: 'adate',
-                date: {
-                    //datepicker plugin options
-                    format: 'mm/dd/yyyy',
-                    viewformat: 'mm/dd/yyyy',
-                    weekStart: 1
-                },
-                success: function(data, config) {
-                    console.log(config)
-                },
-                error: function(errors) {
-                }
-            });
 
+            $(".editable_picker").each(function(index){
+                $('#'+this.id).editable({
+                    type: 'adate',
+                    date: {
+                        //datepicker plugin options
+                        format: 'mm/dd/yyyy',
+                        viewformat: 'mm/dd/yyyy',
+                        weekStart: 1
+                    },
+                    success: function(data, config) {
+                        console.log(config)
+                    },
+                    error: function(errors) {
+                    }
+                });
+            });
 
             var hrhType = [];
             $.each(<?php echo $hrh_type; ?>, function(x, data) {
@@ -1595,32 +1116,37 @@
                 nameExtension.push({id: data.id, text: data.suffix});
             });
 
+            var year = [];
+            for(var i=new Date().getFullYear(); i>=1970; i--){
+                year.push({ id: i, text: i });
+            }
+
             var source_select = [
                 hrhType,
                 nameExtension,
-                [
-                    {value: 'Male', text: 'Male'},
-                    {value: 'Female', text: 'Female'}
-                ],
-                [
-                    {value: 'Single', text: 'Single'},
-                    {value: 'Widowed', text: 'Widowed'},
-                    {value: 'Other/s', text: 'Other/s'},
-                    {value: 'Married', text: 'Married'},
-                    {value: 'Separated', text: 'Separated'}
-                ]
+                year
             ];
+
             $(".editable_select").each(function(index) {
-                //console.log(index);
+                if(source_select[index])
+                   var source = source_select[index];
+                else
+                   var source = source_select[2];
                 $('#'+this.id).editable({
                     name : this.id,
                     type: 'select2',
-                    source: source_select[index],
+                    source: source,
                     select2: {
                         width: 200
                     },
-                    success: function(data, config) {
-                        console.log(config)
+                    success: function(data, value) {
+                        var json = {
+                            "hrh_type" : value
+                        };
+                        var url = "<?php echo asset('ajax_test'); ?>";
+                        $.post(url,json,function(result){
+                            console.log(result);
+                        });
                     },
                     error: function(errors) {
                     }
@@ -1628,12 +1154,12 @@
             });
 
             $(".editable").each(function() {
-                //console.log(this.id);
                 $('#'+this.id).editable({
                     type: 'text',
                     name: this.id,
-                    success: function(data, config) {
-                        console.log(config)
+                    success: function(data, value) {
+                        console.log(value);
+                        //
                     },
                     error: function(errors) {
                     }
@@ -1666,10 +1192,24 @@
                     name: this.id,
                     source: source_radio[index],
                     validate: function(value) {
-                        $("#sex").html(value);
-                        console.log(value);
+                        if(value != null){
+                            $('#'+this.id).html(value);
+                        }
                     }
                 });
+            });
+
+            $(".editable_daterangepicker").each(function(index){
+                $('#'+this.id).editable({
+                    type: 'radiolist',
+                    name: this.id,
+                    source: [{value:'',text:''}],
+                    validate: function(value) {
+                        var inclusive_dates = $('#'+this.id+"input").val();
+                        $('#'+this.id).html(inclusive_dates);
+                        console.log('#'+this.id+"input");
+                    }
+                })
             });
 
         });
@@ -1709,6 +1249,16 @@
                                 "@foreach($country as $row)<option value='{{ $row->id }}'>{{ $row->description }}</option>@endforeach" +
                                 "</select>");
                     }
+                    $(function() {
+                        $(document).on('click', '.applyBtn', function() {
+                            return false;
+                        });
+                    });
+                    this.$tpl.append("<input type='text' id='"+name+"input"+"' style='margin-right:20px;'>");
+                    for(var i = 1; i<=10; i++){
+                        $("#inclusive_dates"+i+"input").daterangepicker();
+                    }
+
                     this.$input = this.$tpl.find('input[type="radio"]');
                     this.setClass();
                 },

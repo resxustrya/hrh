@@ -1,6 +1,7 @@
 <ul class="nav navbar-nav">
     <li><a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a></li>
     <li><a href="{{ url('/profile') }}"><i class="fa fa-home"></i> Profile</a></li>
+    <li><a href="{{ url('/hrhList') }}"><i class="ace-icon fa fa-users"></i> Hrh List</a></li>
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Account<span class="caret"></span></a>
         <ul class="dropdown-menu">

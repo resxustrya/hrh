@@ -26,6 +26,11 @@ Route::get('home', function(){
 });
 Route::get('index',array('before' => 'auth','uses' => 'AdminController@home'));
 Route::get('profile','hrhController@profile');
+Route::get('profile/{userid}','hrhController@profile');
+
+Route::get('hrhInfo/{userid}','hrhController@hrhInfo');
 
 Route::match(array('GET','POST'),'register','hrhController@register');
 Route::match(array('GET','POST'),'ajax_test','hrhController@ajax_test');
+
+Route::match(array('GET','POST'),'hrhList','hrhController@hrhList');
