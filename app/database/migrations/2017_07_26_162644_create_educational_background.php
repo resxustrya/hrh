@@ -17,7 +17,8 @@ class CreateEducationalBackground extends Migration {
 			$table->string('units_earned')->nullable();
 			$table->string('year_graduated')->nullable();
 			$table->string('scholarship')->nullable();
-			$table->string('education_type')->nullable();
+			$table->integer('education_type')->nullable();
+			$table->string('unique_row')->nullable();
 			$table->rememberToken();
 			$table->timestamps();
 		});

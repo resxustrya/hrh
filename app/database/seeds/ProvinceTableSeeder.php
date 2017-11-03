@@ -10,16 +10,26 @@ class ProvinceTableSeeder extends Seeder
      */
     public function run()
     {
-        $province = new Province();
-        $province->description = "CEBU PROVINCE";
-        $province->save();
+        $suffix = ["","(DTTB)","(NDP)","(RHMPP)","(DDP)","(MT DP)","(PHA DP)","(UHCI DP)"];
+        foreach(range(1,7) as $index){
+            $province = new Province();
+            $province->description = "CEBU PROVINCE".$suffix[$index];
+            $province->hrh_type = $index;
+            $province->allocation = 10;
+            $province->save();
 
-        $province = new Province();
-        $province->description = "BOHOL PROVINCE";
-        $province->save();
+            $province = new Province();
+            $province->description = "BOHOL PROVINCE".$suffix[$index];
+            $province->hrh_type = $index;
+            $province->allocation = 20;
+            $province->save();
 
-        $province = new Province();
-        $province->description = "NEGROS ORIENTAL PROVINCE";
-        $province->save();
+            $province = new Province();
+            $province->description = "SIQUIJOR PROVINCE".$suffix[$index];
+            $province->hrh_type = $index;
+            $province->allocation = 30;
+            $province->save();
+        }
+
     }
 }

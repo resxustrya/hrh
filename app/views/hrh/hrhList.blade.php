@@ -6,83 +6,195 @@
                 HRH LIST
             </h1>
         </div><!-- /.page-header -->
+        <div class="space-10"></div>
+        @if(isset($users) and count($users) > 0)
+        <div class="clearfix">
+            <ul class="nav nav-tabs padding-18" id="myTab">
+                <?php
+                    $statusCount = 0;
+                    $counter = 0;
+                    $color = ['blue','orange','green','red','purple'];
+                    $badge = ['primary','warning','success','danger','purple'];
+                ?>
+                @foreach($employee_status as $status)
+                <?php $statusCount++; ?>
+                <li class="@if($statusCount == 1){{ 'active' }}@endif">
+                    <a data-toggle="tab" class="m-tab" href="#{{ $status->id }}">
+                        <i class="{{ $color[$counter] }} ace-icon fa fa-question-circle bigger-120"></i>
+                        {{ $status->description }}
+                        <span class="badge badge-{{ $badge[$counter] }} badge-{{ $statusCount }}">{{ $user_count[$status->id] }}</span>
+                        <?php
+                            $counter++;
+                            if($counter >= 5) $counter = 0;
+                        ?>
+                    </a>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+        <div class="space-20"></div>
+        <form id="searchForm">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" value="{{ Session::get('keyword') }}" id="search" name="keyword" placeholder="Search municipality..." autofocus/>
+                            <i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
+                        </span>
+                    </label>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <!-- CODE HERE -->
+                </div>
+            </div>
+        </form>
+        <div class="space-10"></div>
 
-        <div class="row">
-            <div class="col-xs-12">
-                @if(isset($users) and count($users) > 0)
-                    {{--<div class="widget-container-col" id="widget-container">
-                        <div class="widget-box" id="widget-box">
-                            <div class="widget-body">--}}
-                                <div class="table-responsive">
-                                    <table id="simple-table" class="table table-bordered table-hover">
-                                        <thead>
-                                        <tr class="info">
-                                            <th>Name</th>
-                                            <th>HRH Type</th>
-                                            <th>
-                                                <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                                Area of assignment(Province)
-                                            </th>
-                                            <th>
-                                                <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                                Area of assignment(Municipality)
-                                            </th>
-                                            <th>
-                                                Status of employment
-                                            </th>
-                                            <th>Mobile No</th>
-                                        </tr>
-                                        </thead>
-
-                                        <tbody>
-                                        @foreach($users as $user)
-                                            <tr>
-                                                <td class="col-sm-2">
-                                                    <a href="#user_info" role="button" class="green" data-backdrop="static" data-userid="{{ $user->fname.' '.$user->lname }}" data-link="{{ asset('hrhInfo').'/'.$user->id }}" data-toggle="modal" ><b class="green">{{ $user->fname.' '.$user->lname }}</b></a>
-                                                </td>
-                                                <td class="col-sm-2">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</td>
-                                                <td class="col-sm-2">{{ hrhController::hrh_province(Auth::user()->province)->description }}</td>
-                                                <td class="col-sm-2">{{ hrhController::hrh_municipality(Auth::user()->municipality)->description }}</td>
-
-                                                <td class="col-sm-2">
-                                                    <span class="label label-info arrowed-in arrowed-in-right">{{ hrhController::hrh_status($user->status_of_employment)->description }}</span>
-                                                </td>
-
-                                                <td class="col-sm-2">
-                                                    {{ $user->mobile_no }}
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            {{--</div>
+        <div class="tab-content no-border no-padding">
+            <?php $statusCount = 0; ?>
+            @foreach($employee_status as $status)
+            <?php $statusCount++; ?>
+            <div id="{{ $status->id }}" class="tab-pane fade @if($statusCount == 1){{ 'in active' }}@endif">
+                <div class="posts_{{ $status->id }}">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            @include('hrh.hrhPagination')
                         </div>
-                    </div>--}}
-                    {{ $users->links() }}
-                @else
-                    <div class="alert alert-danger" role="alert">User records are empty.</div>
-                @endif
-            </div><!-- /.col -->
-        </div><!-- /.row -->
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        @else
+            <div class="alert alert-danger" role="alert">HRH records are empty.</div>
+        @endif
     </div><!-- PAGE CONTENT ENDS -->
 
 @endsection
 @section('js')
     <script type="text/javascript">
-        //user information
-        $("a[href='#user_info']").on('click',function(){
-            $('.modal-content').html(loadingState);
-            var url = $(this).data('link');
-            setTimeout(function(){
-                $.ajax({
-                    url: url,
-                    type: 'GET',
-                    success: function(data) {
-                        $('.modal-content').html(data);
-                    }
+        @if(isset($users) and count($users) > 0)
+        jQuery(function($) {
+
+            $("a[href='#document_form']").on('click',function(){
+                $('.modal-content').html(loadingState);
+                var url = $(this).data('link');
+                console.log(url);
+                setTimeout(function(){
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        success: function(data) {
+                            $('.modal-content').html(data);
+                        }
+                    });
+                },700);
+            });
+
+            //global variable
+            var keyword = '';
+            var type = "<?php echo $employee_status[0]->id; ?>";
+
+            //custom autocomplete (category selection)
+            $.widget( "custom.catcomplete", $.ui.autocomplete, {
+                _create: function() {
+                    this._super();
+                    this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+                },
+                _renderMenu: function( ul, items ) {
+                    var that = this, currentCategory = "";
+                    $.each( items, function( index, item ) {
+                        that._renderItemData( ul, item );
+                        return index < 10;
+                    });
+                }
+            });
+
+            var users = [];
+            $.each(<?php echo $users_select; ?>,function(x,data){
+                users.push({ label:data.fname , id:data.id });
+            });
+
+            $( "#search" ).catcomplete({
+                delay: 0,
+                source: users,
+                select: function(e, ui) {
+                    keyword = ui.item.value;
+                    getPosts(1,keyword);
+                }
+            });
+
+            $("input[name='keyword']").on("keyup",function(e){
+                console.log(this);
+                this.focus();
+                e.preventDefault();
+                if(e.keyCode >= 48 && e.keyCode <= 90 || e.keyCode == 8){
+                    keyword = $("input[name='keyword']").val();
+                    getPosts(1,keyword);
+                }
+            });
+
+            //user information
+            $("a[href='#user_info']").on('click',function(){
+                $('.modal-content').html(loadingState);
+                var url = $(this).data('link');
+                setTimeout(function(){
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        success: function(data) {
+                            $('.modal-content').html(data);
+                        }
+                    });
+                },700);
+            });
+
+            $(".m-tab").each(function(index){
+                var href = $(this).attr('href');
+                $("a[href='"+href+"']").on("click",function(){
+                    type = this.href.split('#')[1];
+                    $('.posts_'+type).html("<span>Loading....</span>");
+                    getPosts(1,keyword);
                 });
-            },700);
+            });
+
+            $(window).on('hashchange', function() {
+                if (window.location.hash) {
+                    var page = window.location.hash.replace('#', '');
+                    if (page == Number.NaN || page <= 0) {
+                        return false;
+                    } else {
+                        getPosts(page,keyword);
+                    }
+                }
+            });
+
+            $(document).ready(function() {
+                $(document).on('click', '.pagination a', function (e) {
+                    getPosts($(this).attr('href').split('page=')[1],keyword);
+                    e.preventDefault();
+                });
+            });
+
+            function getPosts(page,keyword) {
+                $('.posts_'+type).html("<span>Loading....</span>");
+                $.ajax({
+                    url : '?page=' + page + '&keyword=' + keyword + '&type=' + type,
+                    dataType: 'json',
+                }).done(function (data) {
+                    location.hash = page;
+                    setTimeout(function(){
+                        $.each(<?php echo $employee_status; ?>,function(index){
+                            $('.badge-'+index+1).html(data.user_count[index+1]);
+                        });
+                        $('.posts_'+type).html(data.view);
+                    },700);
+                }).fail(function () {
+                    alert('Posts could not be loaded.');
+                });
+            }
+
         });
+        @endif
     </script>
 @endsection

@@ -10,8 +10,37 @@ class MunicipalityTableSeeder extends Seeder
      */
     public function run()
     {
+        $suffix = ["","(DTTB)","(NDP)","(RHMPP)","(DDP)","(MT DP)","(PHA DP)","(UHCI DP)"];
+        foreach(range(1,7) as $hrh_type) {
+            foreach (range(1, 21) as $provinceIndex) {
+                $municipality = new Municipality();
+                $municipality->description = $hrh_type. "Alcantara" . $suffix[$provinceIndex];
+                $municipality->province = $provinceIndex;
+                $municipality->allocation = 100;
+                $municipality->save();
+
+                $municipality = new Municipality();
+                $municipality->description = $hrh_type. "Alcoy" . $suffix[$provinceIndex];
+                $municipality->province = $provinceIndex;
+                $municipality->allocation = 200;
+                $municipality->save();
+
+                $municipality = new Municipality();
+                $municipality->description = $hrh_type. "Alegria" . $suffix[$provinceIndex];
+                $municipality->province = $provinceIndex;
+                $municipality->allocation = 300;
+                $municipality->save();
+
+                $municipality = new Municipality();
+                $municipality->description = $hrh_type. "Aloguinsan" . $suffix[$provinceIndex];
+                $municipality->province = $provinceIndex;
+                $municipality->allocation = 100;
+                $municipality->save();
+            }
+        }
+
         /// CEBU PROVINCE
-        $municipality = new Municipality();
+        /*$municipality = new Municipality();
         $municipality->description = "Alcantara";
         $municipality->province = 1;
         $municipality->save();
@@ -455,6 +484,6 @@ class MunicipalityTableSeeder extends Seeder
         $municipality = new Municipality();
         $municipality->description = "Valencia";
         $municipality->province = 2;
-        $municipality->save();
+        $municipality->save();*/
     }
 }

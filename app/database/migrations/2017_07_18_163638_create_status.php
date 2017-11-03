@@ -10,6 +10,7 @@ class CreateStatus extends Migration {
 		Schema::create('employee_status',function($table){
 			$table->increments('id');
 			$table->string('description');
+			$table->string('status')->nullable();
 			$table->rememberToken();
 			$table->timestamps();
 		});

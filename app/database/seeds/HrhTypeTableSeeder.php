@@ -10,36 +10,40 @@ class HrhTypeTableSeeder extends Seeder
      */
     public function run()
     {
+
         $hrhType = new HrhType();
-        $hrhType->description = "Computer Programmer 1";
+        $hrhType->suffix = "DTTB";
+        $hrhType->description = "Doctors to the Barrios Program";
         $hrhType->save();
 
         $hrhType = new HrhType();
-        $hrhType->description = "DDTB";
+        $hrhType->suffix = "NDP";
+        $hrhType->description = "Nurse Deployment Project";
         $hrhType->save();
 
         $hrhType = new HrhType();
-        $hrhType->description = "NDP";
+        $hrhType->suffix = "RHMPP";
+        $hrhType->description = "Rural Health Midwives Placement Program";
         $hrhType->save();
 
         $hrhType = new HrhType();
-        $hrhType->description = "RHMPP";
+        $hrhType->suffix = "DDP";
+        $hrhType->description = "Dentist Deployment Project";
         $hrhType->save();
 
         $hrhType = new HrhType();
-        $hrhType->description = "DDP";
+        $hrhType->suffix = "MT DP";
+        $hrhType->description = "Medical Technologist Deployment Project ";
         $hrhType->save();
 
         $hrhType = new HrhType();
-        $hrhType->description = "MTDP";
+        $hrhType->suffix = "PHA DP";
+        $hrhType->description = "Public Health Associates Deployment Project";
         $hrhType->save();
 
         $hrhType = new HrhType();
-        $hrhType->description = "PHA DP";
-        $hrhType->save();
-
-        $hrhType = new HrhType();
-        $hrhType->description = " UHCI DP";
+        $hrhType->suffix = "UHCI DP";
+        $hrhType->description = "Universal Health Care Implementers Deployment Project";
         $hrhType->save();
 
     }

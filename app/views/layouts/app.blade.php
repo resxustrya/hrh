@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('public/assets_ace/css/select2.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('public/assets_ace/css/bootstrap-datepicker3.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('public/assets_ace/css/bootstrap-editable.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('public/assets_ace/css/jquery-ui.min.css') }}" />
 
     <!-- text fonts -->
     <link rel="stylesheet" href="{{ asset('public/assets_ace/css/fonts.googleapis.com.css') }}" />
@@ -36,6 +37,8 @@
 
     <script src="{{ asset('public/assets_ace/js/jquery-2.1.4.min.js') }}"></script>
     <script src="{{ asset('public/assets_ace/js/raphael-min.js') }}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/plugin/Lobibox old/lobibox.css') }}" />
 
     <!--MORRIS -->
     <link rel="stylesheet" href="{{ asset('public/plugin/morris/morris.css') }}">
@@ -67,52 +70,12 @@
         <div class="col-md-4">
             @if(Auth::check())
             <span class="title-info" style="color: #f0ad4e;font-size: 12pt"><b>HRH TYPE:</b></span>
-            <span class="title-desc" style="color: white;font-size: 12pt">{{ hrhController::hrh_type(Auth::user()->hrh_type)->description }}</span>
+            <span class="title-desc_hrhtype" style="color: white;font-size: 12pt">@if(Auth::user()->usertype) ADMIN COORDINATOR  @else {{ hrhController::hrh_type(Auth::user()->hrh_type) }} @endif</span>
             @endif
         </div>
         <div class="col-md-4">
             @if(Auth::check())
                 <span class="title-info" style="color: #f0ad4e;font-size: 12pt"><b>Date:</b></span> <span class="title-desc" style="color: white;font-size: 12pt">{{ date('M d, Y') }}</span>
-            <!--
-            <div class="navbar-buttons navbar-header pull-right" role="navigation">
-                <ul class="nav ace-nav">
-                    <li class="light-blue dropdown-modal">
-                        <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                            <img class="nav-user-photo" src="{{ asset('public/assets_ace/images/avatars/profile-pic.jpg') }}" alt="Jason's Photo" />
-                            <span class="user-info">
-                                <small>Welcome,</small>
-                                Jason
-                            </span>
-
-                            <i class="ace-icon fa fa-caret-down"></i>
-                        </a>
-                        <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                            <li>
-                                <a href="#">
-                                    <i class="ace-icon fa fa-cog"></i>
-                                    Settings
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="profile.html">
-                                    <i class="ace-icon fa fa-user"></i>
-                                    Profile
-                                </a>
-                            </li>
-
-                            <li class="divider"></li>
-
-                            <li>
-                                <a href="#">
-                                    <i class="ace-icon fa fa-power-off"></i>
-                                    Logout
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div> -->
             @endif
         </div>
         <div class="col-md-3">
@@ -139,11 +102,7 @@
             <a class="navbar-brand" href="#"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            @if(Auth::user()->usertype)
-                @include('layouts.coordinator-menu')
-            @else
-                @include('layouts.personal')
-            @endif
+            @include('layouts.navbar-nav')
             <div class="navbar-buttons navbar-header pull-right" role="navigation">
                 <ul class="nav ace-nav">
 
@@ -157,7 +116,8 @@
                                 <i class="ace-icon fa fa-check"></i>
                                 4 Tasks to complete
                             </li>
-                            <li class="dropdown-content">
+                            Currently develop(Not yet)
+                            <!--<li class="dropdown-content">
                                 <ul class="dropdown-menu dropdown-navbar">
                                     <li>
                                         <a href="#">
@@ -211,7 +171,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li>-->
 
                             <li class="dropdown-footer">
                                 <a href="#">
@@ -233,7 +193,8 @@
                                 <i class="ace-icon fa fa-exclamation-triangle"></i>
                                 8 Notifications
                             </li>
-
+                            Currently develop(Not yet)
+                            <!--
                             <li class="dropdown-content">
                                 <ul class="dropdown-menu dropdown-navbar navbar-pink">
                                     <li>
@@ -279,7 +240,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
 
                             <li class="dropdown-footer">
                                 <a href="#">
@@ -301,7 +262,8 @@
                                 <i class="ace-icon fa fa-envelope-o"></i>
                                 5 Messages
                             </li>
-
+                            Currently develop(Not yet)
+                            <!--
                             <li class="dropdown-content">
                                 <ul class="dropdown-menu dropdown-navbar">
                                     <li>
@@ -390,7 +352,7 @@
                                     </li>
                                 </ul>
                             </li>
-
+                            -->
                             <li class="dropdown-footer">
                                 <a href="inbox.html">
                                     See all messages
@@ -423,7 +385,8 @@
 <!-- basic scripts -->
 <script>
     var loadingState = '<h1 class="header smaller lighter grey center"> <i class="ace-icon fa fa-spinner fa-spin orange bigger-300"></i></h1>';
-    $(".pagination").addClass('pull-right');
+    var loadingState1 = '<center><img src="{{ asset('public/img/spin.gif') }}" width="150" style="padding:20px;"></center>';
+    //$(".pagination").addClass('pull-right');
 </script>
 <script type="text/javascript">
     if('ontouchstart' in document.documentElement) document.write("<script src='{{ asset('public/assets_ace/js/jquery.mobile.custom.min.js') }}'>"+"<"+"/script>");
@@ -445,6 +408,7 @@
 <script src="{{ asset('public/assets_ace/js/bootstrap-editable.min.js') }}"></script>
 <script src="{{ asset('public/assets_ace/js/ace-editable.min.js') }}"></script>
 <script src="{{ asset('public/assets_ace/js/jquery.maskedinput.min.js') }}"></script>
+<script src="{{ asset('public/assets_ace/js/jquery-ui.min.js') }}"></script>
 
 <!-- ace scripts -->
 <script src="{{ asset('public/assets_ace/js/ace-elements.min.js') }}"></script>
@@ -453,11 +417,12 @@
 <script src="{{ asset('public/plugin/daterangepicker/moment.min.js') }}"></script>
 <script src="{{ asset('public/plugin/daterangepicker/daterangepicker.js') }}"></script>
 
+<script src="{{ asset('public/plugin/Lobibox old/Lobibox.js') }}"></script>
+
 <script type="text/javascript">
     if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 </script>
 
-<!-- page specific plugin scripts -->
 <script src="{{ asset('public/assets_ace/js/wizard.min.js') }}"></script>
 <script src="{{ asset('public/assets_ace/js/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('public/assets_ace/js/jquery-additional-methods.min.js') }}"></script>
@@ -467,6 +432,14 @@
 
 @show
 
+@if(Session::get('add'))
+    <script>
+        Lobibox.notify('success',{
+            msg:'Successfully Added!'
+        });
+    </script>
+    <?php Session::forget('add'); ?>
+@endif
 
 </body>
 </html>

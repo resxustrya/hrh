@@ -12,7 +12,7 @@ class EducationalBackgroundTableSeeder extends seeder{
             $eb->units_earned = "75";
             $eb->year_graduated = "2008";
             $eb->scholarship = "Elementary Scholarship";
-            $eb->education_type = "elementary";
+            $eb->education_type = 1;
             $eb->save();
 
             $eb = new EducationalBackground();
@@ -24,7 +24,7 @@ class EducationalBackgroundTableSeeder extends seeder{
             $eb->units_earned = "75";
             $eb->year_graduated = "2012";
             $eb->scholarship = "Secondary Scholarship";
-            $eb->education_type = "secondary";
+            $eb->education_type = 2;
             $eb->save();
 
             $eb = new EducationalBackground();
@@ -36,7 +36,7 @@ class EducationalBackgroundTableSeeder extends seeder{
             $eb->units_earned = "N/A";
             $eb->year_graduated = "N/A";
             $eb->scholarship = "N/A";
-            $eb->education_type = "vocation";
+            $eb->education_type = 3;
             $eb->save();
 
             $eb = new EducationalBackground();
@@ -48,7 +48,7 @@ class EducationalBackgroundTableSeeder extends seeder{
             $eb->units_earned = "1500";
             $eb->year_graduated = "2016";
             $eb->scholarship = "Cebu City Scholarship";
-            $eb->education_type = "college";
+            $eb->education_type = 4;
             $eb->save();
 
             $eb = new EducationalBackground();
@@ -60,7 +60,7 @@ class EducationalBackgroundTableSeeder extends seeder{
             $eb->units_earned = "1500";
             $eb->year_graduated = "2016";
             $eb->scholarship = "Cebu City Scholarship";
-            $eb->education_type = "graduate";
+            $eb->education_type = 5;
             $eb->save();
         }
     }

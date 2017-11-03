@@ -21,6 +21,7 @@ class CreateServiceEligibility extends Migration {
 			$table->string('place_of_examination');
 			$table->string('license_number');
 			$table->string('date_of_validity');
+			$table->string('unique_row')->nullable();
 			$table->rememberToken();
 			$table->timestamps();
 		});

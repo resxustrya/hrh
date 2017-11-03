@@ -22,6 +22,7 @@ class CreateWorkExperience extends Migration {
 			$table->string('pay_grade');
 			$table->string('status_appointment');
 			$table->string('gov_service');
+			$table->string('unique_row')->nullable();
 			$table->rememberToken();
 			$table->timestamps();
 		});

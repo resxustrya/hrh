@@ -17,6 +17,7 @@ class CreateChildren extends Migration {
 			$table->integer('userid');
 			$table->string('name');
 			$table->string('date_of_birth');
+			$table->string('unique_row');
 			$table->rememberToken();
 			$table->timestamps();
 		});

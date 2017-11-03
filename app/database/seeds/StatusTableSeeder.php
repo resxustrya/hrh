@@ -14,5 +14,9 @@ class StatusTableSeeder extends Seeder
         $status = new Status();
         $status->description = "NEW";
         $status->save();
+
+        $status = new Status();
+        $status->description = "RESIGNED";
+        $status->save();
     }
 }

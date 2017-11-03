@@ -125,7 +125,7 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">3. DATE OF BIRTH(mm/dd/yyyy):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" id="datepicker" name="bdate" class="col-xs-12 col-sm-6" />
+                                                    <input type="text" id="datepicker" value="10/10/1994" name="bdate" class="col-xs-12 col-sm-6" />
                                                 </div>
                                             </div>
                                         </div>
@@ -346,7 +346,6 @@
                                             <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">AREA OF ASSIGNMENT(Province):</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-
                                                     <select id="area_of_work_province" onchange="add_data($(this))" name="area_of_work_province" class="col-xs-12 col-sm-6 select2" data-placeholder="Pls. indicate province:.">
                                                         <option value=""></option>
                                                         @foreach($province as $row)
@@ -829,11 +828,11 @@
             for(var i=1; i<=10; i++){
                 $("#inclusive_dates"+i).daterangepicker();
             }
+
             $( "#datepicker" ).datepicker({
                 showOtherMonths: true,
                 selectOtherMonths: false,
                 autoclose:true
-
             });
 
             $('[data-rel=tooltip]').tooltip();
@@ -919,6 +918,9 @@
                         required: true,
                         email:true
                     },
+                    firstname: {
+                        required: true
+                    },
                     password: {
                         required: true,
                         minlength: 5
@@ -964,11 +966,13 @@
                         required: "Please provide a valid email.",
                         email: "Please provide a valid email."
                     },
+                    firstname: {
+                        required: "First name is required"
+                    },
                     password: {
                         required: "Please specify a password.",
                         minlength: "Please specify a secure password."
                     },
-                    province: "Please choose province",
                     subscription: "Please choose at least one option",
                     gender: "Please choose gender",
                     agree: "Please accept our policy"

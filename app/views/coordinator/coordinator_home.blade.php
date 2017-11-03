@@ -3,9 +3,9 @@
     <div class="main-content-inner">
         <div class="page-content">
             <div class="row">
-                <div style="padding: 20px">
-                    <p>
-                        <span class="label label-warning" style="background-color: darkgreen">DDTB</span>
+                <div class="col-xs-8">
+                    <p style="padding-top: 10px">
+                        <span class="label label-warning" style="background-color: darkgreen">DTTB</span>
                         <span class="label label-warning" style="background-color: darkblue">NDP</span>
                         <span class="label label-warning" style="background-color: darkcyan">RHMPP</span>
                         <span class="label label-warning" style="background-color: darkgoldenrod">DDP</span>
@@ -14,6 +14,23 @@
                         <span class="label label-warning" style="background-color: darkred">UHCI DP</span>
                     </p>
                 </div>
+                <div class="col-xs-4 align-right">
+                    <button class="btn btn-app btn-success" onclick="window.location.href='{{ asset('exportExcel') }}'">
+                        <i class="ace-icon fa fa-file-excel-o bigger-200"></i>
+                        <label class="padding-10">
+                            Export HRH
+                        </label>
+                    </button>
+                    <button class="btn btn-app btn-primary" onclick="window.location.href='{{ asset('exportHrh') }}'" style="background-color: yellow">
+                        <i class="ace-icon fa fa-file-excel-o bigger-200"></i>
+                        <label class="padding-10">
+                            Export Report
+                        </label>
+                    </button>
+                </div>
+
+            </div>
+            <div class="row">
                 <div class="col-xs-12">
                     <!-- BAR CHART -->
                     <div class="widget-box">

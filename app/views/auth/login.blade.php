@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="{{ asset('public/assets_ace/css/ace.min.css') }}" class="ace-main-stylesheet" id="main-ace-style" />
 
     <link rel="stylesheet" href="{{ asset('public/assets_ace/css/ace-rtl.min.css') }}" />
+
+    <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="{{ asset('public/assets_ace/css/select2.min.css') }}" />
 </head>
 
     <body class="login-layout light-login">
@@ -24,10 +27,9 @@
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1">
                         <div class="login-container">
-
-                            @for($i=0;$i<5;$i++)
+                            {{--@for($i=0;$i<5;$i++)
                             <div class="space-20"></div>
-                            @endfor
+                            @endfor--}}
                             <div class="position-relative">
                                 <div class="login-box">
                                     <div class="login-logo">
@@ -42,65 +44,61 @@
                                     <div class="space-20"></div>
                                     <div class="position-relative">
                                         <form role="form" method="POST" action="{{ asset('/') }}">
-                                            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                                            <p class="has-feedback text-center">
-                                                @if(Session::has('ops'))
-                                                    {{ Session::get('ops') }}
-                                                @endif
-                                            </p>
                                             <div class="hold-transition login-page">
-                                            <div id="login-box" class="login-box visible widget-box no-border">
-                                                <div class="widget-body">
-                                                    <div class="widget-main">
-                                                        <!--
-                                                        <h4 class="header blue lighter bigger">
-                                                            <i class="ace-icon fa fa-coffee green"></i>
-                                                            Please Enter Your Information
-                                                        </h4>
-                                                        -->
-                                                        <p class="login-box-msg center">Sign in to start your session</p>
-                                                        <div class="form-group has-feedback {{ Session::has('ops') ? ' has-error' : '' }}">
-                                                            <input id="username" type="text" placeholder="Login ID" class="form-control" name="username">
-                                                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
-
-                                                        </div>
-                                                        <div class="form-group has-feedback{{ Session::has('ops') ? ' has-error' : '' }}">
-                                                            <input id="password" type="password" class="form-control" name="password" placeholder="Password">
-                                                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                                                        </div>
-                                                        <div class="space"></div>
-
-                                                        <div class="clearfix">
-                                                            <label class="inline">
-                                                                <input type="checkbox" class="ace" />
-                                                                <span class="lbl"> Remember Me</span>
-                                                            </label>
-
-                                                            <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
-                                                                <i class="ace-icon fa fa-key"></i>
-                                                                <span class="bigger-110">Login</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="space-4"></div>
-                                                    </div><!-- /.widget-main -->
-
-                                                    <div class="toolbar clearfix">
-                                                        <div>
-                                                            <a href="#" data-target="#forgot-box" class="forgot-password-link">
-                                                                <i class="ace-icon fa fa-arrow-left"></i>
-                                                                I forgot my password
-                                                            </a>
-                                                        </div>
-
-                                                        <div>
-                                                            <a href="#" data-target="#signup-box" class="user-signup-link">
-                                                                I want to register
-                                                                <i class="ace-icon fa fa-arrow-right"></i>
-                                                            </a>
-                                                        </div>
+                                                @if(Session::has('ops'))
+                                                    <div class="text-center alert alert-danger">
+                                                        {{ Session::get('ops') }}
                                                     </div>
-                                                </div><!-- /.widget-body -->
-                                            </div><!-- /.login-box -->
+                                                @endif
+                                                <div id="login-box" class="login-box visible widget-box no-border">
+                                                    <div class="widget-body">
+                                                        <div class="widget-main">
+                                                            <p class="login-box-msg center">Sign in to start your session</p>
+                                                            <div class="form-group has-feedback {{ Session::has('ops') ? ' has-error' : '' }}">
+                                                                <input id="username" type="text" name="username" placeholder="Login ID" class="form-control" >
+                                                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                                            </div>
+                                                            <div class="form-group has-feedback{{ Session::has('ops') ? ' has-error' : '' }}">
+                                                                <input id="password" type="password" name="password" class="form-control"  placeholder="Password">
+                                                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                                            </div>
+                                                            <div class="space"></div>
+
+                                                            <div class="clearfix">
+                                                                <label class="inline">
+                                                                    <input type="checkbox" class="ace" />
+                                                                    <span class="lbl"> Remember Me</span>
+                                                                </label>
+
+                                                                <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
+                                                                    <i class="ace-icon fa fa-key"></i>
+                                                                    <span class="bigger-110">Login</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="space-4"></div>
+                                                        </div><!-- /.widget-main -->
+                                                        <div class="toolbar clearfix">
+                                                            <div>
+                                                                <a href="#" data-target="#forgot-box" class="forgot-password-link">
+                                                                    <i class="ace-icon fa fa-arrow-left"></i>
+                                                                    I forgot my password
+                                                                </a>
+                                                            </div>
+                                                            <div>
+                                                                <a href="#" data-target="#signup-box" id="sign-up" class="user-signup-link">
+                                                                    I want to register
+                                                                    <i class="ace-icon fa fa-arrow-right"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- /.widget-body -->
+                                                </div><!-- /.login-box -->
+                                                @if(Session::get('successRegister'))
+                                                    <div class="text-center alert alert-success">
+                                                        <i class="fa fa-check"></i> Successfully Registered
+                                                    </div>
+                                                    <?php Session::forget('successRegister'); ?>
+                                                @endif
                                             </div>
                                         </form>
                                     </div><!-- /.position-relative -->
@@ -121,10 +119,10 @@
                                             <form>
                                                 <fieldset>
                                                     <label class="block clearfix">
-                                                        <span class="block input-icon input-icon-right">
-                                                            <input type="email" class="form-control" placeholder="Email" />
-                                                            <i class="ace-icon fa fa-envelope"></i>
-                                                        </span>
+                                                            <span class="block input-icon input-icon-right">
+                                                                <input type="email" class="form-control" placeholder="Email" />
+                                                                <i class="ace-icon fa fa-envelope"></i>
+                                                            </span>
                                                     </label>
 
                                                     <div class="clearfix">
@@ -153,51 +151,78 @@
                                                 <i class="ace-icon fa fa-users blue"></i>
                                                 New User Registration
                                             </h4>
-
                                             <div class="space-6"></div>
                                             <p> Enter your details to begin: </p>
-
-                                            <form>
+                                            <form id="validation-form">
                                                 <fieldset>
-                                                    <label class="block clearfix">
+                                                    <label class="block clearfix form-group">
                                                         <span class="block input-icon input-icon-right">
-                                                            <input type="text" class="form-control" placeholder="Surname" />
+                                                            <input type="text" name="fname" class="form-control" placeholder="First name" />
                                                             <i class="ace-icon fa fa-user"></i>
                                                         </span>
                                                     </label>
 
-                                                    <label class="block clearfix">
+                                                    <label class="block clearfix form-group">
                                                         <span class="block input-icon input-icon-right">
-                                                            <input type="text" class="form-control" placeholder="First name" />
+                                                            <input type="text" name="mname" class="form-control" placeholder="Middle Name" />
                                                             <i class="ace-icon fa fa-user"></i>
                                                         </span>
                                                     </label>
 
-                                                    <label class="block clearfix">
+                                                    <label class="block clearfix form-group">
                                                         <span class="block input-icon input-icon-right">
-                                                            <input type="text" class="form-control" placeholder="Middle Name" />
+                                                            <input type="text" class="form-control" name="lname" placeholder="Lastname" />
                                                             <i class="ace-icon fa fa-user"></i>
                                                         </span>
                                                     </label>
 
-                                                    <label class="block clearfix">
+                                                    <label class="block clearfix form-group">
+                                                        Gender: &nbsp;&nbsp;
+                                                        <i class="ace-icon fa fa-male"></i>
+                                                        <label class="line-height-1 blue">
+                                                            <input name="sex" value="Male" type="radio" class="ace" />
+                                                            <span class="lbl"> Male</span>
+                                                        </label>
+                                                        &nbsp;
+                                                        <i class="ace-icon fa fa-female"></i>
+                                                        <label class="line-height-1 blue">
+                                                            <input name="sex" value="Female" type="radio" class="ace" />
+                                                            <span class="lbl"> Female</span>
+                                                        </label>
+                                                    </label>
+
+                                                    <label class="block clearfix form-group">
+                                                        <select id="hrh_type" name="hrh_type" onchange="filter_province($(this))" class="select2" data-placeholder="Choose a HRH Type..." >
+                                                            <option value="">&nbsp;</option>
+                                                            @foreach($hrh_type as $row)
+                                                                <option value="{{ $row->id }}">{{ $row->description }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </label>
+
+                                                    <label class="block clearfix form-group">
+                                                        <select id="province" name="province" onchange="filter_municipality($(this),null)" class="select2" data-placeholder="Choose a province..." >
+                                                            <option value="">&nbsp;</option>
+                                                        </select>
+                                                    </label>
+
+                                                    <label class="block clearfix form-group">
+                                                        <select id="municipality" name="municipality" class="select2" data-placeholder="Choose a municipality..." >
+                                                            <option value="">&nbsp;</option>
+                                                        </select>
+                                                    </label>
+
+                                                    <label class="block clearfix form-group">
                                                         <span class="block input-icon input-icon-right">
-                                                            <input type="text" class="form-control" placeholder="Username" />
+                                                            <input type="text" name="username" class="form-control" placeholder="Username" />
                                                             <i class="ace-icon fa fa-user"></i>
                                                         </span>
                                                     </label>
 
-                                                    <label class="block clearfix">
+                                                    <label class="block clearfix form-group">
                                                         <span class="block input-icon input-icon-right">
-                                                            <input type="password" class="form-control" placeholder="Password" />
+                                                            <input type="password" name="password" class="form-control" placeholder="Password" />
                                                             <i class="ace-icon fa fa-lock"></i>
-                                                        </span>
-                                                    </label>
-
-                                                    <label class="block clearfix">
-                                                        <span class="block input-icon input-icon-right">
-                                                            <input type="password" class="form-control" placeholder="Repeat password" />
-                                                            <i class="ace-icon fa fa-retweet"></i>
                                                         </span>
                                                     </label>
 
@@ -217,16 +242,15 @@
                                                             <span class="bigger-110">Reset</span>
                                                         </button>
 
-                                                        <button type="button" class="width-65 pull-right btn btn-sm btn-success">
+                                                        <button type="submit" class="width-65 pull-right btn btn-sm btn-success">
                                                             <span class="bigger-110">Register</span>
-
                                                             <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
                                                         </button>
                                                     </div>
                                                 </fieldset>
                                             </form>
-                                        </div>
 
+                                        </div>
                                         <div class="toolbar center">
                                             <a href="#" data-target="#login-box" class="back-to-login-link">
                                                 <i class="ace-icon fa fa-arrow-left"></i>
@@ -247,9 +271,64 @@
 <!-- basic scripts -->
 
 <script src="{{ asset('public/assets_ace/js/jquery-2.1.4.min.js') }}"></script>
+<script src="{{ asset('public/assets_ace/js/wizard.min.js') }}"></script>
+<script src="{{ asset('public/assets_ace/js/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('public/assets_ace/js/jquery-additional-methods.min.js') }}"></script>
+<script src="{{ asset('public/assets_ace/js/select2.min.js') }}"></script>
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
+    $("#sign-up").click(function(e){
+        $(".alert-danger").hide();
+        $(".alert-success").hide();
+    });
+
+    var $hrhId = 0;
+    function filter_province(hrhId){
+        $hrhId = hrhId.val();
+        var provinceElement = $('#province');
+        filter_municipality($hrhId,true);
+        provinceElement.val('').trigger('change');
+        provinceElement.html('').select2({data: {id:null, text: null}});
+        provinceElement.append(
+                new Option("","", true, true)
+        ).trigger('change');
+
+        $.each(<?php echo $province?>,function(index,query){
+            if($hrhId == query.hrh_type){
+                provinceElement.append(
+                        new Option(query.description, query.id, true, true)
+                ).trigger('change');
+            }
+        });
+    }
+
+    var $provinceId = 0;
+    function filter_municipality(provinceId,automatic = null){
+        if(automatic)
+            $provinceId = provinceId;
+        else {
+            $provinceId = provinceId.val();
+        }
+
+
+        var municipalityElement = $('#municipality');
+        municipalityElement.val('').trigger('change');
+        municipalityElement.html('').select2({data: {id:null, text: null}});
+        municipalityElement.append(
+                new Option("","", true, true)
+        ).trigger('change');
+
+        $.each(<?php echo $municipality?>,function(x,query){
+            if($provinceId == query.province){
+                municipalityElement.append(
+                        new Option(query.description, query.id, true, true)
+                ).trigger('change');
+            }
+        });
+
+    }
+
     jQuery(function($) {
         $(document).on('click', '.toolbar a[data-target]', function(e) {
             e.preventDefault();
@@ -257,7 +336,135 @@
             $('.widget-box.visible').removeClass('visible');//hide others
             $(target).addClass('visible');//show target
         });
+
+        $('.select2').css('width','100%').select2({allowClear:true})
+        .on('change', function(){
+            $(this).closest('form').validate().element($(this));
+        });
+
+        $('#validation-form').validate({
+            errorElement: 'div',
+            errorClass: 'help-block',
+            focusInvalid: true,
+            ignore: "",
+            rules: {
+                lname: {
+                    required: true
+                },
+                fname: {
+                    required: true
+                },
+                mname: {
+                    required: true
+                },
+                username: {
+                    required: true
+                },
+                password: {
+                    required: true
+                },
+                captcha: {
+                    required: true
+                },
+                sex: {
+                    required: true
+                },
+                province: {
+                    required: true
+                },
+                municipality: {
+                    required: true
+                },
+                hrh_type: {
+                    required: true
+                }
+            },
+            messages: {
+                lname: {
+                    required: "Please provide a surname."
+                },
+                fname: {
+                    required: "Please provide a first name."
+                },
+                sex: {
+                    required: "Please provide a gender."
+                },
+                captcha: {
+                    required: "Please provide a captcha"
+                }
+            },
+
+            highlight: function (e) {
+                $(e).closest('.form-group').removeClass('has-info').addClass('has-error');
+            },
+
+            success: function (e) {
+                $(e).closest('.form-group').removeClass('has-error');//.addClass('has-info');
+                $(e).remove();
+            },
+
+            errorPlacement: function (error, element) {
+                if(element.is('input[type=checkbox]') || element.is('input[type=radio]')) {
+                    var controls = element.parents(':eq(1)');
+                    if(controls.find(':checkbox,:radio').length > 1) {
+                        controls.append(error);
+                    }
+                    else {
+                        error.insertAfter(element.nextAll('.lbl:eq(0)').eq(0));
+                    }
+                }
+                else if(element.is('.select2')) {
+                    error.insertAfter(element.siblings('[class*="select2-container"]:eq(0)'));
+                }
+                else if(element.is('.chosen-select')) {
+                    error.insertAfter(element.siblings('[class*="chosen-container"]:eq(0)'));
+                }
+                else
+                    error.insertAfter(element.parent());
+            },
+
+            submitHandler: function (form) {
+                var json = [];
+                var url = "<?php echo asset('/register'); ?>";
+                var elementValue;
+                var sexStatus = 'notdone';
+                $.each($('form').find("input[name],select[name]"),function(index){
+                    if(this.name == 'sex' && sexStatus == 'notdone'){
+                        if($("input[name='sex'][value='Male']").is(':checked')){
+                            elementValue = 'Male';
+                        }
+                        else if($("input[name='sex'][value='Female']").is(':checked')){
+                            elementValue = 'Female';
+                        }
+                        sexStatus = 'done';
+                    }
+                    else if(sexStatus == 'done'){
+                        sexStatus = 'continue';
+                        return;
+                    }
+                    else {
+                        elementValue = this.value;
+                    }
+
+                    json.push({
+                        name:this.name,
+                        value:elementValue
+                    });
+                    console.log(json);
+                });
+                $.post(url,json,function(result){
+                    console.log(result);
+                    location.reload();
+                });
+            },
+            invalidHandler: function (form) {
+
+            }
+        });
+
+
     });
 
 </script>
+
 
