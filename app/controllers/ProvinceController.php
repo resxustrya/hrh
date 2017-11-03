@@ -16,7 +16,10 @@ class ProvinceController extends  BaseController{
         if(Input::get('type')){
             $type = Input::get('type');
         } else {
-            $type = HrhType::where('status',1)->first()->id;
+            if(isset(HrhType::where('status',1)->first()->id))
+                $type = HrhType::where('status',1)->first()->id;
+            else
+                $type = 0;
         }
         $province_count = array();
         foreach($hrh_type as $row){
