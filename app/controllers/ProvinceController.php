@@ -10,6 +10,7 @@ class ProvinceController extends  BaseController{
     }
 
     public function pList(){
+        //GIT HUB SAMPLE
         Session::put('keyword',Input::get('keyword'));
         $keyword = Session::get('keyword');
         $hrh_type = HrhType::where("status",1)->get();
