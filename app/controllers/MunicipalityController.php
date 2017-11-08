@@ -52,12 +52,12 @@ class MunicipalityController extends BaseController{
             Session::put('provinceId',$provinceId);
             $municipality = Municipality::where('province',$provinceId)
                 ->orderBy('description','asc')
-                ->paginate(2);
+                ->paginate(10);
         } else {
             Session::put('m_page',Input::get('page'));
             $municipality = Municipality::where('province',Session::get('provinceId'))
                 ->orderBy('description','asc')
-                ->paginate(2);
+                ->paginate(10);
         }
 
         return View::make('municipality.municipalityQuery',[

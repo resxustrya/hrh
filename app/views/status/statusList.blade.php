@@ -169,6 +169,9 @@
                                     click: function() {
                                         $( this ).dialog( "close" );
                                         $this.remove();
+                                        Lobibox.notify('error',{
+                                            msg:'Successfully Deleted!'
+                                        });
                                         var url = "<?php echo asset('statusDelete'); ?>";
                                         var json = {
                                             "id": deleteId
