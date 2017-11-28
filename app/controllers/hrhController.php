@@ -108,7 +108,7 @@ class hrhController extends \BaseController {
         } else{
             $user = Users::where('id',Auth::user()->id)->first();
         }
-        $hrhType = HrhType::where('status','=',1)->get();
+        $hrhType = HrhType::where('status','=',1);
         $nameExtension = NameExtension::all(['id','suffix','description']);
         $country = Country::all();
         $educationalBackground = EducationalBackground::where("userid",$userid ? $userid : Auth::user()->id)->orderBy('id','ASC')->get();
