@@ -331,7 +331,7 @@ class AdminController extends \BaseController {
 							'12' => 0
 						];
 						$monthReport = Users::where('province',$row->id)
-							->where('status_of_employment','!=',4)
+                            ->where('status_of_employment','1')
 							->where('hrh_type',$type->id)
 							->where('usertype',0)
 							->get();

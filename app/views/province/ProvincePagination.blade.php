@@ -30,7 +30,7 @@
                     <td width="10%">
                         <a href="#hrh_query" role="button" class="green" data-backdrop="static" data-title="Municipality Query" data-userid="{{ $row->id }}" data-link="{{ asset('municipalityQuery').'/'.$row->id }}" data-toggle="modal" ><b class="green">{{ count(Municipality::where('province',$row->id)->get()) }} Municipality</b></a>
                     </td>
-                    <td width="10%">
+                    <td width="5%" class="center">
                         <a href="#" class="red delete" id="{{ $type.'delete'.$row->id }}">
                             <i class="ace-icon fa fa-trash bigger-180"></i>
                         </a>
