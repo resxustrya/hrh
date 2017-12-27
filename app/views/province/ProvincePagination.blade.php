@@ -4,6 +4,7 @@
             <thead>
             <tr class="info">
                 <th>Description</th>
+                <th>HRH TYPE</th>
                 <th>Allocation</th>
                 <th>HRH</th>
                 <th>Municipality</th>
@@ -17,6 +18,11 @@
                     <td>
                         <span class="{{ 'editable_province' }} green" id="{{ 'province'.$type.'pId'.$row->id.'columndescription' }}">
                            {{ $row->description }}
+                        </span>
+                    </td>
+                    <td width="20%">
+                        <span class="{{ 'editable_select' }} green" id="{{ 'hrh_type'.$type.'pId'.$row->id.'columnhrh_type' }}">
+                           {{ HrhType::find($row->hrh_type)->description }}
                         </span>
                     </td>
                     <td width="10%">

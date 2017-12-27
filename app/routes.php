@@ -27,7 +27,10 @@ Route::post("updateUser",'hrhController@updateUser');
 
 Route::post('sign_up','hrhController@sign_up');
 
-Route::match(array('GET','POST'),'ajax_test','hrhController@ajax_test');
+Route::get('test',function(){
+   return \Carbon\Carbon::now();
+});
+
 Route::match(array('GET','POST'),'EducationalBackground','hrhController@educationalBackground');
 Route::match(array('GET','POST'),'hrhList','hrhController@hrhList');
 Route::match(array('GET','POST'),'mList','MunicipalityController@mList');

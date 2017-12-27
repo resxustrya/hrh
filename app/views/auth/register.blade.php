@@ -71,7 +71,7 @@
                                                 <div class="clearfix">
                                                     <select name="designation" id="designation" class="col-xs-12 col-sm-6">
                                                         <option value="">Select designation</option>
-                                                        @foreach($hrhType as $row)
+                                                        @foreach($hrh_type as $row)
                                                             <option value="{{ $row['id'] }}">{{ $row['description'] }}</option>
                                                         @endforeach
                                                     </select>
@@ -274,7 +274,7 @@
                                                 <div>
                                                     <select id="state" name="state" class="col-xs-12 col-sm-6 select2" data-placeholder="Pls. indicate country:.">
                                                         <option value=""></option>
-                                                        @foreach($country as $row)
+                                                        @foreach(Country::get() as $row)
                                                             <option value="{{ $row->id }}">{{ $row->description }}</option>
                                                         @endforeach
                                                     </select>

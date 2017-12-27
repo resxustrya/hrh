@@ -246,6 +246,7 @@
                             $('.badge-'+index+1).html(data.province_count[index+1]);
                         });
                         $('.posts_'+type).html(data.view);
+                        editable_select();
                         editable();
                         delete_row();
                     },700);
@@ -274,7 +275,7 @@
                             resizable: false,
                             width: '320',
                             modal: true,
-                            title: "<div class='widget-header'><h4 class='smaller'><i class='ace-icon fa fa-exclamation-triangle red'></i> Empty the recycle bin?</h4></div>",
+                            title: "<div class='widget-header'><h4 class='smaller'><i class='ace-icon fa fa-exclamation-triangle red'></i></h4></div>",
                             title_html: true,
                             buttons: [
                                 {
@@ -359,8 +360,47 @@
                         }
                     });
                 });
-
             }
+
+            function query_hrhType(){
+                var hrhType = [];
+                $.each(<?php echo $hrh_type; ?>, function(x, data) {
+                    hrhType.push({id: data.id, text: data.description});
+                });
+                return hrhType;
+            }
+
+            editable_select();
+            function editable_select(){
+                var source_stored = query_hrhType();
+                $(".editable_select").each(function(index) {
+                    $('#'+this.id).editable({
+                        name : this.id,
+                        type: 'select2',
+                        source: source_stored,
+                        select2: {
+                            width: 300
+                        },
+                        success: function(data, value) {
+                            var id = this.id.split('pId')[1].split('column')[0];
+                            var column = this.id.split('pId')[1].split('column')[1];
+                            var json = {
+                                "column": column,
+                                "id": id,
+                                'value': value
+                            };
+                            var url = "<?php echo asset('updateProvince'); ?>";
+                            $.post(url,json,function(result){
+                                console.log(result);
+                            });
+                        },
+                        error: function(errors) {
+                            alert('slow internet connection..');
+                        }
+                    });
+                });
+            }
+
 
         });
         @endif
