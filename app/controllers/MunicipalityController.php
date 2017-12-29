@@ -88,10 +88,10 @@ class MunicipalityController extends BaseController{
     public function mUpdate(){
         $column = Input::get('column');
         $id = Input::get('id');
-        $description = Input::get('description');
+        $value= Input::get('value');
         Municipality::where('id',$id)
                     ->update([
-                        $column => $description
+                        $column => $value
                     ]);
         return 'Successfully Update';
     }
@@ -100,6 +100,7 @@ class MunicipalityController extends BaseController{
         $municipality = new Municipality();
         $municipality->province = Input::get('province');
         $municipality->description = Input::get('municipality');
+        $municipality->allocation = Input::get('allocation');
         $municipality->status = 1;
         $municipality->save();
         Session::put('add',true);
