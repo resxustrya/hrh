@@ -10,18 +10,16 @@ class ProvinceController extends  BaseController{
     }
 
     public function pList(){
-        //GIT HUB SAMPLE
+
         Session::put('keyword',Input::get('keyword'));
         $keyword = Session::get('keyword');
         $hrh_type = HrhType::where("status",1)->get();
         if(Input::get('type')){
             $type = Input::get('type');
         } else {
-            if(isset(HrhType::where('status',1)->first()->id))
-                $type = HrhType::where('status',1)->first()->id;
-            else
-                $type = 0;
+            $type = 'all';
         }
+
         $province_count = array();
         foreach($hrh_type as $row){
             $province_count[$row->id] = count(Province::
@@ -30,13 +28,23 @@ class ProvinceController extends  BaseController{
                 ->get()
             );
         }
+        $province_count['all'] = count(Province::where('status',1)->get());
 
-        $province = Province::where('hrh_type',$type)
-            ->where('status',1)
-            ->where(function($q) use ($keyword){
-                $q->where("description","like","%$keyword%");
-            })
-            ->paginate(10);
+        if($type == 'all'){
+            $province = Province::where('status',1)
+                ->where(function($q) use ($keyword){
+                    $q->where("description","like","%$keyword%");
+                })
+                ->paginate(10);
+        } else {
+            $province = Province::where('status',1)
+                ->where('hrh_type',$type)
+                ->where(function($q) use ($keyword){
+                    $q->where("description","like","%$keyword%");
+                })
+                ->paginate(10);
+        }
+
 
         $province_select = Province::where('status',1)->orderBy('description','asc')->get();
 

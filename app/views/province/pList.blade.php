@@ -12,20 +12,27 @@
             <ul class="nav nav-tabs padding-18" id="myTab">
                 <?php
                 $statusCount = 0;
-                $counter = 0;
+                $counter = 1;
                 $color = ['blue','orange','green','red','purple'];
                 $badge = ['primary','warning','success','danger','purple'];
                 ?>
+                <li class="active">
+                    <a data-toggle="tab" class="m-tab" href="#all">
+                        <i class="{{ $color[0] }} ace-icon fa fa-question-circle bigger-120"></i>
+                        ALL
+                        <span class="badge badge-{{ $badge[0] }} badge-{{ $statusCount }}">{{ $province_count['all'] }}</span>
+                    </a>
+                </li>
                 @foreach($hrh_type as $status)
                     <?php $statusCount++; ?>
-                    <li class="@if($statusCount == 1){{ 'active' }}@endif">
+                    <li>
                         <a data-toggle="tab" class="m-tab" href="#{{ $status->id }}">
                             <i class="{{ $color[$counter] }} ace-icon fa fa-question-circle bigger-120"></i>
                             {{ $status->suffix }}
                             <span class="badge badge-{{ $badge[$counter] }} badge-{{ $statusCount }}">{{ $province_count[$status->id] }}</span>
                             <?php
                             $counter++;
-                            if($counter >= 5) $counter = 0;
+                            if($counter >= 5) $counter = 1;
                             ?>
                         </a>
                     </li>
@@ -54,10 +61,19 @@
         <div class="space-10"></div>
 
         <div class="tab-content no-border no-padding">
-            <?php $statusCount = 0; ?>
+            <div id="all" class="tab-pane fade in active">
+                <div class="posts_all">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            @include('province.ProvincePagination')
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php $statusCount = 1; ?>
             @foreach($hrh_type as $status)
                 <?php $statusCount++; ?>
-                <div id="{{ $status->id }}" class="tab-pane fade @if($statusCount == 1){{ 'in active' }}@endif">
+                <div id="{{ $status->id }}" class="tab-pane fade">
                     <div class="posts_{{ $status->id }}">
                         <div class="row">
                             <div class="col-xs-12">
@@ -135,7 +151,7 @@
 
             //global variable
             var keyword = '';
-            var type = "<?php echo $hrh_type[0]->id; ?>";
+            var type = "all";
 
             //custom autocomplete (category selection)
             $.widget( "custom.catcomplete", $.ui.autocomplete, {
@@ -194,6 +210,7 @@
                 var href = $(this).attr('href');
                 $("a[href='"+href+"']").on("click",function(){
                     type = this.href.split('#')[1];
+                    console.log(type);
                     $('.posts_'+type).html("<span>Loading....</span>");
                     getPosts(1,keyword);
                 });
@@ -229,6 +246,7 @@
                             $('.badge-'+index+1).html(data.province_count[index+1]);
                         });
                         $('.posts_'+type).html(data.view);
+                        editable_select();
                         editable();
                         delete_row();
                     },700);
@@ -257,7 +275,7 @@
                             resizable: false,
                             width: '320',
                             modal: true,
-                            title: "<div class='widget-header'><h4 class='smaller'><i class='ace-icon fa fa-exclamation-triangle red'></i> Empty the recycle bin?</h4></div>",
+                            title: "<div class='widget-header'><h4 class='smaller'><i class='ace-icon fa fa-exclamation-triangle red'></i></h4></div>",
                             title_html: true,
                             buttons: [
                                 {
@@ -342,8 +360,47 @@
                         }
                     });
                 });
-
             }
+
+            function query_hrhType(){
+                var hrhType = [];
+                $.each(<?php echo $hrh_type; ?>, function(x, data) {
+                    hrhType.push({id: data.id, text: data.description});
+                });
+                return hrhType;
+            }
+
+            editable_select();
+            function editable_select(){
+                var source_stored = query_hrhType();
+                $(".editable_select").each(function(index) {
+                    $('#'+this.id).editable({
+                        name : this.id,
+                        type: 'select2',
+                        source: source_stored,
+                        select2: {
+                            width: 300
+                        },
+                        success: function(data, value) {
+                            var id = this.id.split('pId')[1].split('column')[0];
+                            var column = this.id.split('pId')[1].split('column')[1];
+                            var json = {
+                                "column": column,
+                                "id": id,
+                                'value': value
+                            };
+                            var url = "<?php echo asset('updateProvince'); ?>";
+                            $.post(url,json,function(result){
+                                console.log(result);
+                            });
+                        },
+                        error: function(errors) {
+                            alert('slow internet connection..');
+                        }
+                    });
+                });
+            }
+
 
         });
         @endif

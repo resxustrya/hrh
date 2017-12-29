@@ -63,7 +63,10 @@ class AdminController extends \BaseController {
 
 	public function home()
 	{
-		return View::make('coordinator.coordinator_home');
+	    $hrh_type = HrhType::where('status',1)->get();
+		return View::make('coordinator.coordinator_home',[
+		    "hrh_type" => $hrh_type
+        ]);
 	}
 
 	public function register()
@@ -99,11 +102,6 @@ class AdminController extends \BaseController {
 					$row->setFontWeight('bold');
 					$row->setBackground('#FFFF00');
 				});
-
-				/*// Sets all borders
-				$sheet->setAllBorders('thin');
-				// Set auto size for sheet
-				$sheet->setAutoSize(true);*/
 
 				$users = Users::where('usertype',0)->get();
 				foreach($users as $row) {
@@ -226,7 +224,7 @@ class AdminController extends \BaseController {
 		Excel::create('ExportReport', function ($excel) {
 
 			// Our first sheet
-			$excel->sheet('First sheet', function($sheet) {
+			$excel->sheet('HRH REPORT', function($sheet) {
 
 				$headerColumn = [
 					'Republic of the Philippines',
@@ -278,7 +276,7 @@ class AdminController extends \BaseController {
 					'alocGrand' => 0
 				];
 
-				$hrhType = HrhType::all();
+				$hrhType = HrhType::where('status',1)->get();
 				$count = 8;
 				foreach($hrhType as $type){
 					//hrh type
@@ -312,45 +310,50 @@ class AdminController extends \BaseController {
 						'alocTotal' => 0
 					];
 
-
-					$province = Province::where('hrh_type',$type->id)->get();
+					$province = Province::where('hrh_type',$type->id)->where('status',1)->get();
 					$count+=count($province);
 					foreach($province as $row){
 						$calendar = [
-							'01' => 0,
-							'02' => 0,
-							'03' => 0,
-							'04' => 0,
-							'05' => 0,
-							'06' => 0,
-							'07' => 0,
-							'08' => 0,
-							'09' => 0,
+							'1' => 0,
+							'2' => 0,
+							'3' => 0,
+							'4' => 0,
+							'5' => 0,
+							'6' => 0,
+							'7' => 0,
+							'8' => 0,
+							'9' => 0,
 							'10' => 0,
 							'11' => 0,
 							'12' => 0
 						];
 						$monthReport = Users::where('province',$row->id)
-							->where('status_of_employment','!=',4)
+                            ->where('status_of_employment','1')
 							->where('hrh_type',$type->id)
 							->where('usertype',0)
 							->get();
 						foreach($monthReport as $userCount){
-							$calendar[explode('-',$userCount->created_at)[1]]++;
+							//$calendar[explode('-',$userCount->created_at)[1]]++;
+                            $start = explode('-',$userCount->created_at)[1];
+                            $end = explode('-',\Carbon\Carbon::now())[1];
+
+							for($i = (int)$start; $i <= (int)$end; $i++){
+                                $calendar[$i]++;
+                            }
 						}
 
 						$data = [
 							$row->description,
 							$row->allocation,
-							$calendar['01'],
-							$calendar['02'],
-							$calendar['03'],
-							$calendar['04'],
-							$calendar['05'],
-							$calendar['06'],
-							$calendar['07'],
-							$calendar['08'],
-							$calendar['09'],
+							$calendar['1'],
+							$calendar['2'],
+							$calendar['3'],
+							$calendar['4'],
+							$calendar['5'],
+							$calendar['6'],
+							$calendar['7'],
+							$calendar['8'],
+							$calendar['9'],
 							$calendar['10'],
 							$calendar['11'],
 							$calendar['12'],
@@ -358,15 +361,15 @@ class AdminController extends \BaseController {
 						$dataTotal = [
 							'Total',
 							$calendarTotal['alocTotal'] += $row->allocation,
-							$calendarTotal['janTotal'] += $calendar['01'],
-							$calendarTotal['febTotal'] += $calendar['02'],
-							$calendarTotal['marTotal'] += $calendar['03'],
-							$calendarTotal['aprTotal'] += $calendar['04'],
-							$calendarTotal['mayTotal'] += $calendar['05'],
-							$calendarTotal['junTotal'] += $calendar['06'],
-							$calendarTotal['julTotal'] += $calendar['07'],
-							$calendarTotal['augTotal'] += $calendar['08'],
-							$calendarTotal['sepTotal'] += $calendar['09'],
+							$calendarTotal['janTotal'] += $calendar['1'],
+							$calendarTotal['febTotal'] += $calendar['2'],
+							$calendarTotal['marTotal'] += $calendar['3'],
+							$calendarTotal['aprTotal'] += $calendar['4'],
+							$calendarTotal['mayTotal'] += $calendar['5'],
+							$calendarTotal['junTotal'] += $calendar['6'],
+							$calendarTotal['julTotal'] += $calendar['7'],
+							$calendarTotal['augTotal'] += $calendar['8'],
+							$calendarTotal['sepTotal'] += $calendar['9'],
 							$calendarTotal['octTotal'] += $calendar['10'],
 							$calendarTotal['novTotal'] += $calendar['11'],
 							$calendarTotal['decTotal'] += $calendar['12'],
@@ -389,7 +392,16 @@ class AdminController extends \BaseController {
 						$calendarGrand['novGrand'] += $calendarTotal['novTotal'],
 						$calendarGrand['decGrand'] += $calendarTotal['decTotal'],
 					];
-					$sheet->appendRow($dataTotal);
+					//$sheet->appendRow($dataTotal);
+                    $sheet->row($count-2, function ($row){
+                        $row->setFontFamily('Comic Sans MS');
+                        $row->setFontSize(8);
+                        $row->setFontWeight('bold');
+                    });
+                    if(!isset($dataTotal)){
+                        $dataTotal = array();
+                    }
+                    $sheet->row($count-2,$dataTotal);
 				}
 				$sheet->row($count-1, function ($row){
 					$row->setFontFamily('Comic Sans MS');

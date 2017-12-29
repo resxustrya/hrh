@@ -4,6 +4,7 @@
             <thead>
             <tr class="info">
                 <th>Description</th>
+                <th>HRH TYPE</th>
                 <th>Allocation</th>
                 <th>HRH</th>
                 <th>Municipality</th>
@@ -19,6 +20,11 @@
                            {{ $row->description }}
                         </span>
                     </td>
+                    <td width="20%">
+                        <span class="{{ 'editable_select' }} green" id="{{ 'hrh_type'.$type.'pId'.$row->id.'columnhrh_type' }}">
+                           {{ HrhType::find($row->hrh_type)->description }}
+                        </span>
+                    </td>
                     <td width="10%">
                         <span class="{{ 'editable_allocation' }} " id="{{ 'province'.$type.'pId'.$row->id.'columnallocation' }}">
                            {{ $row->allocation }}
@@ -30,7 +36,7 @@
                     <td width="10%">
                         <a href="#hrh_query" role="button" class="green" data-backdrop="static" data-title="Municipality Query" data-userid="{{ $row->id }}" data-link="{{ asset('municipalityQuery').'/'.$row->id }}" data-toggle="modal" ><b class="green">{{ count(Municipality::where('province',$row->id)->get()) }} Municipality</b></a>
                     </td>
-                    <td width="10%">
+                    <td width="5%" class="center">
                         <a href="#" class="red delete" id="{{ $type.'delete'.$row->id }}">
                             <i class="ace-icon fa fa-trash bigger-180"></i>
                         </a>
