@@ -63,7 +63,10 @@ class AdminController extends \BaseController {
 
 	public function home()
 	{
-		return View::make('coordinator.coordinator_home');
+	    $hrh_type = HrhType::where('status',1)->get();
+		return View::make('coordinator.coordinator_home',[
+		    "hrh_type" => $hrh_type
+        ]);
 	}
 
 	public function register()
@@ -99,11 +102,6 @@ class AdminController extends \BaseController {
 					$row->setFontWeight('bold');
 					$row->setBackground('#FFFF00');
 				});
-
-				/*// Sets all borders
-				$sheet->setAllBorders('thin');
-				// Set auto size for sheet
-				$sheet->setAutoSize(true);*/
 
 				$users = Users::where('usertype',0)->get();
 				foreach($users as $row) {
