@@ -182,7 +182,7 @@
                             var json = {
                                 "column": column,
                                 "id": id,
-                                'description': description
+                                'value': description
                             };
                             var url = "<?php echo asset('mUpdate'); ?>";
                             $.post(url,json,function(result){
@@ -217,7 +217,7 @@
                             var json = {
                                 "column": 'province',
                                 "id": this.id.split('pId')[1].split('column')[0],
-                                "description" : value // ID only in value
+                                "value" : value // ID only in value
                             };
                             var url = "<?php echo asset('mUpdate'); ?>";
                             $.post(url,json,function(result){
@@ -230,6 +230,33 @@
 
                     });
                 });
+
+                $(".editable_allocation").each(function(index){
+                    $('#'+this.id).editable({
+                        type: 'spinner',
+                        name : 'age',
+                        spinner : {
+                            min : this.text,
+                            max : 9999,
+                            step: 1,
+                            on_sides: true
+                        },
+                        success: function(data,value){
+                            var id = this.id.split('mId')[1].split('column')[0];
+                            var column = this.id.split('mId')[1].split('column')[1];
+                            var json = {
+                                "column": column,
+                                "id": id,
+                                'value': value
+                            };
+                            var url = "<?php echo asset('mUpdate'); ?>";
+                            $.post(url,json,function(result){
+                                console.log(result);
+                            });
+                        }
+                    });
+                });
+
             }
 
 

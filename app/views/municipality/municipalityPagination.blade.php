@@ -6,12 +6,13 @@
                     <thead>
                     <tr class="info">
                         <th>
-                            <i class="ace-icon fa fa-clock-o bigger-110"></i>
                             Description
                         </th>
                         <th>
-                            <i class="ace-icon fa fa-clock-o bigger-110"></i>
                             Province
+                        </th>
+                        <th>
+                            Allocation
                         </th>
                         <th></th>
                     </tr>
@@ -27,6 +28,11 @@
                             <td>
                                 <span class="{{ 'editable_province' }}" id="{{ 'pId'.$municipality->id.'columnprovince' }}">
                                     {{ hrhController::hrh_province($municipality->province).' ['.MunicipalityController::hrh_suffix($municipality->province).'] ' }}
+                                </span>
+                            </td>
+                            <td width="10%">
+                                <span class="{{ 'editable_allocation' }} green" id="{{ 'mId'.$municipality->id.'columnallocation' }}">
+                                   {{ $municipality->allocation }}
                                 </span>
                             </td>
                             <td class="center" width="5%">
