@@ -10,17 +10,17 @@ class ProvinceController extends  BaseController{
     }
 
     public function pList(){
+        //GIT HUB SAMPLE
         Session::put('keyword',Input::get('keyword'));
         $keyword = Session::get('keyword');
         $hrh_type = HrhType::where("status",1)->get();
         if(Input::get('type')){
             $type = Input::get('type');
         } else {
-            if(isset(HrhType::where('status',1)->first()->id)){
-                $type = HrhType::where('status',1)->first()->id;    
-            } else {
+            if(isset(HrhType::where('status',1)->first()->id))
+                $type = HrhType::where('status',1)->first()->id;
+            else
                 $type = 0;
-            }
         }
         $province_count = array();
         foreach($hrh_type as $row){
