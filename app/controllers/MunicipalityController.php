@@ -17,18 +17,27 @@ class MunicipalityController extends BaseController{
             return 'NO STATUS';
     }
 
-    public function mList(){
+    public function mList()
+    {
         Session::put('keyword',Input::get('keyword'));
         $keyword = Session::get('keyword');
-        //paginate
-        $municipalities = Municipality::where('status',1)
-        ->where(function($q) use ($keyword){
-            $q->where('description','like',"%$keyword%");
-        })
-            ->orderBy('description','asc')
-            ->paginate(10);
+        if(Input::get('hrhType_tab')){
+            $hrhType_tab = Input::get('hrh_type');
+        } else {
+            $hrhType_tab = 'all';
+        }
 
-        $provinces = Province::all();
+        //paginate
+        if($hrhType_tab == 'all'){
+            $municipalities = Municipality::where('status',1)
+                ->where(function($q) use ($keyword){
+                    $q->where('description','like',"%$keyword%");
+                })
+                ->orderBy('description','asc')
+                ->paginate(10);
+        }
+
+        $provinces = Province::where('status',1)->orderBy('description','asc')->get();
 
         if (Request::ajax()) {
             return Response::json(array(
@@ -42,7 +51,7 @@ class MunicipalityController extends BaseController{
         return View::make('municipality.mList',[
             "municipalities" => $municipalities,
             "provinces" => $provinces,
-            "hrh_type" => HrhType::all()
+            "hrh_type" => HrhType::where('status',1)->get()
         ]);
     }
 

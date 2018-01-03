@@ -5,7 +5,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/MunicipalityController.php" afterPath="$PROJECT_DIR$/app/controllers/MunicipalityController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/municipality/mList.blade.php" afterPath="$PROJECT_DIR$/app/views/municipality/mList.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/municipality/municipalityPagination.blade.php" afterPath="$PROJECT_DIR$/app/views/municipality/municipalityPagination.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/province/pList.blade.php" afterPath="$PROJECT_DIR$/app/views/province/pList.blade.php" />
     </list>
     <ignored path="hrh.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,45 +32,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mForm.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/municipality/mForm.blade.php">
+      <file leaf-file-name="ProvinceController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/ProvinceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="62" lean-forward="true" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="62" />
+            <state relative-caret-position="255">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MunicipalityController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/MunicipalityController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="90" column="33" lean-forward="false" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="municipalityPagination.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/municipality/municipalityPagination.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="583">
-              <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mList.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/municipality/mList.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="583">
-              <caret line="203" column="23" lean-forward="true" selection-start-line="203" selection-start-column="23" selection-end-line="203" selection-end-column="23" />
-              <folding>
-                <marker date="1514513820840" expanded="true" signature="4501:4507" ph=" " />
-                <marker date="1514513820840" expanded="true" signature="5672:5678" ph=" " />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -78,31 +45,35 @@
       <file leaf-file-name="pList.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/province/pList.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="337" column="16" lean-forward="false" selection-start-line="337" selection-start-column="16" selection-end-line="361" selection-end-column="19" />
+            <state relative-caret-position="170">
+              <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding>
-                <marker date="1514343036483" expanded="true" signature="11982:11988" ph=" " />
-                <marker date="1514343036483" expanded="true" signature="13095:13101" ph=" " />
+                <marker date="1514962835295" expanded="true" signature="12001:12007" ph=" " />
+                <marker date="1514962835295" expanded="true" signature="13114:13120" ph=" " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/profile/profile.blade.php">
+      <file leaf-file-name="mList.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/municipality/mList.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9535">
-              <caret line="1012" column="32" lean-forward="false" selection-start-line="1012" selection-start-column="29" selection-end-line="1012" selection-end-column="32" />
-              <folding />
+            <state relative-caret-position="463">
+              <caret line="96" column="30" lean-forward="true" selection-start-line="96" selection-start-column="30" selection-end-line="96" selection-end-column="30" />
+              <folding>
+                <element signature="e#4838#5069#0#HTML" expanded="false" />
+                <marker date="1514963379937" expanded="true" signature="8388:8394" ph=" " />
+                <marker date="1514963379937" expanded="true" signature="9559:9565" ph=" " />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProvincePagination.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/province/ProvincePagination.blade.php">
+      <file leaf-file-name="MunicipalityController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/MunicipalityController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="28" column="41" lean-forward="true" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="60" />
+            <state relative-caret-position="748">
+              <caret line="53" column="59" lean-forward="false" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -112,10 +83,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>logout</find>
-      <find>add new</find>
-      <find>documen</find>
-      <find>HRH_TYPE</find>
       <find>function hrh_type</find>
       <find>hrhType</find>
       <find>hrhTypeView</find>
@@ -129,19 +96,23 @@
       <find>export</find>
       <find>province</find>
       <find>$province_coun</find>
-      <find>type</find>
       <find>select</find>
       <find>empty</find>
       <find>perman</find>
       <find>These</find>
       <find>dialog</find>
       <find>editable_select</find>
-      <find>hrh_type</find>
       <find>country</find>
       <find>test</find>
       <find>register</find>
       <find>mAdd</find>
       <find>age</find>
+      <find>keyword</find>
+      <find>type</find>
+      <find>global</find>
+      <find>provinces</find>
+      <find>hrh_type</find>
+      <find>var hrh_type</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -193,13 +164,13 @@
         <option value="$PROJECT_DIR$/app/models/ResignedLog.php" />
         <option value="$PROJECT_DIR$/app/views/province/ProvincePagination.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/ProvinceController.php" />
-        <option value="$PROJECT_DIR$/app/views/province/pList.blade.php" />
         <option value="$PROJECT_DIR$/app/views/auth/register.blade.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/controllers/AdminController.php" />
         <option value="$PROJECT_DIR$/app/views/coordinator/coordinator_home.blade.php" />
         <option value="$PROJECT_DIR$/app/views/municipality/municipalityPagination.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/MunicipalityController.php" />
+        <option value="$PROJECT_DIR$/app/views/province/pList.blade.php" />
         <option value="$PROJECT_DIR$/app/views/municipality/mList.blade.php" />
       </list>
     </option>
@@ -251,6 +222,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -354,8 +327,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -446,12 +417,15 @@
       <workItem from="1513902424192" duration="2934000" />
       <workItem from="1514333921485" duration="21968000" />
       <workItem from="1514419962936" duration="3186000" />
-      <workItem from="1514511929132" duration="1982000" />
+      <workItem from="1514511929132" duration="2704000" />
+      <workItem from="1514516364853" duration="930000" />
+      <workItem from="1514533207186" duration="13000" />
+      <workItem from="1514950418188" duration="9955000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75176000" />
+    <option name="totallyTimeSpent" value="86796000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -466,7 +440,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23454158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24253732" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.49573562" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792208" sideWeight="0.51492536" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -781,14 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ProvinceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="34" column="30" lean-forward="false" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/auth/register.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1574">
@@ -800,7 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -808,7 +773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="75" lean-forward="false" selection-start-line="16" selection-start-column="75" selection-end-line="16" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -820,17 +784,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/coordinator/coordinator_home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/profile/profile.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9535">
+        <state relative-caret-position="17204">
           <caret line="1012" column="32" lean-forward="false" selection-start-line="1012" selection-start-column="29" selection-end-line="1012" selection-end-column="32" />
           <folding />
         </state>
@@ -838,54 +794,71 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/province/ProvincePagination.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="28" column="41" lean-forward="true" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/province/pList.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="337" column="16" lean-forward="false" selection-start-line="337" selection-start-column="16" selection-end-line="361" selection-end-column="19" />
-          <folding>
-            <marker date="1514343036483" expanded="true" signature="11982:11988" ph=" " />
-            <marker date="1514343036483" expanded="true" signature="13095:13101" ph=" " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/municipality/mForm.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="62" lean-forward="true" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/MunicipalityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="90" column="33" lean-forward="false" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
+        <state relative-caret-position="476">
+          <caret line="28" column="41" lean-forward="false" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/municipality/municipalityPagination.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
+        <state relative-caret-position="697">
           <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/municipality/mForm.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="34" column="62" lean-forward="false" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ProvinceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/coordinator/coordinator_home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/MunicipalityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="53" column="59" lean-forward="false" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/province/pList.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <marker date="1514962835295" expanded="true" signature="12001:12007" ph=" " />
+            <marker date="1514962835295" expanded="true" signature="13114:13120" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/municipality/mList.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="203" column="23" lean-forward="true" selection-start-line="203" selection-start-column="23" selection-end-line="203" selection-end-column="23" />
+        <state relative-caret-position="463">
+          <caret line="96" column="30" lean-forward="true" selection-start-line="96" selection-start-column="30" selection-end-line="96" selection-end-column="30" />
           <folding>
-            <marker date="1514513820840" expanded="true" signature="4501:4507" ph=" " />
-            <marker date="1514513820840" expanded="true" signature="5672:5678" ph=" " />
+            <element signature="e#4838#5069#0#HTML" expanded="false" />
+            <marker date="1514963379937" expanded="true" signature="8388:8394" ph=" " />
+            <marker date="1514963379937" expanded="true" signature="9559:9565" ph=" " />
           </folding>
         </state>
       </provider>
