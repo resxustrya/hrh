@@ -19,6 +19,24 @@ class MunicipalityController extends BaseController{
 
     public function mList()
     {
+        $keyword = Input::get('description');
+        if(!isset($keyword)){ $keyword="";}
+        $municipalities = DB::table('hrh_type')
+            ->where('hrh_type.id',6)
+            ->leftJoin('province', function($join)
+            {
+                $join->on('hrh_type.id', '=', 'province.hrh_type');
+            })
+            ->leftJoin('municipality',function($join) use ($keyword){
+                $join
+                    ->on('municipality.province','=','province.id');
+            })
+            ->Where('municipality.description','like',"%$keyword%")
+            ->get(['municipality.*']);
+
+        return $municipalities;
+
+
         Session::put('keyword',Input::get('keyword'));
         $keyword = Session::get('keyword');
         if(Input::get('hrhType_tab')){
@@ -34,6 +52,14 @@ class MunicipalityController extends BaseController{
                     $q->where('description','like',"%$keyword%");
                 })
                 ->orderBy('description','asc')
+                ->paginate(10);
+        } else {
+
+            $municipalities  = DB::table('Province as p')
+                ->join('municipality as m', 'p.id', '=', 'm.province')
+                ->where('p.hrh_type',$hrhType_tab)
+                ->select('p.*')
+                ->get()
                 ->paginate(10);
         }
 
