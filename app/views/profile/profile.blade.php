@@ -1703,13 +1703,13 @@
                                 value = month+'/'+day+'/'+year;
                         }
 
-                        this.$tpl.append("<input type='text' value='"+value+"' id='" + name + "input"+"' style='margin-right:15px;width:100%'>");
+                        this.$tpl.append("<input type='text' value='"+value+"' id='" + name + "input"+"' style='margin-right:15px;width:100%' readonly>");
                         $("#"+name+"input").datepicker({
                             showOtherMonths: true,
                             selectOtherMonths: true,
                             autoclose:true,
-                            //changeMonth: true,
-                            //changeYear: true,
+                            changeMonth: true,
+                            changeYear: true,
                         });
                     }
 

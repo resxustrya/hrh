@@ -137,8 +137,6 @@
                 var href = $(this).attr('href');
                 $("a[href='"+href+"']").on("click",function(){
                     hrhType_tab = this.href.split('#')[1];
-                    console.log(hrhType_tab);
-                    $('.posts_'+hrhType_tab).html("<span>Loading....</span>");
                     getPosts(1,keyword);
                 });
             });
@@ -227,14 +225,14 @@
             });
 
             function getPosts(page,keyword) {
-                $('.mList').html("<span>Loading....</span>");
+                $('.posts_'+hrhType_tab).html("<span>Loading....</span>");
                 $.ajax({
                     url : '?page=' + page + '&keyword=' + keyword + '&hrhType_tab=' +hrhType_tab,
                     dataType: 'json',
                 }).done(function (data) {
                     //location.hash = page;
                     setTimeout(function(){
-                        $('.mList').html(data.view);
+                        $('.posts_'+hrhType_tab).html(data.view);
                         editable();
                         delete_row();
                     },700);

@@ -19,28 +19,10 @@ class MunicipalityController extends BaseController{
 
     public function mList()
     {
-        $keyword = Input::get('description');
-        if(!isset($keyword)){ $keyword="";}
-        $municipalities = DB::table('hrh_type')
-            ->where('hrh_type.id',6)
-            ->leftJoin('province', function($join)
-            {
-                $join->on('hrh_type.id', '=', 'province.hrh_type');
-            })
-            ->leftJoin('municipality',function($join) use ($keyword){
-                $join
-                    ->on('municipality.province','=','province.id');
-            })
-            ->Where('municipality.description','like',"%$keyword%")
-            ->get(['municipality.*']);
-
-        return $municipalities;
-
-
         Session::put('keyword',Input::get('keyword'));
         $keyword = Session::get('keyword');
         if(Input::get('hrhType_tab')){
-            $hrhType_tab = Input::get('hrh_type');
+            $hrhType_tab = Input::get('hrhType_tab');
         } else {
             $hrhType_tab = 'all';
         }
@@ -54,13 +36,20 @@ class MunicipalityController extends BaseController{
                 ->orderBy('description','asc')
                 ->paginate(10);
         } else {
-
-            $municipalities  = DB::table('Province as p')
-                ->join('municipality as m', 'p.id', '=', 'm.province')
-                ->where('p.hrh_type',$hrhType_tab)
-                ->select('p.*')
-                ->get()
-                ->paginate(10);
+            if(!isset($keyword)){ $keyword="";}
+            $municipalities = DB::table('hrh_type')
+                ->where('hrh_type.id',$hrhType_tab)
+                ->leftJoin('province', function($join)
+                {
+                    $join->on('hrh_type.id', '=', 'province.hrh_type');
+                })
+                ->leftJoin('municipality',function($join) use ($keyword){
+                    $join
+                        ->on('municipality.province','=','province.id');
+                })
+                ->Where('municipality.description','like',"%$keyword%")
+                ->orderBy('description','asc')
+                ->paginate(10,['municipality.*']);
         }
 
         $provinces = Province::where('status',1)->orderBy('description','asc')->get();

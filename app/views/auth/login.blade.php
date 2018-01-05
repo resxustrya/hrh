@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{ asset('public/assets_ace/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('public/assets_ace/font-awesome/4.5.0/css/font-awesome.min.css') }}" />
 
+    <link rel="stylesheet" href="{{ asset('public/assets_ace/css/jquery.gritter.min.css') }}" />
+
     <!-- text fonts -->
     <link rel="stylesheet" href="{{ asset('public/assets_ace/css/fonts.googleapis.com.css') }}" />
 
@@ -214,7 +216,7 @@
 
                                                     <label class="block clearfix form-group">
                                                         <span class="block input-icon input-icon-right">
-                                                            <input type="text" name="username" class="form-control" placeholder="Username" />
+                                                            <input type="text" class="form-control username" placeholder="Username" />
                                                             <i class="ace-icon fa fa-user"></i>
                                                         </span>
                                                     </label>
@@ -242,7 +244,7 @@
                                                             <span class="bigger-110">Reset</span>
                                                         </button>
 
-                                                        <button type="submit" class="width-65 pull-right btn btn-sm btn-success">
+                                                        <button type="submit" class="width-65 pull-right btn btn-sm btn-success btnRegister">
                                                             <span class="bigger-110">Register</span>
                                                             <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
                                                         </button>
@@ -275,12 +277,36 @@
 <script src="{{ asset('public/assets_ace/js/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('public/assets_ace/js/jquery-additional-methods.min.js') }}"></script>
 <script src="{{ asset('public/assets_ace/js/select2.min.js') }}"></script>
+<script src="{{ asset('public/assets_ace/js/jquery.gritter.min.js') }}"></script>
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
     $("#sign-up").click(function(e){
         $(".alert-danger").hide();
         $(".alert-success").hide();
+    });
+
+    var username_flag = false;
+    $(".username").on("keyup",function(e){
+        e.preventDefault();
+        var element = $(".username");
+        var username = element.val();
+        $.post("<?php echo asset('username_trapping')?>", { "username": element.val(), "_token": "<?php echo csrf_token(); ?>" }, function(result){
+            console.log(username);
+            if(result != ''){
+                $("#username_error").html('Employee NO : '+username+' is already exist in the database.');
+                last_gritter = $.gritter.add({
+                    title: 'Warning!',
+                    text: 'USERNAME : '+username+' is already exist in the database.',
+                    class_name: 'gritter-warning gritter-center',
+                });
+                username_flag = true;
+            } else {
+                $("#username_error").html('');
+                username_flag = false;
+            }
+        })
+
     });
 
     var $hrhId = 0;
@@ -310,7 +336,6 @@
         else {
             $provinceId = provinceId.val();
         }
-
 
         var municipalityElement = $('#municipality');
         municipalityElement.val('').trigger('change');
@@ -424,6 +449,8 @@
             },
 
             submitHandler: function (form) {
+                $(".btnRegister").attr('disabled',true);
+
                 var json = [];
                 var url = "<?php echo asset('/register'); ?>";
                 var elementValue;
@@ -456,6 +483,7 @@
                     console.log(result);
                     location.reload();
                 });
+
             },
             invalidHandler: function (form) {
 
