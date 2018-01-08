@@ -4,11 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>DOHRO7 HRH | Log in</title>
+    <meta name="description" content="3 styles with inline editable feature" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="{{ asset('public/assets_ace/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('public/assets_ace/font-awesome/4.5.0/css/font-awesome.min.css') }}" />
 
+    <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="{{ asset('public/assets_ace/css/select2.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('public/assets_ace/css/jquery.gritter.min.css') }}" />
 
     <!-- text fonts -->
@@ -16,11 +20,8 @@
 
     <!-- ace styles -->
     <link rel="stylesheet" href="{{ asset('public/assets_ace/css/ace.min.css') }}" class="ace-main-stylesheet" id="main-ace-style" />
-
     <link rel="stylesheet" href="{{ asset('public/assets_ace/css/ace-rtl.min.css') }}" />
 
-    <!-- page specific plugin styles -->
-    <link rel="stylesheet" href="{{ asset('public/assets_ace/css/select2.min.css') }}" />
 </head>
 
     <body class="login-layout light-login">
@@ -216,7 +217,7 @@
 
                                                     <label class="block clearfix form-group">
                                                         <span class="block input-icon input-icon-right">
-                                                            <input type="text" class="form-control username" placeholder="Username" />
+                                                            <input type="text" class="form-control username" name="username" placeholder="Username" />
                                                             <i class="ace-icon fa fa-user"></i>
                                                         </span>
                                                     </label>
@@ -292,7 +293,6 @@
         var element = $(".username");
         var username = element.val();
         $.post("<?php echo asset('username_trapping')?>", { "username": element.val(), "_token": "<?php echo csrf_token(); ?>" }, function(result){
-            console.log(username);
             if(result != ''){
                 $("#username_error").html('Employee NO : '+username+' is already exist in the database.');
                 last_gritter = $.gritter.add({
@@ -449,8 +449,12 @@
             },
 
             submitHandler: function (form) {
-                $(".btnRegister").attr('disabled',true);
+                if(username_flag){
+                    $('.username').val('');
+                    return false;
+                }
 
+                $(".btnRegister").attr('disabled',true);
                 var json = [];
                 var url = "<?php echo asset('/register'); ?>";
                 var elementValue;
@@ -486,7 +490,10 @@
 
             },
             invalidHandler: function (form) {
-
+                if(username_flag){
+                    $('.username').val('');
+                    return false;
+                }
             }
         });
 
