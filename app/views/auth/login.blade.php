@@ -220,6 +220,7 @@
                                                             <input type="text" class="form-control username" name="username" placeholder="Username" />
                                                             <i class="ace-icon fa fa-user"></i>
                                                         </span>
+                                                        <div class="red username-error1">That username is taken. Try another</div>
                                                     </label>
 
                                                     <label class="block clearfix form-group">
@@ -287,6 +288,7 @@
         $(".alert-success").hide();
     });
 
+    $(".username-error1").hide();
     var username_flag = false;
     $(".username").on("keyup",function(e){
         e.preventDefault();
@@ -294,15 +296,15 @@
         var username = element.val();
         $.post("<?php echo asset('username_trapping')?>", { "username": element.val(), "_token": "<?php echo csrf_token(); ?>" }, function(result){
             if(result != ''){
-                $("#username_error").html('Employee NO : '+username+' is already exist in the database.');
-                last_gritter = $.gritter.add({
+                /*last_gritter = $.gritter.add({
                     title: 'Warning!',
                     text: 'USERNAME : '+username+' is already exist in the database.',
                     class_name: 'gritter-warning gritter-center',
-                });
+                });*/
+                $(".username-error1").show();
                 username_flag = true;
             } else {
-                $("#username_error").html('');
+                $(".username-error1").hide();
                 username_flag = false;
             }
         })
@@ -383,7 +385,7 @@
                     required: true
                 },
                 username: {
-                    required: true
+                    required: true,
                 },
                 password: {
                     required: true
@@ -414,9 +416,6 @@
                 sex: {
                     required: "Please provide a gender."
                 },
-                captcha: {
-                    required: "Please provide a captcha"
-                }
             },
 
             highlight: function (e) {
@@ -450,7 +449,6 @@
 
             submitHandler: function (form) {
                 if(username_flag){
-                    $('.username').val('');
                     return false;
                 }
 
@@ -491,7 +489,8 @@
             },
             invalidHandler: function (form) {
                 if(username_flag){
-                    $('.username').val('');
+                    $(".username-error1").show();
+                    //$('.username').val('');
                     return false;
                 }
             }
