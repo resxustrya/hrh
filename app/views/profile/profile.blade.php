@@ -67,15 +67,24 @@
                     <div>
                         <div id="user-profile-1" class="user-profile row">
                             <div class="col-xs-12 col-sm-3 center">
+                                @if(!isset($user->photo))
+                                    <div class="alert alert-info" id="note"><i class="fa fa-info"></i> Note: 2 by 2 picture only</div>
+                                @endif
                                 <div>
                                 <span class="profile-picture">
-                                    <img id="avatar" class="editable img-responsive" alt="Alex's Avatar" src="
+                                    <a href="#">
+                                    <img id="avatar_picture" class="img-responsive" alt="Alex's Avatar" src="
                                     <?php
-                                        if($user->sex == 'Female')
-                                            echo asset('public/assets_ace/images/avatars/female1.png');
-                                        else
-                                            echo asset('public/assets_ace/images/avatars/male1.png');
+                                        if(isset($user->photo)){
+                                            echo asset('public/upload_picture/picture').'/'.$user->photo;
+                                        } else {
+                                            if($user->sex == 'Female')
+                                                echo asset('public/assets_ace/images/avatars/female1.png');
+                                            else
+                                                echo asset('public/assets_ace/images/avatars/male1.png');
+                                        }
                                     ?>" />
+                                    </a>
                                 </span>
                                 <div class="rating inline"></div>
                                 <div class="space-4"></div>
@@ -997,135 +1006,33 @@
             $.fn.editableform.buttons = '<button type="submit" class="btn btn-info editable-submit"><i class="ace-icon fa fa-check"></i></button>'+
                                         '<button type="button" class="btn editable-cancel"><i class="ace-icon fa fa-times"></i></button>';
 
-            // *** editable avatar *** //
-            try {//ie8 throws some harmless exceptions, so let's catch'em
 
-                //first let's add a fake appendChild method for Image element for browsers that have a problem with this
-                //because editable plugin calls appendChild, and it causes errors on IE at unpredicted points
-                try {
-                    document.createElement('IMG').appendChild(document.createElement('B'));
-                } catch(e) {
-                    Image.prototype.appendChild = function(el){}
-                }
-
-                var last_gritter
-                $('#avatar').editable({
-                    type: 'image',
-                    name: 'avatar',
-                    value: null,
-                    //onblur: 'ignore',  //don't reset or hide editable onblur?!
-                    image: {
-                        //specify ace file input plugin's options here
-                        btn_choose: 'Change Avatar',
-                        droppable: true,
-                        maxSize: 110000,//~100Kb
-
-                        //and a few extra ones here
-                        name: 'avatar',//put the field name here as well, will be used inside the custom plugin
-                        on_error : function(error_type) {//on_error function will be called when the selected file has a problem
-                            if(last_gritter) $.gritter.remove(last_gritter);
-                            if(error_type == 1) {//file format error
-                                last_gritter = $.gritter.add({
-                                    title: 'File is not an image!',
-                                    text: 'Please choose a jpg|gif|png image!',
-                                    class_name: 'gritter-error gritter-center'
-                                });
-                            } else if(error_type == 2) {//file size rror
-                                last_gritter = $.gritter.add({
-                                    title: 'File too big!',
-                                    text: 'Image size should not exceed 100Kb!',
-                                    class_name: 'gritter-error gritter-center'
-                                });
-                            }
-                            else {//other error
-                            }
-                        },
-                        on_success : function() {
-                            $.gritter.removeAll();
-                        }
-                    },
-                    url: function(params) {
-                        // ***UPDATE AVATAR HERE*** //
-                        //for a working upload example you can replace the contents of this function with
-                        //examples/profile-avatar-update.js
-
-                        var deferred = new $.Deferred
-
-                        var value = $('#avatar').next().find('input[type=hidden]:eq(0)').val();
-                        if(!value || value.length == 0) {
-                            deferred.resolve();
-                            return deferred.promise();
-                        }
-
-
-                        //dummy upload
-                        setTimeout(function(){
-                            if("FileReader" in window) {
-                                //for browsers that have a thumbnail of selected image
-                                var thumb = $('#avatar').next().find('img').data('thumb');
-                                if(thumb) $('#avatar').get(0).src = thumb;
-                            }
-
-                            deferred.resolve({'status':'OK'});
-
-                            if(last_gritter) $.gritter.remove(last_gritter);
-                            last_gritter = $.gritter.add({
-                                title: 'Avatar Updated!',
-                                text: 'Uploading to server can be easily implemented. A working example is included with the template.',
-                                class_name: 'gritter-info gritter-center'
-                            });
-
-                        } , parseInt(Math.random() * 800 + 800))
-
-                        return deferred.promise();
-
-                        // ***END OF UPDATE AVATAR HERE*** //
-                    },
-
-                    success: function(response, newValue) {
-                    }
-                })
-            }catch(e) {}
-
-            /**
-             //let's display edit mode by default?
-             var blank_image = true;//somehow you determine if image is initially blank or not, or you just want to display file input at first
-             if(blank_image) {
-					$('#avatar').editable('show').on('hidden', function(e, reason) {
-						if(reason == 'onblur') {
-							$('#avatar').editable('show');
-							return;
-						}
-						$('#avatar').off('hidden');
-					})
-				}
-             */
-
-                //another option is using modals
-            $('#avatar2').on('click', function(){
+            //another option is using modals
+            $('#avatar_picture').on('click', function(){
+                var last_gritter;
                 var modal =
-                '<div class="modal fade">\
-                  <div class="modal-dialog">\
-                   <div class="modal-content">\
-                    <div class="modal-header">\
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>\
-                        <h4 class="blue">Change Avatar</h4>\
-                    </div>\
-                    \
-                    <form class="no-margin">\
-                     <div class="modal-body">\
-                        <div class="space-4"></div>\
-                        <div style="width:75%;margin-left:12%;"><input type="file" name="file-input" /></div>\
+                    '<div class="modal fade">\
+                      <div class="modal-dialog">\
+                       <div class="modal-content">\
+                        <div class="modal-header">\
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>\
+                            <h4 class="blue">Change Picture</h4>\
+                        </div>\
+                        \
+                        <form class="no-margin" id="uploadPicture" enctype="multipart/form-data">\
+                         <div class="modal-body">\
+                            <div class="space-4"></div>\
+                            <div style="width:75%;margin-left:12%;"><input type="file" name="file-input" /></div>\
+                         </div>\
+                        \
+                         <div class="modal-footer center">\
+                            <button type="submit" class="btn btn-sm btn-success"><i class="ace-icon fa fa-check"></i> Submit</button>\
+                            <button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cancel</button>\
+                         </div>\
+                        </form>\
+                      </div>\
                      </div>\
-                    \
-                     <div class="modal-footer center">\
-                        <button type="submit" class="btn btn-sm btn-success"><i class="ace-icon fa fa-check"></i> Submit</button>\
-                        <button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cancel</button>\
-                     </div>\
-                    </form>\
-                  </div>\
-                 </div>\
-                </div>';
+                    </div>';
 
 
                 var modal = $(modal);
@@ -1139,7 +1046,7 @@
                 var file = form.find('input[type=file]').eq(0);
                 file.ace_file_input({
                     style:'well',
-                    btn_choose:'Click to choose new avatar',
+                    btn_choose:'Click to choose new picture',
                     btn_change:null,
                     no_icon:'ace-icon fa fa-picture-o',
                     thumbnail:'small',
@@ -1152,7 +1059,15 @@
                 });
 
                 form.on('submit', function(){
-                    if(!file.data('ace_input_files')) return false;
+                    if(!file.data('ace_input_files')) {
+                        last_gritter = $.gritter.add({
+                            title: 'no image!',
+                            text: 'Please choose a jpg|gif|png image!',
+                            class_name: 'gritter-error gritter-center'
+                        });
+                        console.log($("input[name='file-input']").prop('files')[0]);
+                        return false;
+                    }
 
                     file.ace_file_input('disable');
                     form.find('button').attr('disabled', 'disabled');
@@ -1168,8 +1083,40 @@
                         modal.modal("hide");
 
                         var thumb = file.next().find('img').data('thumb');
-                        if(thumb) $('#avatar2').get(0).src = thumb;
+                        //if(thumb) $('#avatar2').get(0).src = thumb;
 
+                        //process upload
+                        var url = "<?php echo asset('/uploadPicture'); ?>";
+                        var file_data = form.find('input[type=file]').eq(0).prop('files')[0];
+
+                        var form_data = new FormData();
+                        form_data.append('picture', file_data);
+                        form_data.append('id',"<?php echo $user->id ?>");
+                        $.ajaxSetup(
+                            {
+                                headers:
+                                    {
+                                        'X-CSRF-Token': "<?php echo csrf_token(); ?>"
+                                    }
+                            });
+                        $.ajax({
+                            url:url,
+                            data: form_data,
+                            type: 'POST',
+                            contentType: false, // The content type used when sending data to the server.
+                            cache: false, // To unable request pages to be cached
+                            processData: false,
+                            success: function(result) {
+                                console.log(result);
+                                last_gritter = $.gritter.add({
+                                    title: 'Picture Updated!',
+                                    text: 'Uploading to server.. successfully save..',
+                                    class_name: 'gritter-info gritter-center',
+                                });
+                                $('#avatar_picture').get(0).src = "<?php echo asset('public/upload_picture/picture')?>"+result.split("upload_picture/picture")[1];
+                                $("#note").remove();
+                            }
+                        });
                         working = false;
                     });
 

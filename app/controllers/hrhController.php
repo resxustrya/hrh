@@ -428,5 +428,22 @@ class hrhController extends \BaseController {
         return Users::where('username', '=', Input::get('username'))->first();
     }
 
+    public function uploadPicture(){
+        $id = Input::get('id');
+
+        $picture = Input::file('picture');
+        $extension = $picture->getClientOriginalExtension(); // getting excel extension
+        $dir = public_path().'/upload_picture/picture';
+        $filename = uniqid().'_'.time().'_'.date('Ymd').'.'.$extension;
+
+        Users::where('id','=',$id)->update([
+            'photo' => $filename
+        ]);
+
+        return $picture->move($dir, $filename);
+    }
+
+
+
 
 }

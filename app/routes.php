@@ -25,6 +25,7 @@ Route::get('hrhAppend/{provinceid}/{municipalityid}','MunicipalityController@hrh
 Route::get('hrhTypeForm','HrhController@hrhTypeForm');
 Route::post("updateUser",'hrhController@updateUser');
 Route::match(array('GET','POST'),'username_trapping','HrhController@username_trapping');
+Route::post('/uploadPicture','HrhController@uploadPicture');
 
 Route::post('sign_up','hrhController@sign_up');
 
