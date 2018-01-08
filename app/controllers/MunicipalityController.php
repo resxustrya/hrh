@@ -17,18 +17,42 @@ class MunicipalityController extends BaseController{
             return 'NO STATUS';
     }
 
-    public function mList(){
+    public function mList()
+    {
         Session::put('keyword',Input::get('keyword'));
         $keyword = Session::get('keyword');
-        //paginate
-        $municipalities = Municipality::where('status',1)
-        ->where(function($q) use ($keyword){
-            $q->where('description','like',"%$keyword%");
-        })
-            ->orderBy('description','asc')
-            ->paginate(10);
+        if(Input::get('hrhType_tab')){
+            $hrhType_tab = Input::get('hrhType_tab');
+        } else {
+            $hrhType_tab = 'all';
+        }
 
-        $provinces = Province::all();
+        //paginate
+        if($hrhType_tab == 'all'){
+            $municipalities = Municipality::where('status',1)
+                ->where(function($q) use ($keyword){
+                    $q->where('description','like',"%$keyword%");
+                })
+                ->orderBy('description','asc')
+                ->paginate(10);
+        } else {
+            if(!isset($keyword)){ $keyword="";}
+            $municipalities = DB::table('hrh_type')
+                ->where('hrh_type.id',$hrhType_tab)
+                ->leftJoin('province', function($join)
+                {
+                    $join->on('hrh_type.id', '=', 'province.hrh_type');
+                })
+                ->leftJoin('municipality',function($join) use ($keyword){
+                    $join
+                        ->on('municipality.province','=','province.id');
+                })
+                ->Where('municipality.description','like',"%$keyword%")
+                ->orderBy('description','asc')
+                ->paginate(10,['municipality.*']);
+        }
+
+        $provinces = Province::where('status',1)->orderBy('description','asc')->get();
 
         if (Request::ajax()) {
             return Response::json(array(
@@ -42,7 +66,7 @@ class MunicipalityController extends BaseController{
         return View::make('municipality.mList',[
             "municipalities" => $municipalities,
             "provinces" => $provinces,
-            "hrh_type" => HrhType::all()
+            "hrh_type" => HrhType::where('status',1)->get()
         ]);
     }
 

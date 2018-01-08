@@ -8,7 +8,7 @@
         </div><!-- /.page-header -->
         <div class="space-10"></div>
         @if(isset($province_select) and count($province_select) > 0)
-        <div class="clearfix">
+        <div class="clearfix alert alert-danger">
             <ul class="nav nav-tabs padding-18" id="myTab">
                 <?php
                 $statusCount = 0;
@@ -32,7 +32,7 @@
                             <span class="badge badge-{{ $badge[$counter] }} badge-{{ $statusCount }}">{{ $province_count[$status->id] }}</span>
                             <?php
                             $counter++;
-                            if($counter >= 5) $counter = 1;
+                            if($counter >= 5) $counter = 0;
                             ?>
                         </a>
                     </li>

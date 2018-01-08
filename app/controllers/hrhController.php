@@ -424,5 +424,9 @@ class hrhController extends \BaseController {
         return 'Successfully save';
     }
 
+    public function username_trapping(){
+        return Users::where('username', '=', Input::get('username'))->first();
+    }
+
 
 }

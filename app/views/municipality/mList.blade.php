@@ -8,34 +8,97 @@
         </div><!-- /.page-header -->
         <div class="space-10"></div>
         @if(isset($municipalities) and count($municipalities) > 0)
-        <form id="searchForm">
-            <div class="row">
-                <div class="col-xs-12 col-md-6">
-                    <label class="block clearfix">
-                        <span class="block input-icon input-icon-right">
-                            <input type="text" class="form-control" value="{{ Session::get('keyword') }}" name="keyword" placeholder="Search municipality..." />
-                            <i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
-                        </span>
-                    </label>
-                </div>
-                <div class="col-xs-12 col-md-6">
-                    <a href="#document_form" data-link="{{ asset('mForm') }}" class="btn btn-primary no-border btn-sm" data-dismiss="modal" data-backdrop="static" data-toggle="modal" data-target="#document_form">
-                        <i class="ace-icon fa fa-plus icon-on-right bigger-110"></i>
-                        Add Municipality
-                    </a>
-                </div>
+            <div class="clearfix alert alert-success">
+                <ul class="nav nav-tabs padding-18" id="myTab">
+                    <?php
+                    $rowCount = 0;
+                    $counter = 1;
+                    $color = ['blue','orange','green','red','purple'];
+                    $badge = ['primary','warning','success','danger','purple'];
+                    ?>
+                    <li class="active">
+                        <a data-toggle="tab" class="m-tab" href="#all">
+                            <i class="{{ $color[0] }} ace-icon fa fa-question-circle bigger-120"></i>
+                            ALL
+                            <span class="badge badge-{{ $badge[0] }} badge-{{ $rowCount }}">{{ count($hrh_type) }}</span>
+                        </a>
+                    </li>
+                    @foreach($hrh_type as $row)
+                        <?php $rowCount++; ?>
+                        <li>
+                            <a data-toggle="tab" class="m-tab" href="#{{ $row->id }}">
+                                <i class="{{ $color[$counter] }} ace-icon fa fa-question-circle bigger-120"></i>
+                                {{ $row->suffix }}
+                                <span class="badge badge-{{ $badge[$counter] }} badge-{{ $rowCount }}">
+                                    <?php
+                                        $municipalityCount = 0;
+                                        $province = Province::where('hrh_type',$row->id)->where('status',1)->get();
+                                        if(isset($province)){
+                                            foreach($province as $pro){
+                                                $municipality =  Municipality::where('province',$pro->id)->where('status',1)->get();
+                                                if(isset($municipality)){
+                                                    foreach ($municipality as $mun){
+                                                        $municipalityCount++;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        echo $municipalityCount;
+                                    ?>
+                                </span>
+                                <?php
+                                $counter++;
+                                if($counter >= 5) $counter = 0;
+                                ?>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
-        </form>
-        <div class="space-10"></div>
-        <div class="tab-content no-border no-padding">
-            <div class="mList">
+            <div class="space-20"></div>
+            <form id="searchForm">
                 <div class="row">
-                    <div class="col-xs-12">
-                        @include('municipality.municipalityPagination')
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
+                    <div class="col-xs-12 col-md-6">
+                        <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                                <input type="text" class="form-control" value="{{ Session::get('keyword') }}" name="keyword" placeholder="Search municipality..." />
+                                <i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <a href="#document_form" data-link="{{ asset('mForm') }}" class="btn btn-primary no-border btn-sm" data-dismiss="modal" data-backdrop="static" data-toggle="modal" data-target="#document_form">
+                            <i class="ace-icon fa fa-plus icon-on-right bigger-110"></i>
+                            Add Municipality
+                        </a>
+                    </div>
+                </div>
+            </form>
+            <div class="space-10"></div>
+
+            <div class="tab-content no-border no-padding">
+                <div id="all" class="tab-pane fade in active">
+                    <div class="posts_all">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                @include('municipality.municipalityPagination')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @foreach($hrh_type as $row)
+                    <div id="{{ $row->id }}" class="tab-pane fade">
+                        <div class="posts_{{ $row->id }}">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    @include('municipality.municipalityPagination')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-        </div>
+
         @else
             <a href="#document_form" data-link="{{ asset('mForm') }}" class="btn btn-primary no-border btn-sm" data-dismiss="modal" data-backdrop="static" data-toggle="modal" data-target="#document_form">
                 <i class="ace-icon fa fa-plus icon-on-right bigger-110"></i>
@@ -68,8 +131,17 @@
 
             //global variable
             var keyword = '';
-            $(".select2").select2();
+            var hrhType_tab = "all";
 
+            $(".m-tab").each(function(index){
+                var href = $(this).attr('href');
+                $("a[href='"+href+"']").on("click",function(){
+                    hrhType_tab = this.href.split('#')[1];
+                    getPosts(1,keyword);
+                });
+            });
+
+            $(".select2").select2();
             $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
                 _title: function(title) {
                     var $title = this.options.title || '&nbsp;';
@@ -153,14 +225,14 @@
             });
 
             function getPosts(page,keyword) {
-                $('.mList').html("<span>Loading....</span>");
+                $('.posts_'+hrhType_tab).html("<span>Loading....</span>");
                 $.ajax({
-                    url : '?page=' + page + '&keyword=' + keyword,
+                    url : '?page=' + page + '&keyword=' + keyword + '&hrhType_tab=' +hrhType_tab,
                     dataType: 'json',
                 }).done(function (data) {
                     //location.hash = page;
                     setTimeout(function(){
-                        $('.mList').html(data.view);
+                        $('.posts_'+hrhType_tab).html(data.view);
                         editable();
                         delete_row();
                     },700);

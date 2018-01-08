@@ -105,17 +105,18 @@ class AdminController extends \BaseController {
 
 				$users = Users::where('usertype',0)->get();
 				foreach($users as $row) {
-					if($row->date_of_birth) {
-						$birthDate = $row->date_of_birth;
-						$birthDate = explode("/", $birthDate);
 
-						$age = (date("md", date("U", mktime(0, 0, 0, $birthDate[0], $birthDate[1], $birthDate[2]))) > date("md")
-							? ((date("Y") - $birthDate[2]) - 1)
-							: (date("Y") - $birthDate[2]));
-					}
-					else {
-						$age = 'NO AGE';
-					}
+				    $birthDate = $row->date_of_birth;
+                    $birthDate = explode("/", $birthDate);
+
+                    try {
+                        $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[0], $birthDate[1], $birthDate[2]))) > date("md")
+                            ? ((date("Y") - $birthDate[2]) - 1)
+                            : (date("Y") - $birthDate[2]));
+                    }
+                    catch (\Exception $e) {
+                        $age = 'NO AGE';
+                    }
 
 					$data = array(
 						hrhController::hrh_type($row->hrh_type),
@@ -164,26 +165,23 @@ class AdminController extends \BaseController {
 						$row->setBackground('#FFFF00');
 					});
 
-					/*// Sets all borders
-					$sheet->setAllBorders('thin');
-					// Set auto size for sheet
-					$sheet->setAutoSize(true);*/
 
 					$users = Users::where('hrh_type',Session::get('typeId'))
 						->where('usertype',0)
 						->get();
 					foreach($users as $row) {
-						if($row->date_of_birth) {
-							$birthDate = $row->date_of_birth;
-							$birthDate = explode("/", $birthDate);
 
-							$age = (date("md", date("U", mktime(0, 0, 0, $birthDate[0], $birthDate[1], $birthDate[2]))) > date("md")
-								? ((date("Y") - $birthDate[2]) - 1)
-								: (date("Y") - $birthDate[2]));
-						}
-						else {
-							$age = 'NO AGE';
-						}
+					    $birthDate = $row->date_of_birth;
+                        $birthDate = explode("/", $birthDate);
+
+                        try {
+                            $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[0], $birthDate[1], $birthDate[2]))) > date("md")
+                                ? ((date("Y") - $birthDate[2]) - 1)
+                                : (date("Y") - $birthDate[2]));
+                        }
+                        catch (\Exception $e) {
+                            $age = 'NO AGE';
+                        }
 
 						$data = array(
 							hrhController::hrh_type($row->hrh_type),
