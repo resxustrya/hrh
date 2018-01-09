@@ -1661,7 +1661,7 @@
                     }
 
                     console.log(name.split('wid')[0]);
-                    for(var j = 1; j<= 10; j++){
+                    for(var j = 0; j< 10; j++){
                         var temp,value,styleInput;
                         if(name.includes('c_id')){
                             if($("#"+name).text() == 'Empty')
@@ -1692,7 +1692,9 @@
                             $("#"+name+"input").datepicker({
                                 showOtherMonths: true,
                                 selectOtherMonths: true,
-                                autoclose:true
+                                autoclose:true,
+                                changeMonth: true,
+                                changeYear: true,
                             });
                         }
                     }
