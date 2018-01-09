@@ -289,27 +289,24 @@
     });
 
     $(".username-error1").hide();
-    var username_flag = false;
+
     $(".username").on("keyup",function(e){
         e.preventDefault();
+        ajax_username();
+    });
+
+    function ajax_username(){
         var element = $(".username");
         var username = element.val();
-        $.post("<?php echo asset('username_trapping')?>", { "username": element.val(), "_token": "<?php echo csrf_token(); ?>" }, function(result){
-            if(result != ''){
-                /*last_gritter = $.gritter.add({
-                    title: 'Warning!',
-                    text: 'USERNAME : '+username+' is already exist in the database.',
-                    class_name: 'gritter-warning gritter-center',
-                });*/
+        $.post("<?php echo asset('username_trapping')?>", { "username": username, "_token": "<?php echo csrf_token(); ?>" }, function(exist){
+            console.log(exist);
+            if(exist){
                 $(".username-error1").show();
-                username_flag = true;
             } else {
                 $(".username-error1").hide();
-                username_flag = false;
             }
-        })
-
-    });
+        });
+    }
 
     var $hrhId = 0;
     function filter_province(hrhId){
@@ -448,51 +445,54 @@
             },
 
             submitHandler: function (form) {
-                if(username_flag){
-                    return false;
-                }
-
-                $(".btnRegister").attr('disabled',true);
-                var json = [];
-                var url = "<?php echo asset('/register'); ?>";
-                var elementValue;
-                var sexStatus = 'notdone';
-                $.each($('form').find("input[name],select[name]"),function(index){
-                    if(this.name == 'sex' && sexStatus == 'notdone'){
-                        if($("input[name='sex'][value='Male']").is(':checked')){
-                            elementValue = 'Male';
-                        }
-                        else if($("input[name='sex'][value='Female']").is(':checked')){
-                            elementValue = 'Female';
-                        }
-                        sexStatus = 'done';
-                    }
-                    else if(sexStatus == 'done'){
-                        sexStatus = 'continue';
-                        return;
+                var element = $(".username");
+                var username = element.val();
+                $.post("<?php echo asset('username_trapping')?>", { "username": username, "_token": "<?php echo csrf_token(); ?>" }, function(exist){
+                    console.log(exist);
+                    if(exist){
+                        $(".username-error1").show();
                     }
                     else {
-                        elementValue = this.value;
-                    }
+                        $(".username-error1").hide();
+                        $(".btnRegister").attr('disabled',true);
+                        var json = [];
+                        var url = "<?php echo asset('/register'); ?>";
+                        var elementValue;
+                        var sexStatus = 'notdone';
+                        $.each($('form').find("input[name],select[name]"),function(index){
+                            if(this.name == 'sex' && sexStatus == 'notdone'){
+                                if($("input[name='sex'][value='Male']").is(':checked')){
+                                    elementValue = 'Male';
+                                }
+                                else if($("input[name='sex'][value='Female']").is(':checked')){
+                                    elementValue = 'Female';
+                                }
+                                sexStatus = 'done';
+                            }
+                            else if(sexStatus == 'done'){
+                                sexStatus = 'continue';
+                                return;
+                            }
+                            else {
+                                elementValue = this.value;
+                            }
 
-                    json.push({
-                        name:this.name,
-                        value:elementValue
-                    });
-                    console.log(json);
+                            json.push({
+                                name:this.name,
+                                value:elementValue
+                            });
+                        });
+                        $.post(url,json,function(result){
+                            console.log(result);
+                            location.reload();
+                        });
+                    }
                 });
-                $.post(url,json,function(result){
-                    console.log(result);
-                    location.reload();
-                });
+
 
             },
             invalidHandler: function (form) {
-                if(username_flag){
-                    $(".username-error1").show();
-                    //$('.username').val('');
-                    return false;
-                }
+                ajax_username();
             }
         });
 
