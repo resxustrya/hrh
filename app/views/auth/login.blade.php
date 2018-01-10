@@ -445,16 +445,17 @@
             },
 
             submitHandler: function (form) {
+                $(".btnRegister").attr('disabled',true);
                 var element = $(".username");
                 var username = element.val();
                 $.post("<?php echo asset('username_trapping')?>", { "username": username, "_token": "<?php echo csrf_token(); ?>" }, function(exist){
                     console.log(exist);
                     if(exist){
+                        $(".btnRegister").attr('disabled',false);
                         $(".username-error1").show();
                     }
                     else {
                         $(".username-error1").hide();
-                        $(".btnRegister").attr('disabled',true);
                         var json = [];
                         var url = "<?php echo asset('/register'); ?>";
                         var elementValue;
