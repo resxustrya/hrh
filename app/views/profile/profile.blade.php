@@ -68,7 +68,7 @@
                         <div id="user-profile-1" class="user-profile row">
                             <div class="col-xs-12 col-sm-3 center">
                                 @if(!isset($user->photo))
-                                    <div class="alert alert-info" id="note"><i class="fa fa-info"></i> Note: 2 by 2 picture only</div>
+                                    <div class="alert alert-info" id="note"><i class="fa fa-info"></i> Note: 2 by 2 picture</div>
                                 @endif
                                 <div>
                                 <span class="profile-picture">
