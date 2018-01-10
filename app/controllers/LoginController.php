@@ -14,4 +14,8 @@ class LoginController extends BaseController
             return View::make('account.login');
         }
     }
+
+    public function username_trapping(){
+        return Users::where('username', '=', Input::get('username'))->first();
+    }
 }

@@ -4,7 +4,11 @@ class hrhController extends \BaseController {
 
     public function __construct()
     {
-
+        $this->beforeFilter(function(){
+            if(!Auth::check()) {
+                return Redirect::to('/');
+            }
+        });
     }
 
     public function register()
@@ -402,15 +406,6 @@ class hrhController extends \BaseController {
         }
     }
 
-    public function ajax_test(){
-        $hrh_type = Input::get('hrh_type');
-        Users::where("id",Auth::user()->id)
-            ->update([
-                "hrh_type" => $hrh_type
-            ]);
-        return $this->hrh_type($hrh_type);
-    }
-
     public function educationalBackground(){
         $userid = Auth::user()->id;
         $id = Input::get('id');
@@ -422,10 +417,6 @@ class hrhController extends \BaseController {
                     $temp => $name_of_school
                 ]);
         return 'Successfully save';
-    }
-
-    public function username_trapping(){
-        return Users::where('username', '=', Input::get('username'))->first();
     }
 
     public function uploadPicture(){
