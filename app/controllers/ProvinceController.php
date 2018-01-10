@@ -3,10 +3,11 @@
 class ProvinceController extends  BaseController{
     public function __construct()
     {
-        if(Auth::check())
-        {
-            return Redirect::to('/');
-        }
+        $this->beforeFilter(function(){
+            if(!Auth::check()) {
+                return Redirect::to('/');
+            }
+        });
     }
 
     public function pList(){
