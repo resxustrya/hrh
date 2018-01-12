@@ -13,9 +13,9 @@
     .profile-info-name{
         width: 30%;
     }
-    .editable-empty{
+    /*.editable-empty{
         color: black;
-    }
+    }*/
 </style>
 <div class="main-content">
     <div class="main-content-inner">
