@@ -1688,7 +1688,7 @@
                             if(temp == 'date_of_validity')
                                 styleInput = 'margin-right:100px;';
 
-                            this.$tpl.append("<input type='text' value='"+value+"' id='" + name + "input"+"' style='"+styleInput+"width:100%'>");
+                            this.$tpl.append("<input type='text' value='"+value+"' id='" + name + "input"+"' style='"+styleInput+"width:100%' readonly>");
                             $("#"+name+"input").datepicker({
                                 showOtherMonths: true,
                                 selectOtherMonths: true,
