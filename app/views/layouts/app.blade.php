@@ -62,7 +62,7 @@
     <div style="background-color:#2F4054;padding:10px;">
         <div class="col-md-4">
             @if(Auth::check())
-            <span style="color: #f0ad4e;font-size: 12pt"><b>Welcome,</b></span> <span class="title-desc" style="color: white;font-size: 12pt">{{ Auth::user()->fname }} T. {{ Auth::user()->lname }}</span>
+            <span style="color: #f0ad4e;font-size: 12pt"><b>Welcome,</b></span> <span class="title-desc" style="color: white;font-size: 12pt">{{ Auth::user()->fname.' '.Auth::user()->mname.' '.Auth::user()->lname }}</span>
             @else
             <span style="color: #f0ad4e;font-size: 12pt"><b>DOH7-IT</b></span>
             @endif
