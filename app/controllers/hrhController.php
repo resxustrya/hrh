@@ -175,7 +175,7 @@ class hrhController extends \BaseController {
                     })
                 ->orderBy('fname','asc')
                 ->paginate(10);
-        $users_select = Users::orderBy('fname','asc')->get();
+        $users_select = Users::where('usertype',0)->orderBy('fname','asc')->get();
 
         if (Request::ajax()) {
             return Response::json([
