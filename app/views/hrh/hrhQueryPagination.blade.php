@@ -26,7 +26,7 @@
             </tbody>
         </table>
     </div>
-    {{--{{ $users->links() }}--}}
+    {{ $users->links() }}
 @else
     <div class="alert alert-danger" role="alert">HRH records are empty.</div>
 @endif
