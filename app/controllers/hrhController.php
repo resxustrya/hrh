@@ -171,7 +171,8 @@ class hrhController extends \BaseController {
                     ->where(function($q) use ($keyword){
                         $q->where('fname','like',"%$keyword%")
                         ->orWhere('mname','like',"%$keyword%")
-                        ->orWhere('lname','like',"%$keyword%");
+                        ->orWhere('lname','like',"%$keyword%")
+                        ->orWhereRaw("concat(fname, ' ', lname) like '%$keyword%' ");
                     })
                 ->orderBy('fname','asc')
                 ->paginate(10);
