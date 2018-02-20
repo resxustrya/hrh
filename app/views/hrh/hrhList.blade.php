@@ -35,17 +35,19 @@
         <div class="space-20"></div>
         <form id="searchForm">
             <div class="row">
-                <div class="col-xs-12 col-md-6">
-                    <label class="block clearfix">
-                        <span class="block input-icon input-icon-right">
-                            <input type="text" class="form-control" value="{{ Session::get('keyword') }}" id="search" name="keyword" placeholder="Search municipality..." autofocus/>
-                            <i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
-                        </span>
-                    </label>
-                </div>
-                <div class="col-xs-12 col-md-6">
-                    <!-- CODE HERE -->
-                </div>
+                <form action="" id="searchForm">
+                    <div class="col-xs-12 col-md-6">
+                        <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                                <input type="text" class="form-control" value="{{ Session::get('keyword') }}" id="search" name="keyword" placeholder="Search municipality..." autofocus/>
+                                <i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <button type="submit" class="btn btn-sm btn-primary"><i class="ace-icon fa fa-search icon-on-right bigger-110"></i> Search</button>
+                    </div>
+                </form>
             </div>
         </form>
         <div class="space-10"></div>
@@ -76,6 +78,13 @@
         @if(isset($users) and count($users) > 0)
         jQuery(function($) {
 
+            $("#searchForm").submit(function(e) {
+                keyword = $("input[name='keyword']").val();
+                getPosts(1,keyword);
+                this.focus();
+                return false;
+            });
+
             $("a[href='#document_form']").on('click',function(){
                 $('.modal-content').html(loadingState);
                 var url = $(this).data('link');
@@ -105,14 +114,14 @@
                     var that = this, currentCategory = "";
                     $.each( items, function( index, item ) {
                         that._renderItemData( ul, item );
-                        return index < 10;
+                        return index < 15;
                     });
                 }
             });
 
             var users = [];
             $.each(<?php echo $users_select; ?>,function(x,data){
-                users.push({ label:data.fname , id:data.id });
+                users.push({ label:data.fname+" "+data.lname , id:data.id });
             });
 
             $( "#search" ).catcomplete({
@@ -124,7 +133,7 @@
                 }
             });
 
-            $("input[name='keyword']").on("keyup",function(e){
+            /*$("input[name='keyword']").on("keyup",function(e){
                 console.log(this);
                 this.focus();
                 e.preventDefault();
@@ -132,7 +141,7 @@
                     keyword = $("input[name='keyword']").val();
                     getPosts(1,keyword);
                 }
-            });
+            });*/
 
             //user information
             $("a[href='#user_info']").on('click',function(){
