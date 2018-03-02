@@ -121,7 +121,7 @@
 
             var users = [];
             $.each(<?php echo $users_select; ?>,function(x,data){
-                users.push({ label:data.fname+" "+data.lname , id:data.id });
+                users.push({ label:data.fname+" "+data.lname+", "+data.mname , id:data.id });
             });
 
             $( "#search" ).catcomplete({
