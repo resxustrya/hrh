@@ -24,7 +24,7 @@
             @foreach($users as $user)
                 <tr>
                     <td class="col-sm-2">
-                        <a href="#user_info" role="button" class="green" data-backdrop="static" data-userid="{{ $user->fname.' '.$user->lname }}" data-link="{{ asset('hrhInfo').'/'.$user->id }}" data-toggle="modal" ><b class="green">{{ $user->fname.' '.$user->lname }}</b></a>
+                        <a href="#user_info" role="button" class="green" data-backdrop="static" data-userid="{{ $user->fname.' '.$user->lname }}" data-link="{{ asset('hrhInfo').'/'.$user->id }}" data-toggle="modal" ><b class="green">{{ $user->fname.' '.$user->lname.', '.$user->mname }}</b></a>
                     </td>
                     <td class="col-sm-2">{{ hrhController::hrh_type($user->hrh_type) }}</td>
                     <td class="col-sm-2">{{ hrhController::hrh_province($user->province) }}</td>
