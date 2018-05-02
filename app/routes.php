@@ -30,7 +30,7 @@ Route::post('/uploadPicture','HrhController@uploadPicture');
 Route::post('sign_up','hrhController@sign_up');
 
 Route::get('test',function(){
-   return \Carbon\Carbon::now();
+   return EducationalBackground::where('userid',1691)->first()->orderBy('education_type','DESC')->name_of_school;
 });
 
 Route::match(array('GET','POST'),'EducationalBackground','hrhController@educationalBackground');

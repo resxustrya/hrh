@@ -91,7 +91,7 @@ class AdminController extends \BaseController {
 
 			$excel->sheet('ALL', function($sheet) {
 
-				$headerColumn = array("Hrh Type","Last Name","First Name","Middle Name","Name Extension","AOA(Province)","AOA(Municipality)","DateOfBirth","Age","Gender","Civil Status",
+				$headerColumn = array("Hrh Type","Last Name","First Name","Middle Name","Name Extension","Educational Background(College)","AOA(Province)","AOA(Municipality)","DateOfBirth","Age","Gender","Civil Status",
 					"Residential Add","Permanent Add","Cell Num","Email Add","Citizenship","Philhealth Num","TIN","GSIS Beneficiaries","GSIS Beneficiaries","PRC Lic Num",
 					"Date Of Entrance","Status Of Emp");
 
@@ -117,13 +117,18 @@ class AdminController extends \BaseController {
                     catch (\Exception $e) {
                         $age = 'NO AGE';
                     }
-
+                    if( isset(EducationalBackground::where('userid',$row->id)->orderBy('education_type','DESC')->first()->name_of_school) ){
+                        $educational_background = EducationalBackground::where('userid',$row->id)->orderBy('education_type','DESC')->first()->name_of_school;
+                    } else {
+                        $educational_background = 'NO EDUCATIONAL BACKGROUND';
+                    }
 					$data = array(
 						hrhController::hrh_type($row->hrh_type),
 						$row->lname,
 						$row->fname,
 						$row->mname,
 						hrhController::hrh_extension($row->name_extension),
+                        $educational_background,
 						hrhController::hrh_province($row->province),
 						hrhController::hrh_municipality($row->municipality),
 						$row->date_of_birth,
@@ -153,7 +158,7 @@ class AdminController extends \BaseController {
 				Session::put('typeId',$type->id);
 				$excel->sheet($type->suffix, function($sheet) {
 
-					$headerColumn = array("Hrh Type","Last Name","First Name","Middle Name","Name Extension","AOA(Province)","AOA(Municipality)","DateOfBirth","Age","Gender","Civil Status",
+					$headerColumn = array("Hrh Type","Last Name","First Name","Middle Name","Name Extension","Educational Background(College)","AOA(Province)","AOA(Municipality)","DateOfBirth","Age","Gender","Civil Status",
 						"Residential Add","Permanent Add","Cell Num","Email Add","Citizenship","Philhealth Num","TIN","GSIS Beneficiaries","GSIS Beneficiaries","PRC Lic Num",
 						"Date Of Entrance","Status Of Emp");
 
@@ -182,13 +187,18 @@ class AdminController extends \BaseController {
                         catch (\Exception $e) {
                             $age = 'NO AGE';
                         }
-
+                        if( isset(EducationalBackground::where('userid',$row->id)->orderBy('education_type','DESC')->first()->name_of_school) ){
+                            $educational_background = EducationalBackground::where('userid',$row->id)->orderBy('education_type','DESC')->first()->name_of_school;
+                        } else {
+                            $educational_background = 'NO EDUCATIONAL BACKGROUND';
+                        }
 						$data = array(
 							hrhController::hrh_type($row->hrh_type),
 							$row->lname,
 							$row->fname,
 							$row->mname,
 							hrhController::hrh_extension($row->name_extension),
+                            $educational_background,
 							hrhController::hrh_province($row->province),
 							hrhController::hrh_municipality($row->municipality),
 							$row->date_of_birth,
