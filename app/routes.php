@@ -79,3 +79,18 @@ Route::post('updateWork','hrhController@updateWork');
 Route::match(['GET','POST'],'exportExcel','AdminController@exportExcel');
 Route::match(['GET','POST'],'exportHrh','AdminController@exportHrh');
 
+Route::get('/hrh_info/{fname}/{lname}','ApiController@hrh_info');
+
+//RESET PASSWORD
+Route::get('ResetPassword',function(){
+
+    Users::where('username','=','admin')->update([
+        "password" => Hash::make('hrh_admin2018')
+    ]);
+
+    return 'Successfully Updated';
+});
+
+
+
+
