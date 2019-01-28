@@ -83,10 +83,10 @@
         </div>
         <div class="clearfix"></div>
     </div>
-    <div style="padding:15px;">
+    <div style="padding:10px;">
         <div class="container">
             <a href="{{ asset('/') }}">
-                <img src="{{ asset('public/img/banner.png') }}" class="img-responsive" />
+                <img src="{{ asset('public/img/banner_hrh2019.png') }}" class="img-responsive" />
             </a>
         </div>
     </div>

@@ -35,16 +35,14 @@
                             @endfor--}}
                             <div class="position-relative">
                                 <div class="login-box">
+                                    <div class="space-20"></div>
                                     <div class="login-logo">
                                         <div class="center">
-                                            <h1>
-                                                <img src="{{ asset('public/img/logo.png') }}" />
-                                                <br>
-                                                <b>DOHROH7&nbsp;</b>HRH
-                                            </h1>
+                                            <img src="{{ asset('public/img/doh.png') }}" style="width: 30%" />
+                                            <br />
+                                            <a href="#" style="font-weight:bolder;"><label style="font-size: 17pt;">DOH-CVCHD HRH 4.2</label></a>
                                         </div>
                                     </div>
-                                    <div class="space-20"></div>
                                     <div class="position-relative">
                                         <form role="form" method="POST" action="{{ asset('/') }}">
                                             <div class="hold-transition login-page">
